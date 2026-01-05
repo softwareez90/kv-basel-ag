@@ -5,26 +5,31 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Homepage - KV Basel - Meine Berufsbildung. - Impressum</title>
   <style>
+    /* HIER: Alle CSS Variables, Base Styles, Animations, Component Styles */
     :root {
-      --primary: #be185d;
-      --secondary: #ec4899;
-      --accent: #06b6d4;
-      --background: #fdf2f8;
-      --text: #831843;
-      --text-light: #831843cc;
+      --primary: #7c3aed;
+      --secondary: #8b5cf6;
+      --accent: #fbbf24;
+      --background: #faf5ff;
+      --text: #1f2937;
+      --text-light: #1f2937cc;
       --white: #ffffff;
-      --font-heading: 'Outfit', sans-serif;
-      --font-body: 'Lora', sans-serif;
-      --radius: 16px;
+      --font-heading: 'Poppins', sans-serif;
+      --font-body: 'Open Sans', sans-serif;
+      --radius: 12px;
       --shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
       --shadow-lg: 0 10px 40px rgba(0, 0, 0, 0.12);
-      --shadow-glow: 0 0 30px #be185d40;
+      --shadow-glow: 0 0 30px #7c3aed40;
       --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
       --glass-bg: rgba(255, 255, 255, 0.1);
       --glass-border: rgba(255, 255, 255, 0.2);
+      
+      --hero-height: 85vh;
+      --heading-size: clamp(2.5rem, 6vw, 5rem);
+      --section-padding: 5rem;
     }
 
-    @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700;800;900&family=Lora:wght@300;400;500;600&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800;900&family=Open+Sans:wght@300;400;500;600&display=swap');
 
     *, *::before, *::after {
       margin: 0;
@@ -67,52 +72,36 @@
       transition: var(--transition);
     }
 
-    .content-section {
+    img {
+      max-width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    .section {
       padding: 5rem 0;
     }
 
-    .section-header {
-      text-align: center;
-      margin-bottom: 4rem;
-    }
-
-    .section-header h2 {
-      margin-bottom: 1rem;
-    }
-
-    .section-header p {
-      color: var(--text-light);
-      max-width: 600px;
-      margin: 0 auto;
-      font-size: 1.125rem;
-    }
-
+    /* Navigation Styles */
     .navbar {
-      position: fixed;
-      top: 1.5rem;
-      left: 50%;
-      transform: translateX(-50%);
+      position: sticky;
+      top: 0;
       z-index: 1000;
-      background: rgba(255,255,255,0.8);
-      backdrop-filter: blur(20px);
-      -webkit-backdrop-filter: blur(20px);
-      border-radius: 100px;
-      padding: 0.75rem 2rem;
-      box-shadow: 0 8px 32px rgba(0,0,0,0.1);
-      border: 1px solid rgba(255,255,255,0.3);
+      background: white;
+      box-shadow: 0 2px 20px rgba(0,0,0,0.08);
+      padding: 0;
     }
     .navbar .container {
       display: flex;
+      justify-content: space-between;
       align-items: center;
-      gap: 3rem;
+      padding: 1rem 1.5rem;
     }
     .nav-brand {
       font-family: var(--font-heading);
-      font-size: 1.25rem;
+      font-size: 1.5rem;
       font-weight: 700;
-      background: linear-gradient(135deg, var(--primary), var(--accent));
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
+      color: var(--primary);
     }
     .nav-links {
       display: flex;
@@ -123,81 +112,91 @@
     .nav-links a {
       color: var(--text);
       font-weight: 500;
-      font-size: 0.9rem;
-      transition: color 0.3s;
+      padding: 0.5rem 0;
     }
     .nav-links a:hover { color: var(--primary); }
     .nav-cta {
-      background: var(--primary) !important;
+      background: linear-gradient(135deg, var(--primary), var(--secondary)) !important;
       color: white !important;
-      padding: 0.625rem 1.5rem !important;
-      border-radius: 100px !important;
+      padding: 0.875rem 1.75rem !important;
+      border-radius: var(--radius) !important;
       font-weight: 600;
-      font-size: 0.9rem;
+      box-shadow: 0 4px 15px rgba(var(--primary-rgb), 0.3);
     }
+    .nav-cta:hover { transform: translateY(-2px); }
     @media (max-width: 768px) {
       .nav-links { display: none; }
-      .navbar { padding: 0.75rem 1.5rem; }
     }
 
-    .footer-wave {
-      margin-top: 6rem;
-    }
-    .footer-wave svg {
-      display: block;
-      width: 100%;
-      height: 80px;
-    }
+    /* Footer Styles */
     .footer {
-      background: var(--primary);
-      color: white;
-      padding: 4rem 0 2rem;
+      background: var(--background);
+      padding: 5rem 0 2rem;
+      margin-top: 4rem;
+      border-top: 1px solid rgba(0,0,0,0.08);
     }
     .footer-content {
       display: grid;
-      grid-template-columns: 2fr 1fr 1fr;
+      grid-template-columns: 1.5fr repeat(3, 1fr);
       gap: 3rem;
       margin-bottom: 3rem;
     }
     .footer-brand {
       font-family: var(--font-heading);
-      font-size: 1.75rem;
+      font-size: 1.5rem;
       font-weight: 700;
+      color: var(--primary);
       margin-bottom: 1rem;
     }
     .footer-desc {
-      opacity: 0.8;
+      color: var(--text);
+      opacity: 0.7;
       line-height: 1.7;
+      font-size: 0.95rem;
     }
     .footer h4 {
-      font-size: 0.85rem;
-      text-transform: uppercase;
-      letter-spacing: 0.1em;
+      font-weight: 600;
       margin-bottom: 1.25rem;
-      opacity: 0.6;
+      color: var(--text);
     }
     .footer-links {
       list-style: none;
     }
-    .footer-links li { margin-bottom: 0.75rem; }
-    .footer-links a {
-      color: rgba(255,255,255,0.8);
+    .footer-links li {
+      margin-bottom: 0.625rem;
     }
-    .footer-links a:hover { color: white; }
+    .footer-links a {
+      color: var(--text);
+      opacity: 0.7;
+      font-size: 0.95rem;
+    }
+    .footer-links a:hover { opacity: 1; color: var(--primary); }
     .footer-bottom {
-      border-top: 1px solid rgba(255,255,255,0.1);
+      border-top: 1px solid rgba(0,0,0,0.08);
       padding-top: 2rem;
       text-align: center;
-      opacity: 0.6;
+      color: var(--text);
+      opacity: 0.5;
       font-size: 0.9rem;
     }
     @media (max-width: 768px) {
-      .footer-content { grid-template-columns: 1fr; }
+      .footer-content { grid-template-columns: 1fr 1fr; }
+    }
+
+    .content-section {
+      padding: 5rem 0;
+    }
+    .section-header {
+      text-align: center;
+      margin-bottom: 4rem;
+    }
+    .section-header h2 {
+      margin-bottom: 1rem;
     }
   </style>
 </head>
 <body>
-  <!-- NAVIGATION (PFLICHT - von unten kopieren) -->
+  <!-- NAVIGATION -->
   <nav class="navbar">
     <div class="container">
       <a href="index.html" class="nav-brand">Homepage - KV Basel - Meine Berufsbildung.</a>
@@ -209,7 +208,7 @@
       </ul>
     </div>
   </nav>
-  
+
   <!-- MAIN CONTENT -->
   <section class="content-section">
     <div class="container">
@@ -226,31 +225,32 @@
     </div>
   </section>
 
-  <!-- FOOTER (PFLICHT - von unten kopieren) -->
-  <div class="footer-wave">
-    <svg viewBox="0 0 1440 80" preserveAspectRatio="none">
-      <path fill="var(--primary)" d="M0,40 C360,80 720,0 1080,40 C1260,60 1380,50 1440,40 L1440,80 L0,80 Z"></path>
-    </svg>
-  </div>
+  <!-- FOOTER -->
   <footer class="footer">
     <div class="container">
       <div class="footer-content">
         <div>
           <div class="footer-brand">Homepage - KV Basel - Meine Berufsbildung.</div>
-          <p class="footer-desc">Bildung auf höchstem Niveau in Basel. Ihre Zukunft beginnt hier.</p>
+          <p class="footer-desc">Die beste Wahl für Ihre berufliche Ausbildung in Basel.</p>
         </div>
         <div>
           <h4>Navigation</h4>
           <ul class="footer-links">
             <li><a href="index.html">Startseite</a></li>
+            <li><a href="ueber-uns.html">Über uns</a></li>
             <li><a href="leistungen.html">Leistungen</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Kontakt</h4>
+          <ul class="footer-links">
+            <li>📧 termin@kvbaselag.info</li>
             <li><a href="kontakt.html">Kontakt</a></li>
           </ul>
         </div>
         <div>
           <h4>Rechtliches</h4>
           <ul class="footer-links">
-            <li>termin@kvbaselag.info</li>
             <li><a href="impressum.html">Impressum</a></li>
           </ul>
         </div>

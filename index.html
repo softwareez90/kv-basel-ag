@@ -9,33 +9,32 @@
 /* CSS Variables */
 
 :root {
-  --primary: #be185d;
-  --secondary: #ec4899;
-  --accent: #06b6d4;
-  --background: #fdf2f8;
-  --text: #831843;
-  --text-light: #831843cc;
+  --primary: #7c3aed;
+  --secondary: #8b5cf6;
+  --accent: #fbbf24;
+  --background: #faf5ff;
+  --text: #1f2937;
+  --text-light: #1f2937cc;
   --white: #ffffff;
-  --font-heading: 'Outfit', sans-serif;
-  --font-body: 'Lora', sans-serif;
-  --radius: 16px;
+  --font-heading: 'Poppins', sans-serif;
+  --font-body: 'Open Sans', sans-serif;
+  --radius: 12px;
   --shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
   --shadow-lg: 0 10px 40px rgba(0, 0, 0, 0.12);
-  --shadow-glow: 0 0 30px #be185d40;
+  --shadow-glow: 0 0 30px #7c3aed40;
   --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   --glass-bg: rgba(255, 255, 255, 0.1);
   --glass-border: rgba(255, 255, 255, 0.2);
   
-    --hero-height: 90vh;
-    --heading-size: clamp(2.5rem, 7vw, 6rem);
-    --section-padding: 6rem;
-    --glass-blur: 20px;
+    --hero-height: 85vh;
+    --heading-size: clamp(2.5rem, 6vw, 5rem);
+    --section-padding: 5rem;
   
 }
 
 /* Base Styles */
 
-@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700;800;900&family=Lora:wght@300;400;500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800;900&family=Open+Sans:wght@300;400;500;600&display=swap');
 
 *, *::before, *::after {
   margin: 0;
@@ -121,6 +120,281 @@ img {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   gap: 1.5rem;
+}
+
+/* ============================================
+   SECTION LAYOUTS - Verschiedene Typen!
+   ============================================ */
+
+/* SIMPLE-CARDS (ohne Icons) */
+.simple-card {
+  background: white;
+  border-radius: var(--radius);
+  padding: 2.5rem;
+  box-shadow: var(--shadow);
+  border-top: 4px solid var(--primary);
+  transition: var(--transition);
+}
+.simple-card:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-lg);
+}
+.simple-card h3 {
+  margin-bottom: 1rem;
+  color: var(--primary);
+}
+.simple-card p {
+  color: var(--text-light);
+  line-height: 1.8;
+}
+
+/* NUMBERED-LIST (01, 02, 03...) */
+.numbered-list {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  max-width: 800px;
+  margin: 0 auto;
+}
+.numbered-item {
+  display: flex;
+  gap: 2rem;
+  align-items: flex-start;
+}
+.numbered-item .num {
+  font-size: 3rem;
+  font-weight: 800;
+  color: var(--primary);
+  opacity: 0.3;
+  font-family: var(--font-heading);
+  line-height: 1;
+  min-width: 80px;
+}
+.numbered-item > div {
+  flex: 1;
+}
+.numbered-item h3 {
+  margin-bottom: 0.5rem;
+}
+.numbered-item p {
+  color: var(--text-light);
+  line-height: 1.7;
+}
+
+/* SPLIT-SECTION (2 Spalten) */
+.split-section {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  align-items: center;
+}
+.split-text h3 {
+  margin-bottom: 1rem;
+}
+.split-text p {
+  color: var(--text-light);
+  line-height: 1.8;
+  margin-bottom: 1rem;
+}
+.split-list ul {
+  list-style: none;
+  padding: 0;
+}
+.split-list li {
+  padding: 0.75rem 0;
+  padding-left: 2rem;
+  position: relative;
+  border-bottom: 1px solid rgba(0,0,0,0.05);
+}
+.split-list li::before {
+  content: '✓';
+  position: absolute;
+  left: 0;
+  color: var(--primary);
+  font-weight: bold;
+}
+@media (max-width: 768px) {
+  .split-section { grid-template-columns: 1fr; gap: 2rem; }
+}
+
+/* STATS-ROW (Kennzahlen) */
+.stats-row {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 2rem;
+  text-align: center;
+  padding: 3rem 0;
+}
+.stat {
+  padding: 1.5rem;
+}
+.stat-num {
+  display: block;
+  font-size: 3rem;
+  font-weight: 800;
+  color: var(--primary);
+  font-family: var(--font-heading);
+  line-height: 1;
+  margin-bottom: 0.5rem;
+}
+.stat-label {
+  color: var(--text-light);
+  font-size: 1rem;
+}
+
+/* TEXT-BLOCK (nur Absätze) */
+.text-block {
+  max-width: 800px;
+  margin: 0 auto;
+}
+.text-block h3 {
+  margin-bottom: 1.5rem;
+}
+.text-block p {
+  color: var(--text-light);
+  line-height: 1.9;
+  margin-bottom: 1.5rem;
+  font-size: 1.1rem;
+}
+.text-block p:last-child {
+  margin-bottom: 0;
+}
+
+/* FAQ-LIST */
+.faq-list {
+  max-width: 800px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+.faq-item {
+  background: white;
+  border-radius: var(--radius);
+  padding: 2rem;
+  box-shadow: var(--shadow);
+}
+.faq-item h4 {
+  color: var(--primary);
+  margin-bottom: 1rem;
+  font-size: 1.1rem;
+}
+.faq-item p {
+  color: var(--text-light);
+  line-height: 1.7;
+}
+
+/* FEATURE-BOXES (große 2er Boxen) */
+.feature-boxes {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2rem;
+}
+.feature-box {
+  background: linear-gradient(135deg, var(--primary), var(--secondary));
+  color: white;
+  padding: 3rem;
+  border-radius: var(--radius);
+}
+.feature-box h3 {
+  color: white;
+  margin-bottom: 1rem;
+}
+.feature-box p {
+  opacity: 0.9;
+  line-height: 1.8;
+}
+@media (max-width: 768px) {
+  .feature-boxes { grid-template-columns: 1fr; }
+}
+
+/* KONTAKT LAYOUTS */
+.contact-split {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  align-items: start;
+}
+.contact-form, .contact-form-full {
+  background: white;
+  padding: 2.5rem;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+}
+.contact-info {
+  padding: 2rem 0;
+}
+.contact-info h3 {
+  margin-bottom: 2rem;
+  color: var(--text);
+}
+.info-item {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+  align-items: flex-start;
+}
+.info-item span {
+  font-size: 1.5rem;
+  line-height: 1;
+}
+.info-item p {
+  color: var(--text-light);
+  line-height: 1.6;
+}
+.info-item a {
+  color: var(--primary);
+  text-decoration: none;
+}
+.info-item a:hover {
+  text-decoration: underline;
+}
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+}
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+.form-group label {
+  font-weight: 500;
+  color: var(--text);
+  font-size: 0.9rem;
+}
+.form-group input,
+.form-group textarea {
+  padding: 1rem;
+  border: 2px solid #e5e5e5;
+  border-radius: calc(var(--radius) - 4px);
+  font-size: 1rem;
+  font-family: inherit;
+  transition: var(--transition);
+}
+.form-group input:focus,
+.form-group textarea:focus {
+  outline: none;
+  border-color: var(--primary);
+}
+.form-group textarea {
+  resize: vertical;
+  min-height: 120px;
+}
+@media (max-width: 768px) {
+  .contact-split { grid-template-columns: 1fr; gap: 2rem; }
+  .form-row { grid-template-columns: 1fr; }
+}
+
+/* Alt Background für abwechselnde Sections */
+.section.alt-bg {
+  background: rgba(0,0,0,0.02);
 }
 
 /* Card Styles */
@@ -219,7 +493,7 @@ img {
 .form-group select:focus {
   outline: none;
   border-color: var(--primary);
-  box-shadow: 0 0 0 3px #be185d20;
+  box-shadow: 0 0 0 3px #7c3aed20;
 }
 
 .form-group textarea {
@@ -300,31 +574,24 @@ img {
 
 /* Component Styles (Navigation, Footer, Hero, Card, Section, Form) */
 .navbar {
-  position: fixed;
-  top: 1.5rem;
-  left: 50%;
-  transform: translateX(-50%);
+  position: sticky;
+  top: 0;
   z-index: 1000;
-  background: rgba(255,255,255,0.8);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
-  border-radius: 100px;
-  padding: 0.75rem 2rem;
-  box-shadow: 0 8px 32px rgba(0,0,0,0.1);
-  border: 1px solid rgba(255,255,255,0.3);
+  background: white;
+  box-shadow: 0 2px 20px rgba(0,0,0,0.08);
+  padding: 0;
 }
 .navbar .container {
   display: flex;
+  justify-content: space-between;
   align-items: center;
-  gap: 3rem;
+  padding: 1rem 1.5rem;
 }
 .nav-brand {
   font-family: var(--font-heading);
-  font-size: 1.25rem;
+  font-size: 1.5rem;
   font-weight: 700;
-  background: linear-gradient(135deg, var(--primary), var(--accent));
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+  color: var(--primary);
 }
 .nav-links {
   display: flex;
@@ -335,159 +602,150 @@ img {
 .nav-links a {
   color: var(--text);
   font-weight: 500;
-  font-size: 0.9rem;
-  transition: color 0.3s;
+  padding: 0.5rem 0;
 }
 .nav-links a:hover { color: var(--primary); }
 .nav-cta {
-  background: var(--primary) !important;
+  background: linear-gradient(135deg, var(--primary), var(--secondary)) !important;
   color: white !important;
-  padding: 0.625rem 1.5rem !important;
-  border-radius: 100px !important;
+  padding: 0.875rem 1.75rem !important;
+  border-radius: var(--radius) !important;
   font-weight: 600;
-  font-size: 0.9rem;
+  box-shadow: 0 4px 15px rgba(var(--primary-rgb), 0.3);
 }
+.nav-cta:hover { transform: translateY(-2px); }
 @media (max-width: 768px) {
   .nav-links { display: none; }
-  .navbar { padding: 0.75rem 1.5rem; }
 }
 
-.footer-wave {
-  margin-top: 6rem;
-}
-.footer-wave svg {
-  display: block;
-  width: 100%;
-  height: 80px;
-}
 .footer {
-  background: var(--primary);
-  color: white;
-  padding: 4rem 0 2rem;
+  background: var(--background);
+  padding: 5rem 0 2rem;
+  margin-top: 4rem;
+  border-top: 1px solid rgba(0,0,0,0.08);
 }
 .footer-content {
   display: grid;
-  grid-template-columns: 2fr 1fr 1fr;
+  grid-template-columns: 1.5fr repeat(3, 1fr);
   gap: 3rem;
   margin-bottom: 3rem;
 }
 .footer-brand {
   font-family: var(--font-heading);
-  font-size: 1.75rem;
+  font-size: 1.5rem;
   font-weight: 700;
+  color: var(--primary);
   margin-bottom: 1rem;
 }
 .footer-desc {
-  opacity: 0.8;
+  color: var(--text);
+  opacity: 0.7;
   line-height: 1.7;
+  font-size: 0.95rem;
 }
 .footer h4 {
-  font-size: 0.85rem;
-  text-transform: uppercase;
-  letter-spacing: 0.1em;
+  font-weight: 600;
   margin-bottom: 1.25rem;
-  opacity: 0.6;
+  color: var(--text);
 }
 .footer-links {
   list-style: none;
 }
-.footer-links li { margin-bottom: 0.75rem; }
-.footer-links a {
-  color: rgba(255,255,255,0.8);
+.footer-links li {
+  margin-bottom: 0.625rem;
 }
-.footer-links a:hover { color: white; }
+.footer-links a {
+  color: var(--text);
+  opacity: 0.7;
+  font-size: 0.95rem;
+}
+.footer-links a:hover { opacity: 1; color: var(--primary); }
 .footer-bottom {
-  border-top: 1px solid rgba(255,255,255,0.1);
+  border-top: 1px solid rgba(0,0,0,0.08);
   padding-top: 2rem;
   text-align: center;
-  opacity: 0.6;
+  color: var(--text);
+  opacity: 0.5;
   font-size: 0.9rem;
 }
 @media (max-width: 768px) {
-  .footer-content { grid-template-columns: 1fr; }
+  .footer-content { grid-template-columns: 1fr 1fr; }
 }
 
 .hero {
-  min-height: 90vh;
-  display: flex;
+  min-height: 85vh;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
   align-items: center;
-  justify-content: center;
-  position: relative;
-  background: linear-gradient(-45deg, var(--primary), var(--secondary), var(--accent), var(--primary));
-  background-size: 400% 400%;
-  animation: gradientBG 15s ease infinite;
-  overflow: hidden;
-}
-@keyframes gradientBG {
-  0% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
-  100% { background-position: 0% 50%; }
-}
-.hero::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
-  opacity: 0.5;
+  padding-top: 5rem;
+  background: var(--background);
 }
 .hero-content {
-  text-align: center;
-  max-width: 900px;
-  padding: 2rem;
-  position: relative;
-  z-index: 1;
+  padding: 4rem;
 }
 .hero h1 {
-  font-size: clamp(2.5rem, 7vw, 5rem);
-  font-weight: 800;
-  color: white;
-  line-height: 1.1;
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  font-weight: 700;
+  color: var(--text);
+  line-height: 1.15;
   margin-bottom: 1.5rem;
-  text-shadow: 0 2px 40px rgba(0,0,0,0.2);
 }
 .hero p {
-  font-size: 1.25rem;
-  color: rgba(255,255,255,0.9);
-  max-width: 600px;
-  margin: 0 auto 2.5rem;
+  font-size: 1.125rem;
+  color: var(--text);
+  opacity: 0.7;
+  margin-bottom: 2rem;
   line-height: 1.7;
 }
 .hero-buttons {
   display: flex;
   gap: 1rem;
-  justify-content: center;
 }
 .hero .btn-primary {
-  background: white;
-  color: var(--primary);
-  padding: 1.125rem 2.5rem;
-  border-radius: 100px;
-  font-weight: 700;
-  box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+  background: linear-gradient(135deg, var(--primary), var(--secondary));
+  color: white;
+  padding: 1rem 2rem;
+  border-radius: var(--radius);
+  font-weight: 600;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.15);
 }
 .hero .btn-secondary {
-  background: rgba(255,255,255,0.1);
-  color: white;
-  padding: 1.125rem 2.5rem;
-  border-radius: 100px;
-  border: 2px solid rgba(255,255,255,0.3);
-  backdrop-filter: blur(10px);
+  background: transparent;
+  color: var(--primary);
+  padding: 1rem 2rem;
+  border: 2px solid var(--primary);
+  border-radius: var(--radius);
 }
-.hero .btn-secondary:hover {
-  background: rgba(255,255,255,0.2);
+.hero-visual {
+  height: 100%;
+  background: linear-gradient(135deg, var(--primary), var(--secondary));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+}
+.hero-visual::before {
+  content: '✦';
+  font-size: 20rem;
+  color: white;
+  opacity: 0.1;
+}
+@media (max-width: 768px) {
+  .hero { grid-template-columns: 1fr; }
+  .hero-visual { min-height: 300px; }
 }
 
 .cards-grid {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 3rem;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
 }
-.cards-grid .card {
-  min-height: 300px;
+@media (max-width: 1024px) {
+  .cards-grid { grid-template-columns: repeat(2, 1fr); }
 }
-@media (max-width: 768px) {
+@media (max-width: 640px) {
   .cards-grid { grid-template-columns: 1fr; }
-  .cards-grid .card { min-height: auto; }
 }
 
 .content-section {
@@ -561,61 +819,52 @@ img {
 </style>
 </head>
 <body>
-
-  <!-- NAVIGATION -->
+  <!-- NAVIGATION (PFLICHT - von unten kopieren) -->
   <style>
-  .navbar {
-    position: fixed;
-    top: 1.5rem;
-    left: 50%;
-    transform: translateX(-50%);
-    z-index: 1000;
-    background: rgba(255,255,255,0.8);
-    backdrop-filter: blur(20px);
-    -webkit-backdrop-filter: blur(20px);
-    border-radius: 100px;
-    padding: 0.75rem 2rem;
-    box-shadow: 0 8px 32px rgba(0,0,0,0.1);
-    border: 1px solid rgba(255,255,255,0.3);
-  }
-  .navbar .container {
-    display: flex;
-    align-items: center;
-    gap: 3rem;
-  }
-  .nav-brand {
-    font-family: var(--font-heading);
-    font-size: 1.25rem;
-    font-weight: 700;
-    background: linear-gradient(135deg, var(--primary), var(--accent));
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-  }
-  .nav-links {
-    display: flex;
-    gap: 2rem;
-    list-style: none;
-    align-items: center;
-  }
-  .nav-links a {
-    color: var(--text);
-    font-weight: 500;
-    font-size: 0.9rem;
-    transition: color 0.3s;
-  }
-  .nav-links a:hover { color: var(--primary); }
-  .nav-cta {
-    background: var(--primary) !important;
-    color: white !important;
-    padding: 0.625rem 1.5rem !important;
-    border-radius: 100px !important;
-    font-weight: 600;
-    font-size: 0.9rem;
-  }
-  @media (max-width: 768px) {
-    .nav-links { display: none; }
-    .navbar { padding: 0.75rem 1.5rem; }
-  }
+    .navbar {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background: white;
+      box-shadow: 0 2px 20px rgba(0,0,0,0.08);
+      padding: 0;
+    }
+    .navbar .container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 1.5rem;
+    }
+    .nav-brand {
+      font-family: var(--font-heading);
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: var(--primary);
+    }
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+      list-style: none;
+      align-items: center;
+    }
+    .nav-links a {
+      color: var(--text);
+      font-weight: 500;
+      padding: 0.5rem 0;
+    }
+    .nav-links a:hover { color: var(--primary); }
+    .nav-cta {
+      background: linear-gradient(135deg, var(--primary), var(--secondary)) !important;
+      color: white !important;
+      padding: 0.875rem 1.75rem !important;
+      border-radius: var(--radius) !important;
+      font-weight: 600;
+      box-shadow: 0 4px 15px rgba(var(--primary-rgb), 0.3);
+    }
+    .nav-cta:hover { transform: translateY(-2px); }
+    @media (max-width: 768px) {
+      .nav-links { display: none; }
+    }
   </style>
   <nav class="navbar">
     <div class="container">
@@ -629,285 +878,274 @@ img {
     </div>
   </nav>
 
-  <!-- HERO SECTION -->
+  <!-- MAIN CONTENT -->
   <style>
-  .hero {
-    min-height: 90vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    position: relative;
-    background: linear-gradient(-45deg, var(--primary), var(--secondary), var(--accent), var(--primary));
-    background-size: 400% 400%;
-    animation: gradientBG 15s ease infinite;
-    overflow: hidden;
-  }
-  @keyframes gradientBG {
-    0% { background-position: 0% 50%; }
-    50% { background-position: 100% 50%; }
-    100% { background-position: 0% 50%; }
-  }
-  .hero::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
-    opacity: 0.5;
-  }
-  .hero-content {
-    text-align: center;
-    max-width: 900px;
-    padding: 2rem;
-    position: relative;
-    z-index: 1;
-  }
-  .hero h1 {
-    font-size: clamp(2.5rem, 7vw, 5rem);
-    font-weight: 800;
-    color: white;
-    line-height: 1.1;
-    margin-bottom: 1.5rem;
-    text-shadow: 0 2px 40px rgba(0,0,0,0.2);
-  }
-  .hero p {
-    font-size: 1.25rem;
-    color: rgba(255,255,255,0.9);
-    max-width: 600px;
-    margin: 0 auto 2.5rem;
-    line-height: 1.7;
-  }
-  .hero-buttons {
-    display: flex;
-    gap: 1rem;
-    justify-content: center;
-  }
-  .hero .btn-primary {
-    background: white;
-    color: var(--primary);
-    padding: 1.125rem 2.5rem;
-    border-radius: 100px;
-    font-weight: 700;
-    box-shadow: 0 10px 40px rgba(0,0,0,0.2);
-  }
-  .hero .btn-secondary {
-    background: rgba(255,255,255,0.1);
-    color: white;
-    padding: 1.125rem 2.5rem;
-    border-radius: 100px;
-    border: 2px solid rgba(255,255,255,0.3);
-    backdrop-filter: blur(10px);
-  }
-  .hero .btn-secondary:hover {
-    background: rgba(255,255,255,0.2);
-  }
+    .hero {
+      min-height: 85vh;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      align-items: center;
+      padding-top: 5rem;
+      background: var(--background);
+    }
+    .hero-content {
+      padding: 4rem;
+    }
+    .hero h1 {
+      font-size: clamp(2.5rem, 5vw, 4rem);
+      font-weight: 700;
+      color: var(--text);
+      line-height: 1.15;
+      margin-bottom: 1.5rem;
+    }
+    .hero p {
+      font-size: 1.125rem;
+      color: var(--text);
+      opacity: 0.7;
+      margin-bottom: 2rem;
+      line-height: 1.7;
+    }
+    .hero-buttons {
+      display: flex;
+      gap: 1rem;
+    }
+    .hero .btn-primary {
+      background: linear-gradient(135deg, var(--primary), var(--secondary));
+      color: white;
+      padding: 1rem 2rem;
+      border-radius: var(--radius);
+      font-weight: 600;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+    }
+    .hero .btn-secondary {
+      background: transparent;
+      color: var(--primary);
+      padding: 1rem 2rem;
+      border: 2px solid var(--primary);
+      border-radius: var(--radius);
+    }
+    .hero-visual {
+      height: 100%;
+      background: linear-gradient(135deg, var(--primary), var(--secondary));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero-visual::before {
+      content: '✦';
+      font-size: 20rem;
+      color: white;
+      opacity: 0.1;
+    }
+    @media (max-width: 768px) {
+      .hero { grid-template-columns: 1fr; }
+      .hero-visual { min-height: 300px; }
+    }
   </style>
   <section class="hero">
     <div class="hero-content">
-      <h1>Entdecken Sie Ihre Zukunft bei uns!</h1>
-      <p>Die KV Basel bietet Ihnen eine fundierte und vielseitige Berufsbildung mit einem starken Fokus auf Praxis und Theorie.</p>
+      <h1>Willkommen bei KV Basel</h1>
+      <p>Ihre Anlaufstelle für hervorragende Berufsausbildung und Weiterbildungsmöglichkeiten.</p>
       <div class="hero-buttons">
-        <a href="kontakt.html" class="btn btn-primary">Kontaktieren Sie uns</a>
+        <a href="kontakt.html" class="btn btn-primary">Jetzt Kontakt aufnehmen</a>
         <a href="leistungen.html" class="btn btn-secondary">Unsere Leistungen</a>
       </div>
     </div>
+    <div class="hero-visual"></div>
   </section>
 
-  <!-- SECTION: Warum wir? -->
-  <section class="content-section">
+  <section class="section">
     <div class="container">
       <div class="section-header">
-        <h2>Warum wir?</h2>
-        <p>Gute Gründe, uns zu wählen.</p>
+        <h2>Unsere Mission</h2>
       </div>
-      <div class="cards-grid">
-        <div class="card">
-          <div class="card-icon">📚</div>
-          <h3>Erfahrene Dozenten</h3>
-          <p>Unsere Dozenten verfügen über langjährige Erfahrung und tiefes Fachwissen.</p>
+      <div class="split-section">
+        <div class="split-text">
+          <h3>Warum wir?</h3>
+          <p>Wir bei KV Basel glauben an die Kraft der Bildung. Unsere Programme sind darauf ausgelegt, individuelle Talente zu fördern und den Weg zu einer erfolgreichen Karriere zu ebnen.</p>
+          <p>Mit einer Vielzahl von Kursangeboten und einem engagierten Team helfen wir Ihnen, Ihre beruflichen Ziele zu erreichen.</p>
         </div>
-        <div class="card">
-          <div class="card-icon">🏫</div>
-          <h3>Moderne Einrichtungen</h3>
-          <p>Wir bieten Ihnen topmoderne Räumlichkeiten und neueste Technik.</p>
-        </div>
-        <div class="card">
-          <div class="card-icon">🌟</div>
-          <h3>Hohe Erfolgsquote</h3>
-          <p>Unsere Absolventen zeichnen sich durch überdurchschnittliche Ergebnisse aus.</p>
-        </div>
-        <div class="card">
-          <div class="card-icon">🤝</div>
-          <h3>Starke Partnerschaften</h3>
-          <p>Wir arbeiten eng mit führenden Unternehmen und Institutionen zusammen.</p>
+        <div class="split-list">
+          <ul>
+            <li>Maßgeschneiderte Ausbildungsprogramme</li>
+            <li>Erfahrene Dozenten und Fachleute</li>
+            <li>Moderne Lehrmethoden</li>
+            <li>Starke Netzwerkmöglichkeiten</li>
+          </ul>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- SECTION: Lassen Sie uns sprechen -->
+  <section class="section alt-bg">
+    <div class="container">
+      <div class="section-header">
+        <h2>Unsere Werte</h2>
+        <p>Wir setzen auf Qualität, Engagement und Innovation, um die besten Ergebnisse für unsere Studierenden zu erreichen.</p>
+      </div>
+      <div class="numbered-list">
+        <div class="numbered-item">
+          <span class="num">01</span>
+          <div>
+            <h3>Qualität</h3>
+            <p>Unsere Programme sind sorgfältig gestaltet, um höchste Bildungsstandards zu gewährleisten. Wir bieten praxisnahe und aktuelle Inhalte.</p>
+          </div>
+        </div>
+        <div class="numbered-item">
+          <span class="num">02</span>
+          <div>
+            <h3>Engagement</h3>
+            <p>Unser Team ist engagiert und motiviert, jeden Studierenden individuell zu begleiten und bestmöglich zu unterstützen.</p>
+          </div>
+        </div>
+        <div class="numbered-item">
+          <span class="num">03</span>
+          <div>
+            <h3>Innovation</h3>
+            <p>Wir setzen auf moderne Technologien und innovative Lehrmethoden, um den Lernprozess effizient und spannend zu gestalten.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="section-header">
+        <h2>Erfolg in Zahlen</h2>
+      </div>
+      <div class="stats-row">
+        <div class="stat">
+          <span class="stat-num">1000+</span>
+          <span class="stat-label">Absolventen</span>
+        </div>
+        <div class="stat">
+          <span class="stat-num">20+</span>
+          <span class="stat-label">Jahre Erfahrung</span>
+        </div>
+        <div class="stat">
+          <span class="stat-num">150+</span>
+          <span class="stat-label">Kurse</span>
+        </div>
+        <div class="stat">
+          <span class="stat-num">95%</span>
+          <span class="stat-label">Zufriedenheit</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section alt-bg">
+    <div class="container">
+      <div class="section-header">
+        <h2>Unser Angebot</h2>
+        <p>Erfahren Sie mehr über die vielfältigen Möglichkeiten, die wir bei KV Basel bieten, um Ihre Karriere zu fördern.</p>
+      </div>
+      <div class="cards-grid-2">
+        <div class="simple-card">
+          <h3>Berufsausbildung</h3>
+          <p>Wir bieten eine breite Palette an Berufsausbildungen, die darauf abzielen, Ihnen die notwendigen Kenntnisse und Fähigkeiten für Ihren gewünschten Beruf zu vermitteln. Unsere Programme sind praxisnah und auf dem neuesten Stand der Technik.</p>
+        </div>
+        <div class="simple-card">
+          <h3>Weiterbildung</h3>
+          <p>Unsere Weiterbildungsangebote sind ideal für Fachkräfte, die ihre Kenntnisse erweitern und ihre Karrierechancen verbessern möchten. Mit flexiblen Kurszeiten und innovativen Lernmethoden passen wir uns Ihren Bedürfnissen an.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA SECTION -->
   <section class="cta-section">
     <div class="container">
-      <h2>Lassen Sie uns sprechen</h2>
-      <p>Wir freuen uns auf Ihre Anfrage.</p>
-      <a href="kontakt.html" class="btn btn-primary">Jetzt Kontakt aufnehmen</a>
+      <h2>Bereit für den nächsten Schritt?</h2>
+      <p>Kontaktieren Sie uns noch heute, um mehr über unsere Programme zu erfahren und wie wir Sie auf Ihrem Karriereweg unterstützen können.</p>
+      <a href="kontakt.html" class="btn">Kontakt aufnehmen</a>
     </div>
   </section>
 
-  <!-- SECTION: Gut zu wissen -->
-  <section class="content-section alt-bg">
-    <div class="container">
-      <div class="section-header">
-        <h2>Gut zu wissen</h2>
-        <p>Antworten auf wichtige Fragen.</p>
-      </div>
-      <div class="cards-grid-2">
-        <div class="card">
-          <h3>Wie lange dauert die Ausbildung?</h3>
-          <p>Die Dauer der Ausbildung variiert je nach gewähltem Beruf und Ausbildungsmodell.</p>
-        </div>
-        <div class="card">
-          <h3>Welche Voraussetzungen brauche ich?</h3>
-          <p>Die Voraussetzungen können je nach Beruf und Bildungsweg unterschiedlich sein.</p>
-        </div>
-        <div class="card">
-          <h3>Wie kann ich mich bewerben?</h3>
-          <p>Bewerbungen können direkt über unsere Webseite eingereicht werden.</p>
-        </div>
-        <div class="card">
-          <h3>Gibt es finanzielle Unterstützung?</h3>
-          <p>Es bestehen diverse Fördermöglichkeiten und Stipendien.</p>
-        </div>
-        <div class="card">
-          <h3>Wie sind die Unterrichtszeiten?</h3>
-          <p>Unsere Kurse finden sowohl vormittags als auch nachmittags statt.</p>
-        </div>
-        <div class="card">
-          <h3>Welche Weiterbildungen bieten Sie an?</h3>
-          <p>Wir bieten ein breites Spektrum an Weiterbildungen in verschiedenen Bereichen an.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- SECTION: Die Menschen dahinter -->
-  <section class="content-section">
-    <div class="container">
-      <div class="section-header">
-        <h2>Die Menschen dahinter</h2>
-        <p>Kompetenz und Engagement.</p>
-      </div>
-      <div class="cards-grid-2">
-        <div class="card">
-          <div class="card-icon">👨‍🏫</div>
-          <h3>Max Mustermann</h3>
-          <p>Leiter der Ausbildung mit über 20 Jahren Erfahrung im Bildungswesen.</p>
-        </div>
-        <div class="card">
-          <div class="card-icon">👩‍🏫</div>
-          <h3>Erika Beispiel</h3>
-          <p>Fachbereichsleiterin für kaufmännische Berufe und engagierte Pädagogin.</p>
-        </div>
-        <div class="card">
-          <div class="card-icon">👨‍💼</div>
-          <h3>Hans Muster</h3>
-          <p>Verantwortlich für die Zusammenarbeit mit Unternehmen und Institutionen.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- SECTION: Die Geschichte -->
-  <section class="content-section alt-bg">
-    <div class="container">
-      <div class="section-header">
-        <h2>Die Geschichte</h2>
-        <p>Erfahrung und Innovation vereint.</p>
-      </div>
-      <p>Seit unserer Gründung vor über 100 Jahren haben wir uns stetig weiterentwickelt und an die Bedürfnisse der modernen Arbeitswelt angepasst. Unsere Tradition und unser Innovationsgeist machen uns zu einem führenden Bildungsinstitut.</p>
-    </div>
-  </section>
-
-  <!-- FOOTER -->
+  <!-- FOOTER (PFLICHT - von unten kopieren) -->
   <style>
-  .footer-wave {
-    margin-top: 6rem;
-  }
-  .footer-wave svg {
-    display: block;
-    width: 100%;
-    height: 80px;
-  }
-  .footer {
-    background: var(--primary);
-    color: white;
-    padding: 4rem 0 2rem;
-  }
-  .footer-content {
-    display: grid;
-    grid-template-columns: 2fr 1fr 1fr;
-    gap: 3rem;
-    margin-bottom: 3rem;
-  }
-  .footer-brand {
-    font-family: var(--font-heading);
-    font-size: 1.75rem;
-    font-weight: 700;
-    margin-bottom: 1rem;
-  }
-  .footer-desc {
-    opacity: 0.8;
-    line-height: 1.7;
-  }
-  .footer h4 {
-    font-size: 0.85rem;
-    text-transform: uppercase;
-    letter-spacing: 0.1em;
-    margin-bottom: 1.25rem;
-    opacity: 0.6;
-  }
-  .footer-links {
-    list-style: none;
-  }
-  .footer-links li { margin-bottom: 0.75rem; }
-  .footer-links a {
-    color: rgba(255,255,255,0.8);
-  }
-  .footer-links a:hover { color: white; }
-  .footer-bottom {
-    border-top: 1px solid rgba(255,255,255,0.1);
-    padding-top: 2rem;
-    text-align: center;
-    opacity: 0.6;
-    font-size: 0.9rem;
-  }
-  @media (max-width: 768px) {
-    .footer-content { grid-template-columns: 1fr; }
-  }
+    .footer {
+      background: var(--background);
+      padding: 5rem 0 2rem;
+      margin-top: 4rem;
+      border-top: 1px solid rgba(0,0,0,0.08);
+    }
+    .footer-content {
+      display: grid;
+      grid-template-columns: 1.5fr repeat(3, 1fr);
+      gap: 3rem;
+      margin-bottom: 3rem;
+    }
+    .footer-brand {
+      font-family: var(--font-heading);
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: var(--primary);
+      margin-bottom: 1rem;
+    }
+    .footer-desc {
+      color: var(--text);
+      opacity: 0.7;
+      line-height: 1.7;
+      font-size: 0.95rem;
+    }
+    .footer h4 {
+      font-weight: 600;
+      margin-bottom: 1.25rem;
+      color: var(--text);
+    }
+    .footer-links {
+      list-style: none;
+    }
+    .footer-links li {
+      margin-bottom: 0.625rem;
+    }
+    .footer-links a {
+      color: var(--text);
+      opacity: 0.7;
+      font-size: 0.95rem;
+    }
+    .footer-links a:hover { opacity: 1; color: var(--primary); }
+    .footer-bottom {
+      border-top: 1px solid rgba(0,0,0,0.08);
+      padding-top: 2rem;
+      text-align: center;
+      color: var(--text);
+      opacity: 0.5;
+      font-size: 0.9rem;
+    }
+    @media (max-width: 768px) {
+      .footer-content { grid-template-columns: 1fr 1fr; }
+    }
   </style>
-  <div class="footer-wave">
-    <svg viewBox="0 0 1440 80" preserveAspectRatio="none">
-      <path fill="var(--primary)" d="M0,40 C360,80 720,0 1080,40 C1260,60 1380,50 1440,40 L1440,80 L0,80 Z"></path>
-    </svg>
-  </div>
   <footer class="footer">
     <div class="container">
       <div class="footer-content">
         <div>
           <div class="footer-brand">Homepage - KV Basel - Meine Berufsbildung.</div>
-          <p class="footer-desc">Unser Ziel ist es, Ihnen eine umfassende und praxisnahe Ausbildung zu bieten, die Sie optimal auf Ihre berufliche Zukunft vorbereitet.</p>
+          <p class="footer-desc">Wir sind Ihre Anlaufstelle für erstklassige Ausbildungs- und Weiterbildungsmöglichkeiten in Basel. Entdecken Sie unser breites Angebot an Kursen und Programmen.</p>
         </div>
         <div>
           <h4>Navigation</h4>
           <ul class="footer-links">
             <li><a href="index.html">Startseite</a></li>
+            <li><a href="ueber-uns.html">Über uns</a></li>
             <li><a href="leistungen.html">Leistungen</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Kontakt</h4>
+          <ul class="footer-links">
+            <li>📧 termin@kvbaselag.info</li>
             <li><a href="kontakt.html">Kontakt</a></li>
           </ul>
         </div>
         <div>
           <h4>Rechtliches</h4>
           <ul class="footer-links">
-            <li>termin@kvbaselag.info</li>
             <li><a href="impressum.html">Impressum</a></li>
           </ul>
         </div>
@@ -917,6 +1155,5 @@ img {
       </div>
     </div>
   </footer>
-
 </body>
 </html>
