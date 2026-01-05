@@ -6,40 +6,40 @@
   <title>Homepage - KV Basel - Meine Berufsbildung. - Startseite</title>
   <style>
     :root {
-      --primary: #cfc926;
-      --secondary: #d8d569;
-      --accent: #4666e7;
-      --background: #fbfbf4;
-      --text: #35341d;
-      --text-light: #35341dcc;
+      --primary: #b0277b;
+      --secondary: #cd569f;
+      --accent: #54d96c;
+      --background: #fbf4f8;
+      --text: #462539;
+      --text-light: #462539cc;
       --white: #ffffff;
-      --font-heading: 'Sora', sans-serif;
-      --font-body: 'Roboto', sans-serif;
-      --radius: 25px;
-      --section-padding: 85px;
-      --container-width: 1197px;
-      --nav-height: 84px;
-      --shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
-      --shadow-lg: 0 10px calc(15px * 2) rgba(0, 0, 0, 0.12);
-      --shadow-glow: 0 0 30px #cfc92640;
+      --font-heading: 'Roboto Slab', sans-serif;
+      --font-body: 'Urbanist', sans-serif;
+      --radius: 13px;
+      --section-padding: 80px;
+      --container-width: 1327px;
+      --nav-height: 81px;
+      --shadow: 0 4px 30px rgba(0, 0, 0, 0.08);
+      --shadow-lg: 0 10px calc(30px * 2) rgba(0, 0, 0, 0.12);
+      --shadow-glow: 0 0 30px #b0277b40;
       --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
       --glass-bg: rgba(255, 255, 255, 0.1);
       --glass-border: rgba(255, 255, 255, 0.2);
-      --btn-padding: 16px 38px;
+      --btn-padding: 16px 30px;
     }
-
-    @import url('https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700;800;900&family=Roboto:wght@300;400;500;600&display=swap');
-
+    
+    @import url('https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@400;600;700;800;900&family=Urbanist:wght@300;400;500;600&display=swap');
+    
     *, *::before, *::after {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
     }
-
+    
     html {
       scroll-behavior: smooth;
     }
-
+    
     body {
       font-family: var(--font-body);
       color: var(--text);
@@ -47,95 +47,213 @@
       line-height: 1.6;
       -webkit-font-smoothing: antialiased;
     }
-
+    
     .container {
       max-width: 1200px;
       margin: 0 auto;
       padding: 0 1.5rem;
     }
-
+    
     h1, h2, h3, h4, h5, h6 {
       font-family: var(--font-heading);
       font-weight: 700;
       line-height: 1.2;
       color: var(--text);
     }
-
+    
     h1 { font-size: clamp(2.5rem, 6vw, 4rem); }
     h2 { font-size: clamp(2rem, 4vw, 3rem); margin-bottom: 1rem; }
     h3 { font-size: clamp(1.25rem, 2vw, 1.5rem); }
-
+    
     a {
       color: inherit;
       text-decoration: none;
       transition: var(--transition);
     }
-
+    
     img {
       max-width: 100%;
       height: auto;
       display: block;
     }
-
+    
     .section {
       padding: 5rem 0;
     }
-
+    
     .section-header {
       text-align: center;
       margin-bottom: 4rem;
     }
-
+    
     .section-header h2 {
       margin-bottom: 1rem;
     }
-
+    
     .section-header p {
       color: var(--text-light);
       max-width: 600px;
       margin: 0 auto;
       font-size: 1.125rem;
     }
-
+    
     .cards-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
       gap: 2rem;
     }
-
+    
     .cards-grid-2 {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
       gap: 2rem;
     }
-
+    
     .cards-grid-4 {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
       gap: 1.5rem;
     }
-
-    .simple-card {
+    
+    .nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
       background: white;
-      border-radius: var(--radius);
-      padding: 2.5rem;
       box-shadow: var(--shadow);
-      border-top: 4px solid var(--primary);
+      height: var(--nav-height);
+      display: flex;
+      align-items: center;
       transition: var(--transition);
     }
-    .simple-card:hover {
-      transform: translateY(-5px);
-      box-shadow: var(--shadow-lg);
+    .nav-container {
+      max-width: var(--container-width);
+      margin: 0 auto;
+      padding: 0 1.5rem;
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
     }
-    .simple-card h3 {
-      margin-bottom: 1rem;
+    .nav-logo {
+      font-family: var(--font-heading);
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: var(--text);
+    }
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+      list-style: none;
+    }
+    .nav-links a {
+      color: var(--text-light);
+      font-weight: 500;
+      padding: 0.5rem 0;
+      position: relative;
+    }
+    .nav-links a:hover { color: var(--primary); }
+    .nav-cta {
+      background: var(--primary);
+      color: white;
+      padding: var(--btn-padding);
+      border-radius: var(--radius);
+      font-weight: 600;
+    }
+    @media (max-width: 768px) {
+      .nav-links { display: none; }
+    }
+    
+    .footer {
+      background: var(--background); color: var(--text);
+      padding: 4rem 0 2rem;
+    }
+    .footer-container {
+      max-width: var(--container-width);
+      margin: 0 auto;
+      padding: 0 1.5rem;
+      display: grid; grid-template-columns: repeat(2, 1fr); gap: 3rem;
+    }
+    .footer-col h4 {
+      margin-bottom: 1.5rem;
+      font-size: 1.1rem;
+      color: var(--text);
+    }
+    .footer-col ul {
+      list-style: none;
+    }
+    .footer-col li {
+      margin-bottom: 0.75rem;
+    }
+    .footer-col a {
+      color: var(--text-light);
+      transition: var(--transition);
+    }
+    .footer-col a:hover {
       color: var(--primary);
     }
-    .simple-card p {
+    .footer-bottom {
+      margin-top: 3rem;
+      padding-top: 2rem;
+      border-top: 1px solid rgba(0,0,0,0.1);
+      display: flex; justify-content: space-between; align-items: center;
+      font-size: 0.9rem;
       color: var(--text-light);
+    }
+    @media (max-width: 768px) {
+      .footer-container { grid-template-columns: 1fr 1fr; }
+    }
+    @media (max-width: 480px) {
+      .footer-container { grid-template-columns: 1fr; text-align: center; }
+    }
+    
+    .hero {
+      min-height: 70vh;
+      padding: calc(var(--nav-height) + 4rem) 0 4rem;
+      background: linear-gradient(135deg, var(--background) 0%, var(--secondary) 100%);
+      position: relative;
+      overflow: hidden;
+    }
+    .hero-container {
+      max-width: var(--container-width);
+      margin: 0 auto;
+      padding: 0 1.5rem;
+      display: flex; flex-direction: column; align-items: flex-start;
+    }
+    .hero-content h1 {
+      margin-bottom: 1.5rem;
+    }
+    .hero-content p {
+      font-size: 1.25rem;
+      color: var(--text-light);
+      margin-bottom: 2rem;
+      max-width: 600px;
       line-height: 1.8;
     }
-
+    .hero-buttons {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+    .hero-visual {
+      position: relative;
+    }
+    .hero-visual::before {
+      content: '';
+      position: absolute;
+      width: 300px;
+      height: 300px;
+      background: linear-gradient(135deg, var(--primary), var(--accent));
+      border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
+      animation: blob 8s ease-in-out infinite;
+      right: 0;
+      top: 50%;
+      transform: translateY(-50%);
+    }
+    @media (max-width: 768px) {
+      .hero-container { grid-template-columns: 1fr; text-align: center; }
+      .hero-buttons { justify-content: center; }
+      .hero-visual { display: none; }
+    }
+    
     .numbered-list {
       display: flex;
       flex-direction: column;
@@ -167,39 +285,7 @@
       color: var(--text-light);
       line-height: 1.7;
     }
-
-    .split-section {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 4rem;
-      align-items: center;
-    }
-    .split-text h3 {
-      margin-bottom: 1rem;
-    }
-    .split-text p {
-      color: var(--text-light);
-      line-height: 1.8;
-      margin-bottom: 1rem;
-    }
-    .split-list ul {
-      list-style: none;
-      padding: 0;
-    }
-    .split-list li {
-      padding: 0.75rem 0;
-      padding-left: 2rem;
-      position: relative;
-      border-bottom: 1px solid rgba(0,0,0,0.05);
-    }
-    .split-list li::before {
-      content: '✓';
-      position: absolute;
-      left: 0;
-      color: var(--primary);
-      font-weight: bold;
-    }
-
+    
     .stats-row {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
@@ -223,24 +309,7 @@
       color: var(--text-light);
       font-size: 1rem;
     }
-
-    .text-block {
-      max-width: 800px;
-      margin: 0 auto;
-    }
-    .text-block h3 {
-      margin-bottom: 1.5rem;
-    }
-    .text-block p {
-      color: var(--text-light);
-      line-height: 1.9;
-      margin-bottom: 1.5rem;
-      font-size: 1.1rem;
-    }
-    .text-block p:last-child {
-      margin-bottom: 0;
-    }
-
+    
     .faq-list {
       max-width: 800px;
       margin: 0 auto;
@@ -263,7 +332,7 @@
       color: var(--text-light);
       line-height: 1.7;
     }
-
+    
     .feature-boxes {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
@@ -283,215 +352,38 @@
       opacity: 0.9;
       line-height: 1.8;
     }
-
-    .contact-split {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 4rem;
-      align-items: start;
-    }
-    .contact-form, .contact-form-full {
-      background: white;
-      padding: 2.5rem;
-      border-radius: var(--radius);
-      box-shadow: var(--shadow);
-    }
-    .contact-info {
-      padding: 2rem 0;
-    }
-    .contact-info h3 {
-      margin-bottom: 2rem;
-      color: var(--text);
-    }
-    .info-item {
-      display: flex;
-      gap: 1rem;
-      margin-bottom: 1.5rem;
-      align-items: flex-start;
-    }
-    .info-item span {
-      font-size: 1.5rem;
-      line-height: 1;
-    }
-    .info-item p {
-      color: var(--text-light);
-      line-height: 1.6;
-    }
-    .info-item a {
-      color: var(--primary);
-      text-decoration: none;
-    }
-    .info-item a:hover {
-      text-decoration: underline;
-    }
-    .form {
-      display: flex;
-      flex-direction: column;
-      gap: 1.5rem;
-    }
-    .form-row {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 1.5rem;
-    }
-    .form-group {
-      display: flex;
-      flex-direction: column;
-      gap: 0.5rem;
-    }
-    .form-group label {
-      font-weight: 500;
-      color: var(--text);
-      font-size: 0.9rem;
-    }
-    .form-group input,
-    .form-group textarea {
-      padding: 1rem;
-      border: 2px solid #e5e5e5;
-      border-radius: calc(var(--radius) - 4px);
-      font-size: 1rem;
-      font-family: inherit;
-      transition: var(--transition);
-    }
-    .form-group input:focus,
-    .form-group textarea:focus {
-      outline: none;
-      border-color: var(--primary);
-    }
-    .form-group textarea {
-      resize: vertical;
-      min-height: 120px;
-    }
-
     @media (max-width: 768px) {
-      .split-section { grid-template-columns: 1fr; gap: 2rem; }
-      .section { padding: 3rem 0; }
-      .cards-grid, .cards-grid-2 { grid-template-columns: 1fr; }
+      .feature-boxes { grid-template-columns: 1fr; }
     }
-
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(20px); }
-      to { opacity: 1; transform: translateY(0); }
+    
+    .cta-section {
+      background: linear-gradient(135deg, var(--primary), var(--secondary));
+      color: white;
+      padding: 5rem 0;
+      text-align: center;
     }
-
-    @keyframes slideUp {
-      from { opacity: 0; transform: translateY(40px); }
-      to { opacity: 1; transform: translateY(0); }
+    
+    .cta-section h2 {
+      color: white;
+      margin-bottom: 1rem;
     }
-
-    @keyframes float {
-      0%, 100% { transform: translateY(0) rotate(0deg); }
-      50% { transform: translateY(-20px) rotate(3deg); }
+    
+    .cta-section p {
+      opacity: 0.9;
+      margin-bottom: 2rem;
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
     }
-
-    @keyframes gradientBG {
-      0% { background-position: 0% 50%; }
-      50% { background-position: 100% 50%; }
-      100% { background-position: 0% 50%; }
+    
+    .cta-section .btn {
+      background: white;
+      color: var(--primary);
     }
-
-    @keyframes morph {
+    
+    @keyframes blob {
       0%, 100% { border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%; }
       50% { border-radius: 30% 60% 70% 40% / 50% 60% 30% 60%; }
-    }
-
-    .fade-in { animation: fadeIn 0.6s ease forwards; }
-    .slide-up { animation: slideUp 0.8s ease forwards; }
-    .float { animation: float 6s ease-in-out infinite; }
-
-    .delay-1 { animation-delay: 0.1s; }
-    .delay-2 { animation-delay: 0.2s; }
-    .delay-3 { animation-delay: 0.3s; }
-    .delay-4 { animation-delay: 0.4s; }
-
-    .nav {
-      position: sticky; top: 0; z-index: 1000;
-      background: linear-gradient(90deg, var(--primary), var(--secondary));
-      box-shadow: var(--shadow);
-      height: var(--nav-height);
-      display: flex;
-      align-items: center;
-      transition: var(--transition);
-    }
-    .nav-container {
-      max-width: var(--container-width);
-      margin: 0 auto;
-      padding: 0 1.5rem;
-      width: 100%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-    .nav-logo {
-      font-family: var(--font-heading);
-      font-size: 1.5rem;
-      font-weight: 700;
-      color: white;
-    }
-    .nav-links {
-      display: flex;
-      gap: 2rem;
-      list-style: none;
-    }
-    .nav-links a {
-      color: white;
-      font-weight: 500;
-      padding: 0.5rem 0;
-      position: relative;
-    }
-    .nav-links a:hover { color: var(--primary); }
-    .nav-cta {
-      background: white;
-      color: var(--primary);
-      padding: var(--btn-padding);
-      border-radius: var(--radius);
-      font-weight: 600;
-    }
-    @media (max-width: 768px) {
-      .nav-links { display: none; }
-    }
-
-    .footer {
-      background: linear-gradient(135deg, var(--text) 0%, var(--primary) 100%); color: white;
-      padding: 4rem 0 2rem;
-    }
-    .footer-container {
-      max-width: var(--container-width);
-      margin: 0 auto;
-      padding: 0 1.5rem;
-      text-align: center;
-    }
-    .footer-col h4 {
-      margin-bottom: 1.5rem;
-      font-size: 1.1rem;
-      color: white;
-    }
-    .footer-col ul {
-      list-style: none;
-    }
-    .footer-col li {
-      margin-bottom: 0.75rem;
-    }
-    .footer-col a {
-      color: rgba(255,255,255,0.7);
-      transition: var(--transition);
-    }
-    .footer-col a:hover {
-      color: white;
-    }
-    .footer-bottom {
-      margin-top: 3rem;
-      padding-top: 2rem;
-      border-top: 1px solid rgba(255,255,255,0.1);
-      text-align: center;
-      font-size: 0.9rem;
-      color: rgba(255,255,255,0.6);
-    }
-    @media (max-width: 768px) {
-      .footer-container { grid-template-columns: 1fr 1fr; }
-    }
-    @media (max-width: 480px) {
-      .footer-container { grid-template-columns: 1fr; text-align: center; }
     }
   </style>
 </head>
@@ -499,7 +391,7 @@
   <!-- NAVIGATION (PFLICHT - von unten kopieren) -->
   <nav class="nav">
     <div class="nav-container">
-      <div class="nav-logo">Homepage - KV Basel - Meine Berufsbildung.</div>
+      <a href="index.html" class="nav-logo">Homepage - KV Basel - Meine Berufsbildung.</a>
       <ul class="nav-links">
         <li><a href="index.html">Startseite</a></li>
         <li><a href="ueber-uns.html">Über uns</a></li>
@@ -509,128 +401,118 @@
       </ul>
     </div>
   </nav>
-
-  <!-- HERO SECTION -->
-  <section class="hero">
+  
+  <!-- MAIN CONTENT -->
+  <div class="hero">
     <div class="hero-container">
       <div class="hero-content">
-        <h1>Willkommen bei der KV Basel - Meine Berufsbildung</h1>
-        <p>Wir bieten Ihnen eine umfassende Berufsbildung mit vielfältigen Möglichkeiten, um Ihre Karriere zu starten. Entdecken Sie unsere Programme und Angebote.</p>
+        <h1>Willkommen bei KV Basel - Meine Berufsbildung.</h1>
+        <p>Hier bei KV Basel bieten wir umfassende Unterstützung für Ihre berufliche Bildung. Unser engagiertes Team steht bereit, um Ihnen den besten Service zu bieten.</p>
         <div class="hero-buttons">
-          <a href="leistungen.html" class="btn btn-primary">Unsere Leistungen</a>
-          <a href="kontakt.html" class="btn btn-secondary">Kontakt aufnehmen</a>
+          <a href="leistungen.html" class="btn btn-primary">Mehr erfahren</a>
+          <a href="kontakt.html" class="btn btn-secondary">Kontaktieren Sie uns</a>
         </div>
       </div>
       <div class="hero-visual"></div>
     </div>
-  </section>
-
-  <!-- CONTENT SECTIONS -->
-  <!-- Section 3: NUMBERED-LIST -->
+  </div>
+  
   <section class="section alt-bg">
     <div class="container">
       <div class="section-header">
-        <h2>Unsere Bildungsansätze</h2>
-        <p>Erfahren Sie mehr über unsere innovativen Lehrmethoden und wie wir die nächste Generation vorbereiten.</p>
+        <h2>Unsere Leistungen</h2>
+        <p>Wir bieten eine Vielzahl von Dienstleistungen an, die auf Ihre Bedürfnisse zugeschnitten sind.</p>
       </div>
       <div class="numbered-list">
         <div class="numbered-item">
           <span class="num">01</span>
           <div>
-            <h3>Individuelle Betreuung</h3>
-            <p>Wir bieten eine maßgeschneiderte Betreuung für jeden Schüler, um seine Potenziale zu entfalten. Unsere erfahrenen Lehrer stehen Ihnen jederzeit zur Verfügung.</p>
+            <h3>Individuelle Beratung</h3>
+            <p>Unser Team aus erfahrenen Beratern steht Ihnen zur Seite, um die bestmöglichen Bildungswege zu planen. Wir analysieren Ihre Bedürfnisse und bieten maßgeschneiderte Lösungen.</p>
           </div>
         </div>
         <div class="numbered-item">
           <span class="num">02</span>
           <div>
-            <h3>Moderne Lernmethoden</h3>
-            <p>Unsere Lehrpläne sind auf dem neuesten Stand der Technik und beinhalten interaktive Lernmethoden, um das Lernen spannender und effektiver zu gestalten.</p>
+            <h3>Berufsschulsekretariat</h3>
+            <p>Unser Sekretariat unterstützt Sie bei allen administrativen Belangen. Ob Anmeldungen oder allgemeine Anfragen, wir sind für Sie da und kümmern uns um reibungslose Abläufe.</p>
           </div>
         </div>
         <div class="numbered-item">
           <span class="num">03</span>
           <div>
-            <h3>Praxisnahe Ausbildung</h3>
-            <p>Wir legen großen Wert auf praxisnahe Ausbildung. Unsere Partnerschaften mit Unternehmen ermöglichen es Ihnen, wertvolle Erfahrungen zu sammeln.</p>
+            <h3>Flexible Kursangebote</h3>
+            <p>Wir bieten eine breite Palette an Kursen, die flexibel gestaltet werden können, um den Anforderungen unserer Lernenden gerecht zu werden. Lassen Sie sich von unserer Vielfalt inspirieren.</p>
           </div>
         </div>
       </div>
     </div>
   </section>
-
-  <!-- Section 4: SIMPLE-CARDS -->
-  <section class="section">
-    <div class="container">
-      <div class="section-header">
-        <h2>Unsere Programme</h2>
-        <p>Entdecken Sie unsere vielfältigen Bildungsangebote, die Ihnen helfen, Ihre beruflichen Ziele zu erreichen.</p>
-      </div>
-      <div class="cards-grid-2">
-        <div class="simple-card">
-          <h3>Berufsausbildung</h3>
-          <p>Unsere Berufsausbildung bietet Ihnen die Möglichkeit, praktische Fähigkeiten zu erlernen und sich auf Ihren zukünftigen Job vorzubereiten. Wir unterstützen Sie auf Ihrem Weg zum erfolgreichen Abschluss.</p>
-        </div>
-        <div class="simple-card">
-          <h3>Weiterbildung</h3>
-          <p>Unsere Weiterbildungsprogramme sind darauf ausgelegt, Ihre Kenntnisse zu vertiefen und Ihre Karrierechancen zu verbessern. Entdecken Sie die vielfältigen Möglichkeiten, die wir bieten.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Section 5: FEATURE-BOXES -->
-  <section class="section">
-    <div class="container">
-      <div class="section-header">
-        <h2>Warum uns wählen?</h2>
-      </div>
-      <div class="feature-boxes">
-        <div class="feature-box">
-          <h3>Erfahrene Lehrkräfte</h3>
-          <p>Unsere Lehrkräfte sind hochqualifiziert und verfügen über umfangreiche Erfahrung in ihren jeweiligen Fachgebieten. Sie sind stets bestrebt, das Beste aus ihren Schülern herauszuholen.</p>
-        </div>
-        <div class="feature-box">
-          <h3>State-of-the-Art Einrichtungen</h3>
-          <p>Unsere modernen Einrichtungen bieten die perfekte Umgebung, um das Beste aus Ihrer Ausbildung zu machen. Wir investieren kontinuierlich in die neueste Technologie.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Section 6: SPLIT-SECTION -->
+  
   <section class="section alt-bg">
     <div class="container">
-      <div class="section-header">
-        <h2>Unser Engagement</h2>
-      </div>
-      <div class="split-section">
-        <div class="split-text">
-          <h3>Warum wir?</h3>
-          <p>Wir sind bestrebt, eine qualitativ hochwertige Bildung zu bieten, die auf die Bedürfnisse der Schüler zugeschnitten ist. Unser Ziel ist es, Ihre Karriere zu fördern und Ihnen den bestmöglichen Start zu ermöglichen.</p>
-          <p>Unser engagiertes Team steht Ihnen jederzeit zur Verfügung, um Sie bei jedem Schritt Ihres Bildungsweges zu unterstützen.</p>
+      <div class="section-header"><h2>Kennzahlen</h2></div>
+      <div class="stats-row">
+        <div class="stat">
+          <span class="stat-num">100+</span>
+          <span class="stat-label">Zufriedene Kunden</span>
         </div>
-        <div class="split-list">
-          <ul>
-            <li>Kompetente Beratung</li>
-            <li>Umfassende Unterstützung</li>
-            <li>Innovative Lernansätze</li>
-            <li>Starke Netzwerke</li>
-          </ul>
+        <div class="stat">
+          <span class="stat-num">10+</span>
+          <span class="stat-label">Jahre Erfahrung</span>
+        </div>
+        <div class="stat">
+          <span class="stat-num">50+</span>
+          <span class="stat-label">Projekte</span>
+        </div>
+        <div class="stat">
+          <span class="stat-num">24/7</span>
+          <span class="stat-label">Support</span>
         </div>
       </div>
     </div>
   </section>
-
-  <!-- CTA SECTION -->
+  
+  <section class="section alt-bg">
+    <div class="container">
+      <div class="section-header"><h2>Häufige Fragen</h2></div>
+      <div class="faq-list">
+        <div class="faq-item">
+          <h4>Wie lange dauert die Anmeldung?</h4>
+          <p>Die Anmeldung kann innerhalb weniger Minuten online abgeschlossen werden. Unsere Website führt Sie durch den Prozess.</p>
+        </div>
+        <div class="faq-item">
+          <h4>Welche Kurse werden angeboten?</h4>
+          <p>Wir bieten eine Vielzahl von Kursen in verschiedenen Fachbereichen an. Eine vollständige Liste finden Sie auf unserer Website unter Leistungen.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <section class="section">
+    <div class="container">
+      <div class="section-header"><h2>Besondere Features</h2></div>
+      <div class="feature-boxes">
+        <div class="feature-box">
+          <h3>Innovative Lehrmethoden</h3>
+          <p>Unsere Lehrmethoden sind darauf ausgerichtet, das Lernen interaktiv und interessant zu gestalten. Wir setzen auf moderne Technologien, um den Unterricht zu bereichern.</p>
+        </div>
+        <div class="feature-box">
+          <h3>Flexibilität und Anpassung</h3>
+          <p>Unsere Kurse sind flexibel gestaltet, um den individuellen Bedürfnissen der Lernenden gerecht zu werden. Wir bieten maßgeschneiderte Lösungen für jeden Bildungsweg.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+  
   <section class="cta-section">
     <div class="container">
-      <h2>Bereit, Ihre Zukunft zu gestalten?</h2>
-      <p>Nehmen Sie noch heute Kontakt mit uns auf, um mehr über unsere Programme zu erfahren und wie wir Ihnen helfen können, Ihre Ziele zu erreichen.</p>
-      <a href="kontakt.html" class="btn btn-primary">Kontakt aufnehmen</a>
+      <h2>Interessiert an unseren Angeboten?</h2>
+      <p>Kontaktieren Sie uns noch heute und lassen Sie uns Ihre Bildungsreise gemeinsam planen!</p>
+      <a href="kontakt.html" class="btn">Kontakt aufnehmen</a>
     </div>
   </section>
-
+  
   <!-- FOOTER (PFLICHT - von unten kopieren) -->
   <footer class="footer">
     <div class="footer-container">
@@ -644,9 +526,15 @@
           <li><a href="impressum.html">Impressum</a></li>
         </ul>
       </div>
-      <div class="footer-bottom">
-        <p>&copy; 2023 Homepage - KV Basel - Meine Berufsbildung. Alle Rechte vorbehalten. | <a href="mailto:termin@kvbaselag.info">termin@kvbaselag.info</a></p>
+      <div class="footer-col">
+        <h4>Kontakt</h4>
+        <ul>
+          <li><a href="mailto:termin@kvbaselag.info">Email: termin@kvbaselag.info</a></li>
+        </ul>
       </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2023 Homepage - KV Basel - Meine Berufsbildung. Alle Rechte vorbehalten.</p>
     </div>
   </footer>
 </body>
