@@ -1,6 +1,6 @@
 /* Design System - Auto-Generated */
 
-@import url('https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700;800;900&family=IBM+Plex+Sans:wght@300;400;500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;800;900&family=Inter:wght@300;400;500;600&display=swap');
 
 *, *::before, *::after {
   margin: 0;
@@ -459,7 +459,7 @@ img {
 .form-group select:focus {
   outline: none;
   border-color: var(--primary);
-  box-shadow: 0 0 0 3px #7c2d1220;
+  box-shadow: 0 0 0 3px #7c3aed20;
 }
 
 .form-group textarea {
@@ -501,27 +501,26 @@ img {
 
 
 :root {
-  --primary: #7c2d12;
-  --secondary: #c2410c;
-  --accent: #0891b2;
-  --background: #fff7ed;
-  --text: #431407;
-  --text-light: #431407cc;
+  --primary: #7c3aed;
+  --secondary: #8b5cf6;
+  --accent: #fbbf24;
+  --background: #faf5ff;
+  --text: #1f2937;
+  --text-light: #1f2937cc;
   --white: #ffffff;
-  --font-heading: 'Sora', sans-serif;
-  --font-body: 'IBM Plex Sans', sans-serif;
-  --radius: 16px;
+  --font-heading: 'Playfair Display', sans-serif;
+  --font-body: 'Inter', sans-serif;
+  --radius: 12px;
   --shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
   --shadow-lg: 0 10px 40px rgba(0, 0, 0, 0.12);
-  --shadow-glow: 0 0 30px #7c2d1240;
+  --shadow-glow: 0 0 30px #7c3aed40;
   --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   --glass-bg: rgba(255, 255, 255, 0.1);
   --glass-border: rgba(255, 255, 255, 0.2);
   
-    --hero-height: 80vh;
-    --heading-size: clamp(2rem, 5vw, 4rem);
-    --section-padding: 4rem;
-    --border-radius-large: 24px;
+    --hero-height: 85vh;
+    --heading-size: clamp(2.5rem, 6vw, 5rem);
+    --section-padding: 5rem;
   
 }
 

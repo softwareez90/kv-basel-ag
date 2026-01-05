@@ -6,23 +6,28 @@
   <title>Homepage - KV Basel - Meine Berufsbildung. - Kontakt</title>
   <style>
     :root {
-      --primary: #7c2d12;
-      --secondary: #c2410c;
-      --accent: #0891b2;
-      --background: #fff7ed;
-      --text: #431407;
-      --text-light: #431407cc;
+      --primary: #7c3aed;
+      --secondary: #8b5cf6;
+      --accent: #fbbf24;
+      --background: #faf5ff;
+      --text: #1f2937;
+      --text-light: #1f2937cc;
       --white: #ffffff;
-      --font-heading: 'Sora', sans-serif;
-      --font-body: 'IBM Plex Sans', sans-serif;
-      --radius: 16px;
+      --font-heading: 'Playfair Display', sans-serif;
+      --font-body: 'Inter', sans-serif;
+      --radius: 12px;
       --shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
       --shadow-lg: 0 10px 40px rgba(0, 0, 0, 0.12);
-      --shadow-glow: 0 0 30px #7c2d1240;
+      --shadow-glow: 0 0 30px #7c3aed40;
       --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      --glass-bg: rgba(255, 255, 255, 0.1);
+      --glass-border: rgba(255, 255, 255, 0.2);
+      --hero-height: 85vh;
+      --heading-size: clamp(2.5rem, 6vw, 5rem);
+      --section-padding: 5rem;
     }
-    
-    @import url('https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700;800;900&family=IBM+Plex+Sans:wght@300;400;500;600&display=swap');
+
+    @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;800;900&family=Inter:wght@300;400;500;600&display=swap');
 
     *, *::before, *::after {
       margin: 0;
@@ -65,141 +70,131 @@
       transition: var(--transition);
     }
 
+    img {
+      max-width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    /* ============================================
+       NAVIGATION STYLES
+       ============================================ */
     .navbar {
       position: sticky;
       top: 0;
       z-index: 1000;
-      background: var(--background);
-      padding: 1.25rem 0;
-      border-bottom: 2px solid var(--primary);
+      background: white;
+      box-shadow: 0 2px 20px rgba(0,0,0,0.08);
+      padding: 0;
     }
     .navbar .container {
       display: flex;
       justify-content: space-between;
       align-items: center;
+      padding: 1rem 1.5rem;
     }
     .nav-brand {
       font-family: var(--font-heading);
-      font-size: 1.75rem;
+      font-size: 1.5rem;
       font-weight: 700;
       color: var(--primary);
     }
     .nav-links {
       display: flex;
-      gap: 2.5rem;
+      gap: 2rem;
       list-style: none;
       align-items: center;
     }
     .nav-links a {
       color: var(--text);
       font-weight: 500;
-      position: relative;
+      padding: 0.5rem 0;
     }
     .nav-links a:hover { color: var(--primary); }
     .nav-cta {
-      background: var(--primary) !important;
+      background: linear-gradient(135deg, var(--primary), var(--secondary)) !important;
       color: white !important;
-      padding: 0.875rem 1.5rem !important;
+      padding: 0.875rem 1.75rem !important;
       border-radius: var(--radius) !important;
+      font-weight: 600;
+      box-shadow: 0 4px 15px rgba(var(--primary-rgb), 0.3);
     }
+    .nav-cta:hover { transform: translateY(-2px); }
     @media (max-width: 768px) {
       .nav-links { display: none; }
     }
 
+    /* ============================================
+       FOOTER STYLES
+       ============================================ */
     .footer {
-      background: var(--primary);
-      color: white;
-      padding: 4rem 0 2rem;
+      background: var(--background);
+      padding: 5rem 0 2rem;
       margin-top: 4rem;
+      border-top: 1px solid rgba(0,0,0,0.08);
     }
     .footer-content {
       display: grid;
-      grid-template-columns: 1.5fr 1fr 1fr;
+      grid-template-columns: 1.5fr repeat(3, 1fr);
       gap: 3rem;
-      margin-bottom: 2rem;
+      margin-bottom: 3rem;
     }
     .footer-brand {
       font-family: var(--font-heading);
       font-size: 1.5rem;
       font-weight: 700;
+      color: var(--primary);
       margin-bottom: 1rem;
     }
     .footer-desc {
-      opacity: 0.8;
+      color: var(--text);
+      opacity: 0.7;
       line-height: 1.7;
-      margin-bottom: 1.5rem;
-    }
-    .footer-contact-item {
-      display: flex;
-      align-items: center;
-      gap: 0.75rem;
-      margin-bottom: 0.75rem;
-      opacity: 0.9;
+      font-size: 0.95rem;
     }
     .footer h4 {
       font-weight: 600;
       margin-bottom: 1.25rem;
+      color: var(--text);
     }
     .footer-links {
       list-style: none;
     }
-    .footer-links li { margin-bottom: 0.75rem; }
-    .footer-links a {
-      color: rgba(255,255,255,0.8);
+    .footer-links li {
+      margin-bottom: 0.625rem;
     }
-    .footer-links a:hover { color: white; }
-    .footer-bottom {
-      border-top: 1px solid rgba(255,255,255,0.2);
-      padding-top: 1.5rem;
-      text-align: center;
+    .footer-links a {
+      color: var(--text);
       opacity: 0.7;
+      font-size: 0.95rem;
+    }
+    .footer-links a:hover { opacity: 1; color: var(--primary); }
+    .footer-bottom {
+      border-top: 1px solid rgba(0,0,0,0.08);
+      padding-top: 2rem;
+      text-align: center;
+      color: var(--text);
+      opacity: 0.5;
       font-size: 0.9rem;
     }
     @media (max-width: 768px) {
-      .footer-content { grid-template-columns: 1fr; }
+      .footer-content { grid-template-columns: 1fr 1fr; }
     }
 
-    .section {
-      padding: 5rem 0;
-    }
-    .section-header {
-      text-align: center;
-      margin-bottom: 4rem;
-    }
-    .section-header h2 {
-      margin-bottom: 1rem;
-    }
-    .section-header p {
-      color: var(--text-light);
-      max-width: 600px;
-      margin: 0 auto;
-      font-size: 1.125rem;
-    }
-
+    /* ============================================
+       KONTAKT FORM STYLES
+       ============================================ */
     .contact-split {
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: 4rem;
       align-items: start;
     }
-    .contact-form {
+    .contact-form, .contact-form-full {
       background: white;
-      padding: 3rem;
+      padding: 2.5rem;
       border-radius: var(--radius);
-      box-shadow: var(--shadow-lg);
-    }
-    .contact-form h3 {
-      margin-bottom: 2rem;
-      text-align: center;
-    }
-    .form-row {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 1rem;
-    }
-    @media (max-width: 768px) {
-      .form-row { grid-template-columns: 1fr; }
-      .contact-form { padding: 2rem; }
+      box-shadow: var(--shadow);
     }
     .contact-info {
       padding: 2rem 0;
@@ -229,6 +224,48 @@
     .info-item a:hover {
       text-decoration: underline;
     }
+    .form {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5rem;
+    }
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+    .form-group label {
+      font-weight: 500;
+      color: var(--text);
+      font-size: 0.9rem;
+    }
+    .form-group input,
+    .form-group textarea {
+      padding: 1rem;
+      border: 2px solid #e5e5e5;
+      border-radius: calc(var(--radius) - 4px);
+      font-size: 1rem;
+      font-family: inherit;
+      transition: var(--transition);
+    }
+    .form-group input:focus,
+    .form-group textarea:focus {
+      outline: none;
+      border-color: var(--primary);
+    }
+    .form-group textarea {
+      resize: vertical;
+      min-height: 120px;
+    }
+    @media (max-width: 768px) {
+      .contact-split { grid-template-columns: 1fr; gap: 2rem; }
+      .form-row { grid-template-columns: 1fr; }
+    }
   </style>
 </head>
 <body>
@@ -250,7 +287,7 @@
     <div class="container">
       <div class="section-header">
         <h2>Kontaktieren Sie uns</h2>
-        <p>Wir freuen uns darauf, von Ihnen zu hören. Bitte nutzen Sie das Formular, um mit uns in Kontakt zu treten, oder kontaktieren Sie uns direkt über unsere Kontaktdaten.</p>
+        <p>Wir sind für Sie da und freuen uns auf Ihre Nachricht. Nutzen Sie das Kontaktformular oder kontaktieren Sie uns direkt.</p>
       </div>
       <div class="contact-split">
         <div class="contact-form">
@@ -259,11 +296,11 @@
             <div class="form-group"><label>E-Mail</label><input type="email" name="email" required></div>
             <div class="form-group"><label>Telefon</label><input type="tel" name="phone"></div>
             <div class="form-group"><label>Nachricht</label><textarea name="message" rows="5" required></textarea></div>
-            <button type="submit" class="btn">Nachricht senden</button>
+            <button type="submit" class="btn">Absenden</button>
           </form>
         </div>
         <div class="contact-info">
-          <h3>Kontaktdaten</h3>
+          <h3>Direkter Kontakt</h3>
           <div class="info-item"><span>📍</span><p>Musterstraße 123, 12345 Stadt</p></div>
           <div class="info-item"><span>📞</span><p><a href="tel:+49123456789">+49 123 456789</a></p></div>
           <div class="info-item"><span>📧</span><p><a href="mailto:info@example.de">info@example.de</a></p></div>
@@ -279,8 +316,7 @@
       <div class="footer-content">
         <div>
           <div class="footer-brand">Homepage - KV Basel - Meine Berufsbildung.</div>
-          <p class="footer-desc">Ihre Anlaufstelle für eine umfassende Berufsbildung in Basel. Wir bieten maßgeschneiderte Programme für Ihre berufliche Entwicklung.</p>
-          <div class="footer-contact-item">📧 termin@kvbaselag.info</div>
+          <p class="footer-desc">Ihre Bildung ist unser Anliegen. Kontaktieren Sie uns für weitere Informationen zu unseren Bildungsangeboten.</p>
         </div>
         <div>
           <h4>Navigation</h4>
@@ -288,6 +324,12 @@
             <li><a href="index.html">Startseite</a></li>
             <li><a href="ueber-uns.html">Über uns</a></li>
             <li><a href="leistungen.html">Leistungen</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Kontakt</h4>
+          <ul class="footer-links">
+            <li>📧 termin@kvbaselag.info</li>
             <li><a href="kontakt.html">Kontakt</a></li>
           </ul>
         </div>
