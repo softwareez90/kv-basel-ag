@@ -1,0 +1,692 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Homepage - KV Basel - Meine Berufsbildung. - Leistungen</title>
+  <style>
+/* === INJECTED BY CSS-GUARD === */
+/* CSS Variables */
+
+:root {
+  --primary: #be185d;
+  --secondary: #ec4899;
+  --accent: #06b6d4;
+  --background: #fdf2f8;
+  --text: #831843;
+  --text-light: #831843cc;
+  --white: #ffffff;
+  --font-heading: 'Oswald', sans-serif;
+  --font-body: 'Merriweather', sans-serif;
+  --radius: 20px;
+  --shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  --shadow-lg: 0 10px 40px rgba(0, 0, 0, 0.12);
+  --shadow-glow: 0 0 30px #be185d40;
+  --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  --glass-bg: rgba(255, 255, 255, 0.1);
+  --glass-border: rgba(255, 255, 255, 0.2);
+  
+    --hero-height: 70vh;
+    --heading-size: clamp(2rem, 5vw, 4rem);
+    --section-padding: 6rem;
+    --letter-spacing: 0.05em;
+  
+}
+
+/* Base Styles */
+
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@400;600;700;800;900&family=Merriweather:wght@300;400;500;600&display=swap');
+
+*, *::before, *::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-body);
+  color: var(--text);
+  background: var(--background);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  line-height: 1.2;
+  color: var(--text);
+}
+
+h1 { font-size: clamp(2.5rem, 6vw, 4rem); }
+h2 { font-size: clamp(2rem, 4vw, 3rem); margin-bottom: 1rem; }
+h3 { font-size: clamp(1.25rem, 2vw, 1.5rem); }
+
+a {
+  color: inherit;
+  text-decoration: none;
+  transition: var(--transition);
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+.section {
+  padding: 5rem 0;
+}
+
+.section-header {
+  text-align: center;
+  margin-bottom: 4rem;
+}
+
+.section-header h2 {
+  margin-bottom: 1rem;
+}
+
+.section-header p {
+  color: var(--text-light);
+  max-width: 600px;
+  margin: 0 auto;
+  font-size: 1.125rem;
+}
+
+/* Grid Systems */
+.cards-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+}
+
+.cards-grid-2 {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+  gap: 2rem;
+}
+
+.cards-grid-4 {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.5rem;
+}
+
+/* Card Styles */
+.card {
+  background: white;
+  border-radius: var(--radius);
+  padding: 2rem;
+  box-shadow: var(--shadow);
+  transition: var(--transition);
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-lg);
+}
+
+.card-icon {
+  width: 60px;
+  height: 60px;
+  background: linear-gradient(135deg, var(--primary), var(--secondary));
+  border-radius: calc(var(--radius) - 4px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  margin-bottom: 1.25rem;
+}
+
+.card h3 {
+  margin-bottom: 0.75rem;
+}
+
+.card p {
+  color: var(--text-light);
+  line-height: 1.7;
+}
+
+/* Buttons */
+.btn {
+  display: inline-block;
+  padding: 1rem 2rem;
+  font-weight: 600;
+  border-radius: var(--radius);
+  cursor: pointer;
+  transition: var(--transition);
+  border: none;
+  font-size: 1rem;
+}
+
+.btn-primary {
+  background: linear-gradient(135deg, var(--primary), var(--secondary));
+  color: white;
+}
+
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-glow);
+}
+
+.btn-secondary {
+  background: transparent;
+  color: var(--primary);
+  border: 2px solid var(--primary);
+}
+
+.btn-secondary:hover {
+  background: var(--primary);
+  color: white;
+}
+
+/* Form Styles */
+.form-group {
+  margin-bottom: 1.5rem;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: 500;
+}
+
+.form-group input,
+.form-group textarea,
+.form-group select {
+  width: 100%;
+  padding: 1rem;
+  border: 2px solid rgba(0,0,0,0.1);
+  border-radius: var(--radius);
+  font-family: inherit;
+  font-size: 1rem;
+  transition: var(--transition);
+}
+
+.form-group input:focus,
+.form-group textarea:focus,
+.form-group select:focus {
+  outline: none;
+  border-color: var(--primary);
+  box-shadow: 0 0 0 3px #be185d20;
+}
+
+.form-group textarea {
+  min-height: 150px;
+  resize: vertical;
+}
+
+/* CTA Section */
+.cta-section {
+  background: linear-gradient(135deg, var(--primary), var(--secondary));
+  color: white;
+  padding: 5rem 0;
+  text-align: center;
+}
+
+.cta-section h2 {
+  color: white;
+  margin-bottom: 1rem;
+}
+
+.cta-section p {
+  opacity: 0.9;
+  margin-bottom: 2rem;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.cta-section .btn {
+  background: white;
+  color: var(--primary);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .section { padding: 3rem 0; }
+  .cards-grid, .cards-grid-2 { grid-template-columns: 1fr; }
+}
+
+
+/* Animations */
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes slideUp {
+  from { opacity: 0; transform: translateY(40px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0) rotate(0deg); }
+  50% { transform: translateY(-20px) rotate(3deg); }
+}
+
+@keyframes gradientBG {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+@keyframes morph {
+  0%, 100% { border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%; }
+  50% { border-radius: 30% 60% 70% 40% / 50% 60% 30% 60%; }
+}
+
+.fade-in { animation: fadeIn 0.6s ease forwards; }
+.slide-up { animation: slideUp 0.8s ease forwards; }
+.float { animation: float 6s ease-in-out infinite; }
+
+.delay-1 { animation-delay: 0.1s; }
+.delay-2 { animation-delay: 0.2s; }
+.delay-3 { animation-delay: 0.3s; }
+.delay-4 { animation-delay: 0.4s; }
+
+
+/* Component Styles (Navigation, Footer, Hero, Card, Section, Form) */
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  padding: 2.5rem 0;
+  background: var(--background);
+}
+.navbar .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid rgba(0,0,0,0.05);
+  padding-bottom: 1.5rem;
+}
+.nav-brand {
+  font-family: var(--font-heading);
+  font-size: 1.25rem;
+  font-weight: 400;
+  color: var(--text);
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+}
+.nav-links {
+  display: flex;
+  gap: 4rem;
+  list-style: none;
+}
+.nav-links a {
+  color: var(--text);
+  font-weight: 300;
+  font-size: 0.85rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  opacity: 0.7;
+  transition: opacity 0.3s;
+}
+.nav-links a:hover { opacity: 1; }
+@media (max-width: 768px) {
+  .nav-links { display: none; }
+}
+
+.footer {
+  padding: 4rem 0;
+  margin-top: 6rem;
+  border-top: 1px solid rgba(0,0,0,0.05);
+}
+.footer .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.footer-brand {
+  font-family: var(--font-heading);
+  font-size: 1rem;
+  font-weight: 400;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--text);
+}
+.footer-links {
+  display: flex;
+  gap: 3rem;
+  list-style: none;
+}
+.footer-links a {
+  color: var(--text);
+  opacity: 0.5;
+  font-size: 0.85rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+.footer-links a:hover { opacity: 1; }
+.footer-copy {
+  font-size: 0.85rem;
+  opacity: 0.4;
+}
+@media (max-width: 768px) {
+  .footer .container { flex-direction: column; gap: 2rem; text-align: center; }
+}
+
+.hero {
+  min-height: 70vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10rem 2rem 6rem;
+  background: var(--background);
+}
+.hero-content {
+  text-align: center;
+  max-width: 800px;
+}
+.hero h1 {
+  font-size: clamp(2rem, 5vw, 3.5rem);
+  font-weight: 400;
+  color: var(--text);
+  line-height: 1.3;
+  margin-bottom: 1.5rem;
+  letter-spacing: -0.01em;
+}
+.hero p {
+  font-size: 1.125rem;
+  color: var(--text);
+  opacity: 0.7;
+  max-width: 500px;
+  margin: 0 auto 2.5rem;
+  line-height: 1.8;
+  font-weight: 300;
+}
+.hero .btn {
+  background: transparent;
+  color: var(--text);
+  padding: 1rem 2rem;
+  border: 1px solid var(--text);
+  font-weight: 400;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  font-size: 0.8rem;
+}
+.hero .btn:hover {
+  background: var(--text);
+  color: var(--background);
+}
+
+.cards-grid .card {
+  background: white;
+  border-radius: var(--radius);
+  padding: 2rem;
+  box-shadow: var(--shadow);
+  transition: var(--transition);
+}
+.cards-grid .card:hover {
+  transform: translateY(-8px);
+  box-shadow: var(--shadow-lg);
+}
+.card-icon {
+  width: 60px;
+  height: 60px;
+  background: linear-gradient(135deg, var(--primary), var(--secondary));
+  border-radius: calc(var(--radius) - 4px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  margin-bottom: 1.25rem;
+}
+.card h3 { margin-bottom: 0.75rem; }
+.card p { color: var(--text-light); line-height: 1.7; }
+
+.content-section {
+  padding: 5rem 0;
+}
+.content-section.alt-bg {
+  background: rgba(0,0,0,0.02);
+}
+.section-header {
+  text-align: center;
+  margin-bottom: 4rem;
+}
+.section-header h2 {
+  margin-bottom: 1rem;
+}
+.section-header p {
+  color: var(--text-light);
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.contact-form {
+  background: white;
+  padding: 3rem;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-lg);
+}
+.contact-form h3 {
+  margin-bottom: 2rem;
+  text-align: center;
+}
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+@media (max-width: 768px) {
+  .form-row { grid-template-columns: 1fr; }
+  .contact-form { padding: 2rem; }
+}
+
+/* Fallback Grid Classes */
+.cards-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+}
+.cards-grid-2 {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+  gap: 2rem;
+}
+.cards-grid-4 {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1.5rem;
+}
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+.section {
+  padding: 4rem 0;
+}
+.section-title {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+/* === END CSS-GUARD === */
+</style>
+</head>
+<body>
+  <!-- NAVIGATION (PFLICHT - von unten kopieren) -->
+  <style>
+    .navbar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 1000;
+      padding: 2.5rem 0;
+      background: var(--background);
+    }
+    .navbar .container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid rgba(0,0,0,0.05);
+      padding-bottom: 1.5rem;
+    }
+    .nav-brand {
+      font-family: var(--font-heading);
+      font-size: 1.25rem;
+      font-weight: 400;
+      color: var(--text);
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+    }
+    .nav-links {
+      display: flex;
+      gap: 4rem;
+      list-style: none;
+    }
+    .nav-links a {
+      color: var(--text);
+      font-weight: 300;
+      font-size: 0.85rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      opacity: 0.7;
+      transition: opacity 0.3s;
+    }
+    .nav-links a:hover { opacity: 1; }
+    @media (max-width: 768px) {
+      .nav-links { display: none; }
+    }
+  </style>
+  <nav class="navbar">
+    <div class="container">
+      <a href="index.html" class="nav-brand">Homepage - KV Basel - Meine Berufsbildung.</a>
+      <ul class="nav-links">
+        <li><a href="index.html">Startseite</a></li>
+        <li><a href="ueber-uns.html">Über uns</a></li>
+        <li><a href="leistungen.html">Leistungen</a></li>
+        <li><a href="kontakt.html">Kontakt</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- MAIN CONTENT -->
+  <section class="content-section">
+    <div class="container">
+      <div class="section-header">
+        <h2>Unsere Leistungen</h2>
+        <p>Entdecken Sie unser umfangreiches Angebot.</p>
+      </div>
+      <div class="cards-grid">
+        <div class="card">
+          <div class="card-icon">📚</div>
+          <h3>Berufsberatung</h3>
+          <p>Unsere erfahrenen Berater helfen Ihnen, den richtigen Karriereweg zu finden. Profitieren Sie von individuellen Beratungsgesprächen und maßgeschneiderten Lösungen.</p>
+        </div>
+        <div class="card">
+          <div class="card-icon">📝</div>
+          <h3>Bewerbungstraining</h3>
+          <p>Erhalten Sie wertvolle Tipps und Tricks für Ihre Bewerbungsunterlagen. Wir unterstützen Sie bei der Erstellung eines überzeugenden Lebenslaufs und Anschreibens.</p>
+        </div>
+        <div class="card">
+          <div class="card-icon">💼</div>
+          <h3>Praktikumsvermittlung</h3>
+          <p>Nutzen Sie unsere Kontakte zu Unternehmen, um ein passendes Praktikum zu finden. Sammeln Sie wertvolle Praxiserfahrungen und erweitern Sie Ihr berufliches Netzwerk.</p>
+        </div>
+        <div class="card">
+          <div class="card-icon">🎓</div>
+          <h3>Weiterbildungskurse</h3>
+          <p>Bleiben Sie auf dem neuesten Stand mit unseren Weiterbildungskursen. Wir bieten eine Vielzahl von Kursen an, die Ihnen helfen, Ihre Fähigkeiten zu erweitern.</p>
+        </div>
+        <div class="card">
+          <div class="card-icon">🌐</div>
+          <h3>Online-Lernplattform</h3>
+          <p>Lernen Sie flexibel und ortsunabhängig mit unserer Online-Plattform. Greifen Sie auf eine Vielzahl von Lernmaterialien und interaktiven Kursen zu.</p>
+        </div>
+        <div class="card">
+          <div class="card-icon">🤝</div>
+          <h3>Netzwerkveranstaltungen</h3>
+          <p>Knüpfen Sie wertvolle Kontakte auf unseren Netzwerkveranstaltungen. Tauschen Sie sich mit Gleichgesinnten und Branchenexperten aus.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="content-section alt-bg">
+    <div class="container">
+      <div class="section-header">
+        <h2>Transparente Kosten</h2>
+        <p>Unsere Preise sind fair und transparent. Kontaktieren Sie uns für ein individuelles Angebot.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-section">
+    <div class="container">
+      <h2>Interesse geweckt?</h2>
+      <p>Kontaktieren Sie uns, um mehr über unsere Leistungen zu erfahren.</p>
+      <a href="kontakt.html" class="btn btn-primary">Kontakt aufnehmen</a>
+    </div>
+  </section>
+
+  <!-- FOOTER (PFLICHT - von unten kopieren) -->
+  <style>
+    .footer {
+      padding: 4rem 0;
+      margin-top: 6rem;
+      border-top: 1px solid rgba(0,0,0,0.05);
+    }
+    .footer .container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .footer-brand {
+      font-family: var(--font-heading);
+      font-size: 1rem;
+      font-weight: 400;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--text);
+    }
+    .footer-links {
+      display: flex;
+      gap: 3rem;
+      list-style: none;
+    }
+    .footer-links a {
+      color: var(--text);
+      opacity: 0.5;
+      font-size: 0.85rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+    .footer-links a:hover { opacity: 1; }
+    .footer-copy {
+      font-size: 0.85rem;
+      opacity: 0.4;
+    }
+    @media (max-width: 768px) {
+      .footer .container { flex-direction: column; gap: 2rem; text-align: center; }
+    }
+  </style>
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-brand">Homepage - KV Basel - Meine Berufsbildung.</div>
+      <ul class="footer-links">
+        <li><a href="impressum.html">Impressum</a></li>
+        <li><a href="kontakt.html">Kontakt</a></li>
+      </ul>
+      <span class="footer-copy">© 2026</span>
+    </div>
+  </footer>
+</body>
+</html>
