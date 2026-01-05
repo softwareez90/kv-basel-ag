@@ -6,29 +6,29 @@
   <title>Homepage - KV Basel - Meine Berufsbildung. - Über uns</title>
   <style>
     :root {
-      --primary: #6612e2;
-      --secondary: #925ae7;
-      --accent: #abe91c;
-      --background: #f7f5fa;
-      --text: #261d35;
-      --text-light: #261d35cc;
+      --primary: #d928dc;
+      --secondary: #dc73de;
+      --accent: #b1bb2a;
+      --background: #fcf8fc;
+      --text: #351d35;
+      --text-light: #351d35cc;
       --white: #ffffff;
-      --font-heading: 'Montserrat', sans-serif;
-      --font-body: 'Nunito', sans-serif;
-      --radius: 9px;
-      --section-padding: 97px;
-      --container-width: 1314px;
-      --nav-height: 86px;
-      --shadow: 0 4px 34px rgba(0, 0, 0, 0.08);
-      --shadow-lg: 0 10px calc(34px * 2) rgba(0, 0, 0, 0.12);
-      --shadow-glow: 0 0 30px #6612e240;
+      --font-heading: 'Playfair Display', sans-serif;
+      --font-body: 'Rubik', sans-serif;
+      --radius: 12px;
+      --section-padding: 113px;
+      --container-width: 1237px;
+      --nav-height: 80px;
+      --shadow: 0 4px 29px rgba(0, 0, 0, 0.08);
+      --shadow-lg: 0 10px calc(29px * 2) rgba(0, 0, 0, 0.12);
+      --shadow-glow: 0 0 30px #d928dc40;
       --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
       --glass-bg: rgba(255, 255, 255, 0.1);
       --glass-border: rgba(255, 255, 255, 0.2);
-      --btn-padding: 14px 38px;
+      --btn-padding: 17px 28px;
     }
 
-    @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800;900&family=Nunito:wght@300;400;500;600&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;800;900&family=Rubik:wght@300;400;500;600&display=swap');
 
     *, *::before, *::after {
       margin: 0;
@@ -97,98 +97,9 @@
       font-size: 1.125rem;
     }
 
-    .numbered-list {
-      display: flex;
-      flex-direction: column;
-      gap: 2rem;
-      max-width: 800px;
-      margin: 0 auto;
-    }
-
-    .numbered-item {
-      display: flex;
-      gap: 2rem;
-      align-items: flex-start;
-    }
-
-    .numbered-item .num {
-      font-size: 3rem;
-      font-weight: 800;
-      color: var(--primary);
-      opacity: 0.3;
-      font-family: var(--font-heading);
-      line-height: 1;
-      min-width: 80px;
-    }
-
-    .numbered-item > div {
-      flex: 1;
-    }
-
-    .numbered-item h3 {
-      margin-bottom: 0.5rem;
-    }
-
-    .numbered-item p {
-      color: var(--text-light);
-      line-height: 1.7;
-    }
-
-    .stats-row {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-      gap: 2rem;
-      text-align: center;
-      padding: 3rem 0;
-    }
-
-    .stat {
-      padding: 1.5rem;
-    }
-
-    .stat-num {
-      display: block;
-      font-size: 3rem;
-      font-weight: 800;
-      color: var(--primary);
-      font-family: var(--font-heading);
-      line-height: 1;
-      margin-bottom: 0.5rem;
-    }
-
-    .stat-label {
-      color: var(--text-light);
-      font-size: 1rem;
-    }
-
-    .feature-boxes {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 2rem;
-    }
-
-    .feature-box {
-      background: linear-gradient(135deg, var(--primary), var(--secondary));
-      color: white;
-      padding: 3rem;
-      border-radius: var(--radius);
-    }
-
-    .feature-box h3 {
-      color: white;
-      margin-bottom: 1rem;
-    }
-
-    .feature-box p {
-      opacity: 0.9;
-      line-height: 1.8;
-    }
-
     .nav {
       position: relative;
-      background: linear-gradient(90deg, var(--primary), var(--secondary));
-      box-shadow: var(--shadow);
-      border-bottom: 1px solid rgba(0,0,0,0.1);
+      background: transparent;
       height: var(--nav-height);
       display: flex;
       align-items: center;
@@ -201,13 +112,13 @@
       width: 100%;
       display: flex;
       align-items: center;
-      justify-content: center;
+      justify-content: space-between;
     }
     .nav-logo {
       font-family: var(--font-heading);
       font-size: 1.5rem;
       font-weight: 700;
-      color: white;
+      color: var(--text);
     }
     .nav-links {
       display: flex;
@@ -215,15 +126,15 @@
       list-style: none;
     }
     .nav-links a {
-      color: white;
+      color: var(--text-light);
       font-weight: 500;
       padding: 0.5rem 0;
       position: relative;
     }
     .nav-links a:hover { color: var(--primary); }
     .nav-cta {
-      background: white;
-      color: var(--primary);
+      background: var(--primary);
+      color: white;
       padding: var(--btn-padding);
       border-radius: var(--radius);
       font-weight: 600;
@@ -233,7 +144,7 @@
     }
 
     .footer {
-      background: var(--primary); color: white;
+      background: var(--text); color: white;
       padding: 4rem 0 2rem;
     }
     .footer-container {
@@ -260,6 +171,22 @@
     .footer-col a:hover {
       color: white;
     }
+    .footer ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+    .footer li {
+      margin-bottom: 0.75rem;
+    }
+    .footer a {
+      color: rgba(255,255,255,0.7);
+      text-decoration: none;
+      transition: var(--transition);
+    }
+    .footer a:hover {
+      color: white;
+    }
     .footer-bottom {
       margin-top: 3rem;
       padding-top: 2rem;
@@ -274,13 +201,128 @@
     @media (max-width: 480px) {
       .footer-container { grid-template-columns: 1fr; text-align: center; }
     }
+
+    .split-section {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      align-items: center;
+    }
+    .split-text h3 {
+      margin-bottom: 1rem;
+    }
+    .split-text p {
+      color: var(--text-light);
+      line-height: 1.8;
+      margin-bottom: 1rem;
+    }
+    .split-list ul {
+      list-style: none;
+      padding: 0;
+    }
+    .split-list li {
+      padding: 0.75rem 0;
+      padding-left: 2rem;
+      position: relative;
+      border-bottom: 1px solid rgba(0,0,0,0.05);
+    }
+    .split-list li::before {
+      content: '✓';
+      position: absolute;
+      left: 0;
+      color: var(--primary);
+      font-weight: bold;
+    }
+    @media (max-width: 768px) {
+      .split-section { grid-template-columns: 1fr; gap: 2rem; }
+    }
+
+    .text-block {
+      max-width: 800px;
+      margin: 0 auto;
+    }
+    .text-block h3 {
+      margin-bottom: 1.5rem;
+    }
+    .text-block p {
+      color: var(--text-light);
+      line-height: 1.9;
+      margin-bottom: 1.5rem;
+      font-size: 1.1rem;
+    }
+    .text-block p:last-child {
+      margin-bottom: 0;
+    }
+
+    .numbered-list {
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+    .numbered-item {
+      display: flex;
+      gap: 2rem;
+      align-items: flex-start;
+    }
+    .numbered-item .num {
+      font-size: 3rem;
+      font-weight: 800;
+      color: var(--primary);
+      opacity: 0.3;
+      font-family: var(--font-heading);
+      line-height: 1;
+      min-width: 80px;
+    }
+    .numbered-item > div {
+      flex: 1;
+    }
+    .numbered-item h3 {
+      margin-bottom: 0.5rem;
+    }
+    .numbered-item p {
+      color: var(--text-light);
+      line-height: 1.7;
+    }
+
+    .cta-section {
+      background: linear-gradient(135deg, var(--primary), var(--secondary));
+      color: white;
+      padding: 5rem 0;
+      text-align: center;
+    }
+
+    .cta-section h2 {
+      color: white;
+      margin-bottom: 1rem;
+    }
+
+    .cta-section p {
+      opacity: 0.9;
+      margin-bottom: 2rem;
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .cta-section .btn {
+      background: white;
+      color: var(--text);
+      border: 2px solid white;
+      font-weight: 700;
+    }
+    .cta-section .btn:hover {
+      background: transparent;
+      color: white;
+    }
   </style>
 </head>
 <body>
   <!-- NAVIGATION -->
   <nav class="nav">
     <div class="nav-container">
-      <div class="nav-logo">Homepage - KV Basel - Meine Berufsbildung.</div>
+      <a href="index.html" class="nav-logo">Homepage - KV Basel - Meine Berufsbildung.</a>
       <ul class="nav-links">
         <li><a href="index.html">Startseite</a></li>
         <li><a href="ueber-uns.html">Über uns</a></li>
@@ -292,84 +334,82 @@
   </nav>
 
   <!-- MAIN CONTENT -->
-  <section class="section">
+  <header class="section-header">
+    <h2>Über uns</h2>
+    <p>Erfahren Sie mehr über unsere Philosophie und Arbeitsweise.</p>
+  </header>
+
+  <!-- SPLIT-SECTION -->
+  <section class="section alt-bg">
     <div class="container">
       <div class="section-header">
-        <h2>Über uns</h2>
-        <p>Erfahren Sie mehr über unsere Werte und unsere Mission.</p>
+        <h2>Unsere Mission</h2>
+      </div>
+      <div class="split-section">
+        <div class="split-text">
+          <h3>Was uns antreibt</h3>
+          <p>Unsere Mission ist es, unseren Schülern eine erstklassige Ausbildung zu bieten, die sie optimal auf ihre berufliche Zukunft vorbereitet. Wir legen großen Wert auf praxisnahes Lernen und individuelle Betreuung.</p>
+        </div>
+        <div class="split-list">
+          <ul>
+            <li>Qualität</li>
+            <li>Zuverlässigkeit</li>
+            <li>Kundenservice</li>
+            <li>Innovation</li>
+          </ul>
+        </div>
       </div>
     </div>
   </section>
 
+  <!-- TEXT-BLOCK -->
   <section class="section">
     <div class="container">
+      <div class="text-block">
+        <h3>Wer wir sind</h3>
+        <p>KV Basel - Meine Berufsbildung ist eine angesehene Institution, die sich der Förderung junger Talente widmet. Wir bieten ein breites Spektrum an Ausbildungsmöglichkeiten in verschiedenen Wirtschaftsbereichen.</p>
+        <p>Unsere Werte basieren auf Integrität, Engagement und einem hohen Maß an Verantwortungsbewusstsein, um unseren Schülern die bestmögliche Unterstützung zu bieten.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- NUMBERED-LIST -->
+  <section class="section">
+    <div class="container">
+      <div class="section-header">
+        <h2>Wofür wir stehen</h2>
+      </div>
       <div class="numbered-list">
         <div class="numbered-item">
           <span class="num">01</span>
           <div>
             <h3>Qualität</h3>
-            <p>Unsere oberste Priorität ist die Qualität der Bildung, die wir unseren Schülern bieten. Wir setzen auf modernste Lehrmethoden und individuelle Förderung.</p>
+            <p>Wir setzen auf höchste Bildungsstandards, um unseren Schülern die bestmögliche Ausbildung zu garantieren. Unsere Programme sind darauf ausgelegt, sowohl theoretisches als auch praktisches Wissen zu vermitteln.</p>
           </div>
         </div>
         <div class="numbered-item">
           <span class="num">02</span>
           <div>
             <h3>Zuverlässigkeit</h3>
-            <p>Wir sind ein verlässlicher Partner in der Berufsbildung. Unsere Prozesse sind transparent und strukturiert, um beste Ergebnisse zu gewährleisten.</p>
+            <p>Unsere Schüler können sich auf uns verlassen. Wir bieten eine stabile und unterstützende Lernumgebung, die auch in herausfordernden Zeiten Bestand hat.</p>
           </div>
         </div>
         <div class="numbered-item">
           <span class="num">03</span>
           <div>
             <h3>Kundennähe</h3>
-            <p>Der persönliche Kontakt zu unseren Schülern und deren Eltern ist uns wichtig. Wir stehen jederzeit für Fragen und Anliegen zur Verfügung.</p>
+            <p>Wir legen großen Wert auf eine enge Zusammenarbeit mit unseren Schülern und ihren Eltern, um individuelle Bildungswege zu fördern und bestmögliche Lernergebnisse zu erzielen.</p>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <section class="section alt-bg">
-    <div class="container">
-      <div class="section-header">
-        <h2>Zahlen & Fakten</h2>
-      </div>
-      <div class="stats-row">
-        <div class="stat">
-          <span class="stat-num">100+</span>
-          <span class="stat-label">Zufriedene Kunden</span>
-        </div>
-        <div class="stat">
-          <span class="stat-num">10+</span>
-          <span class="stat-label">Jahre Erfahrung</span>
-        </div>
-        <div class="stat">
-          <span class="stat-num">500+</span>
-          <span class="stat-label">Projekte</span>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section class="section">
-    <div class="container">
-      <div class="feature-boxes">
-        <div class="feature-box">
-          <h3>Unsere Vision</h3>
-          <p>Wir streben danach, die führende Institution für Berufsbildung in der Region zu sein, indem wir innovative und praxisnahe Bildungsangebote schaffen.</p>
-        </div>
-        <div class="feature-box">
-          <h3>Unser Versprechen</h3>
-          <p>Wir garantieren eine qualitativ hochwertige Ausbildung, die den Anforderungen der modernen Arbeitswelt gerecht wird und unsere Schüler optimal vorbereitet.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
+  <!-- CTA SECTION -->
   <section class="cta-section">
     <div class="container">
       <h2>Kontaktieren Sie uns</h2>
-      <p>Fragen? Unser Team steht Ihnen jederzeit zur Verfügung.</p>
+      <p>Erfahren Sie mehr über unsere Ausbildungsmöglichkeiten und wie wir Sie unterstützen können.</p>
       <a href="kontakt.html" class="btn btn-primary">Jetzt Kontakt aufnehmen</a>
     </div>
   </section>
@@ -377,23 +417,15 @@
   <!-- FOOTER -->
   <footer class="footer">
     <div class="footer-container">
-      <div class="footer-col">
-        <h4>Navigation</h4>
-        <ul>
-          <li><a href="index.html">Startseite</a></li>
-          <li><a href="ueber-uns.html">Über uns</a></li>
-          <li><a href="leistungen.html">Leistungen</a></li>
-          <li><a href="kontakt.html">Kontakt</a></li>
-          <li><a href="impressum.html">Impressum</a></li>
-        </ul>
-      </div>
-      <div class="footer-col">
-        <h4>Kontakt</h4>
-        <p>Email: <a href="mailto:termin@kvbaselag.info">termin@kvbaselag.info</a></p>
-      </div>
-      <div class="footer-bottom">
-        &copy; 2023 Homepage - KV Basel - Meine Berufsbildung. Alle Rechte vorbehalten.
-      </div>
+      <ul class="footer-nav">
+        <li><a href="index.html">Startseite</a></li>
+        <li><a href="ueber-uns.html">Über uns</a></li>
+        <li><a href="leistungen.html">Leistungen</a></li>
+        <li><a href="kontakt.html">Kontakt</a></li>
+        <li><a href="impressum.html">Impressum</a></li>
+      </ul>
+      <p>&copy; 2023 Homepage - KV Basel - Meine Berufsbildung. Alle Rechte vorbehalten.</p>
+      <p><a href="mailto:termin@kvbaselag.info">termin@kvbaselag.info</a></p>
     </div>
   </footer>
 </body>

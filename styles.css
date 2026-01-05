@@ -1,6 +1,6 @@
 /* Design System - Auto-Generated */
 
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800;900&family=Nunito:wght@300;400;500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;800;900&family=Rubik:wght@300;400;500;600&display=swap');
 
 *, *::before, *::after {
   margin: 0;
@@ -406,8 +406,17 @@ img {
   border-radius: var(--radius);
   cursor: pointer;
   transition: var(--transition);
-  border: none;
+  border: 2px solid transparent;
   font-size: 1rem;
+  text-decoration: none;
+  background: var(--primary);
+  color: white;
+}
+
+.btn:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-lg);
+  opacity: 0.9;
 }
 
 .btn-primary {
@@ -459,7 +468,7 @@ img {
 .form-group select:focus {
   outline: none;
   border-color: var(--primary);
-  box-shadow: 0 0 0 3px #6612e220;
+  box-shadow: 0 0 0 3px #d928dc20;
 }
 
 .form-group textarea {
@@ -490,7 +499,35 @@ img {
 
 .cta-section .btn {
   background: white;
-  color: var(--primary);
+  color: var(--text);
+  border: 2px solid white;
+  font-weight: 700;
+}
+.cta-section .btn:hover {
+  background: transparent;
+  color: white;
+}
+
+/* Footer Navigation - immer horizontal */
+.footer-nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem 2.5rem;
+  justify-content: center;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.footer-nav li {
+  margin: 0;
+}
+.footer-nav a {
+  color: rgba(255,255,255,0.8);
+  text-decoration: none;
+  transition: var(--transition);
+}
+.footer-nav a:hover {
+  color: white;
 }
 
 /* Responsive */
@@ -501,26 +538,26 @@ img {
 
 
 :root {
-  --primary: #6612e2;
-  --secondary: #925ae7;
-  --accent: #abe91c;
-  --background: #f7f5fa;
-  --text: #261d35;
-  --text-light: #261d35cc;
+  --primary: #d928dc;
+  --secondary: #dc73de;
+  --accent: #b1bb2a;
+  --background: #fcf8fc;
+  --text: #351d35;
+  --text-light: #351d35cc;
   --white: #ffffff;
-  --font-heading: 'Montserrat', sans-serif;
-  --font-body: 'Nunito', sans-serif;
-  --radius: 9px;
-  --section-padding: 97px;
-  --container-width: 1314px;
-  --nav-height: 86px;
-  --shadow: 0 4px 34px rgba(0, 0, 0, 0.08);
-  --shadow-lg: 0 10px calc(34px * 2) rgba(0, 0, 0, 0.12);
-  --shadow-glow: 0 0 30px #6612e240;
+  --font-heading: 'Playfair Display', sans-serif;
+  --font-body: 'Rubik', sans-serif;
+  --radius: 12px;
+  --section-padding: 113px;
+  --container-width: 1237px;
+  --nav-height: 80px;
+  --shadow: 0 4px 29px rgba(0, 0, 0, 0.08);
+  --shadow-lg: 0 10px calc(29px * 2) rgba(0, 0, 0, 0.12);
+  --shadow-glow: 0 0 30px #d928dc40;
   --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   --glass-bg: rgba(255, 255, 255, 0.1);
   --glass-border: rgba(255, 255, 255, 0.2);
-  --btn-padding: 14px 38px;
+  --btn-padding: 17px 28px;
 }
 
 @keyframes fadeIn {
@@ -565,9 +602,9 @@ img {
 
 .nav {
   position: relative;
-  background: linear-gradient(90deg, var(--primary), var(--secondary));
-  box-shadow: var(--shadow);
-  border-bottom: 1px solid rgba(0,0,0,0.1);
+  background: transparent;
+  
+  
   height: var(--nav-height);
   display: flex;
   align-items: center;
@@ -580,13 +617,13 @@ img {
   width: 100%;
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: space-between;
 }
 .nav-logo {
   font-family: var(--font-heading);
   font-size: 1.5rem;
   font-weight: 700;
-  color: white;
+  color: var(--text);
 }
 .nav-links {
   display: flex;
@@ -594,15 +631,15 @@ img {
   list-style: none;
 }
 .nav-links a {
-  color: white;
+  color: var(--text-light);
   font-weight: 500;
   padding: 0.5rem 0;
   position: relative;
 }
 .nav-links a:hover { color: var(--primary); }
 .nav-cta {
-  background: white;
-  color: var(--primary);
+  background: var(--primary);
+  color: white;
   padding: var(--btn-padding);
   border-radius: var(--radius);
   font-weight: 600;
@@ -625,7 +662,7 @@ img {
   display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center;
 }
 .hero-content {
-  
+  text-align: center;
 }
 .hero-content h1 {
   margin-bottom: 1.5rem;
@@ -637,12 +674,12 @@ img {
   margin-bottom: 2rem;
   max-width: 600px;
   line-height: 1.8;
-  
+  margin-left: auto; margin-right: auto;
 }
 .hero-buttons {
   display: flex;
   gap: 1rem;
-  
+  justify-content: center;
   flex-wrap: wrap;
 }
 .hero-visual {
@@ -668,7 +705,7 @@ img {
 }
 
 .footer {
-  background: var(--primary); color: white;
+  background: var(--text); color: white;
   padding: 4rem 0 2rem;
   
 }
@@ -696,6 +733,23 @@ img {
 .footer-col a:hover {
   color: white;
 }
+/* Footer Links auch ohne .footer-col */
+.footer ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.footer li {
+  margin-bottom: 0.75rem;
+}
+.footer a {
+  color: rgba(255,255,255,0.7);
+  text-decoration: none;
+  transition: var(--transition);
+}
+.footer a:hover {
+  color: white;
+}
 .footer-bottom {
   margin-top: 3rem;
   padding-top: 2rem;
@@ -713,7 +767,7 @@ img {
 
 
 .card {
-  background: white; box-shadow: var(--shadow-lg);
+  background: white; border: 2px solid transparent; background-clip: padding-box; position: relative;
   padding: 2.5rem;
   border-radius: var(--radius);
   transition: var(--transition);
