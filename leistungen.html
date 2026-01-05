@@ -1,22 +1,20 @@
 <!DOCTYPE html>
 <html lang="de">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Leistungen & Bildungsangebot | KV Basel</title>
-    <meta name="description" content="Entdecken Sie das Bildungsangebot des KV Basel: Kaufmännische Grundbildung (EFZ/EBA), Berufsmaturität und Weiterbildungen. Ihre Karriere startet hier.">
-    
-    <style>
-        /* --- RESET & VARIABLES --- */
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Leistungen - Homepage - KV Basel - Meine Berufsbildung.</title>
+  <link rel="stylesheet" href="styles.css">
+  <style>
         :root {
-            --primary-color: #004e92; /* Professional Blue */
-            --secondary-color: #e10032; /* Accent Red (Basel style) */
-            --text-dark: #1a1a1a;
-            --text-light: #555555;
-            --bg-light: #f8f9fa;
+            --primary: #2563eb;
+            --primary-dark: #1e40af;
+            --secondary: #0f172a;
+            --text-main: #334155;
+            --text-light: #94a3b8;
+            --bg-light: #f8fafc;
             --white: #ffffff;
-            --border-radius: 8px;
-            --shadow: 0 5px 15px rgba(0,0,0,0.08);
+            --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
             --transition: all 0.3s ease;
         }
 
@@ -27,539 +25,513 @@
         }
 
         body {
-            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
             line-height: 1.6;
-            color: var(--text-dark);
-            background-color: var(--white);
+            color: var(--text-main);
+            background-color: var(--bg-light);
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
         }
 
-        a {
-            text-decoration: none;
-            color: inherit;
-        }
-
-        ul {
-            list-style: none;
-        }
-
-        /* --- TYPOGRAPHY --- */
-        h1, h2, h3, h4 {
-            font-weight: 700;
-            line-height: 1.2;
-            margin-bottom: 1rem;
-        }
-
-        h1 { font-size: 2.5rem; }
-        h2 { font-size: 2rem; color: var(--primary-color); }
-        h3 { font-size: 1.5rem; }
-
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-
-        /* --- NAVIGATION STYLES (Required for provided HTML) --- */
+        /* --- NAVIGATION --- */
         .nav {
-            background: var(--white);
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            background-color: var(--white);
+            box-shadow: var(--shadow);
             position: sticky;
             top: 0;
             z-index: 1000;
-            height: 80px;
-            display: flex;
-            align-items: center;
+            padding: 0 1.5rem;
         }
 
         .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            width: 100%;
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
+            height: 80px;
         }
 
+        /* Logo */
         .nav-logo {
-            font-size: 1.5rem;
-            font-weight: 800;
-            color: var(--text-dark);
+            text-decoration: none;
             display: flex;
             flex-direction: column;
-            line-height: 1;
+            line-height: 1.2;
         }
 
-        .nav-logo span { color: var(--secondary-color); }
-        .nav-logo small { font-size: 0.8rem; font-weight: 400; color: var(--text-light); margin-top: 2px; }
+        .nav-logo-main {
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: var(--secondary);
+            letter-spacing: -0.5px;
+        }
 
+        .nav-logo-sub {
+            font-size: 0.85rem;
+            font-weight: 500;
+            color: var(--primary);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* Menu Links */
         .nav-menu {
             display: flex;
-            gap: 30px;
+            gap: 2rem;
+            list-style: none;
             align-items: center;
         }
 
         .nav-link {
+            text-decoration: none;
+            color: var(--text-main);
             font-weight: 500;
-            color: var(--text-dark);
+            font-size: 1rem;
             transition: var(--transition);
             position: relative;
         }
 
-        .nav-link:hover { color: var(--primary-color); }
-        
-        .nav-cta {
-            background-color: var(--primary-color);
-            color: var(--white) !important;
-            padding: 10px 20px;
-            border-radius: 50px;
+        .nav-link:not(.nav-cta)::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -4px;
+            left: 0;
+            background-color: var(--primary);
             transition: var(--transition);
         }
 
-        .nav-cta:hover { background-color: #003366; transform: translateY(-2px); }
+        .nav-link:not(.nav-cta):hover::after {
+            width: 100%;
+        }
 
-        /* Mobile Nav Toggle */
-        .nav-toggle { display: none; }
-        .nav-toggle-label { display: none; cursor: pointer; }
+        .nav-link:hover {
+            color: var(--primary);
+        }
 
+        /* CTA Button */
+        .nav-cta {
+            background-color: var(--primary);
+            color: var(--white) !important;
+            padding: 0.75rem 1.5rem;
+            border-radius: 6px;
+            font-weight: 600;
+            box-shadow: 0 2px 4px rgba(37, 99, 235, 0.3);
+        }
+
+        .nav-cta:hover {
+            background-color: var(--primary-dark);
+            transform: translateY(-1px);
+            box-shadow: 0 4px 6px rgba(37, 99, 235, 0.4);
+        }
+
+        /* Mobile Menu Toggle */
+        .nav-toggle {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+            gap: 6px;
+        }
+
+        .hamburger-line {
+            width: 25px;
+            height: 2px;
+            background-color: var(--secondary);
+            transition: var(--transition);
+        }
+
+        #nav-check {
+            display: none;
+        }
+
+        /* Responsive Nav */
         @media (max-width: 768px) {
+            .nav-toggle {
+                display: flex;
+            }
+
             .nav-menu {
                 position: absolute;
                 top: 80px;
                 left: 0;
                 width: 100%;
-                background: var(--white);
+                background-color: var(--white);
                 flex-direction: column;
-                padding: 20px;
-                border-top: 1px solid #eee;
-                display: none;
+                padding: 2rem;
+                gap: 1.5rem;
+                border-top: 1px solid #e2e8f0;
+                transform: translateY(-150%);
+                transition: transform 0.4s ease-in-out;
+                box-shadow: var(--shadow);
+                z-index: 999;
             }
 
-            .nav-toggle:checked ~ .nav-menu { display: flex; }
-            
-            .nav-toggle-label {
-                display: block;
-                width: 30px;
-                height: 20px;
-                position: relative;
+            #nav-check:checked ~ .nav-menu {
+                transform: translateY(0);
             }
 
-            .nav-toggle-label span {
-                display: block;
+            /* Hamburger Animation */
+            #nav-check:checked ~ .nav-container .nav-toggle .hamburger-line:nth-child(1) {
+                transform: rotate(45deg) translate(5px, 6px);
+            }
+            #nav-check:checked ~ .nav-container .nav-toggle .hamburger-line:nth-child(2) {
+                opacity: 0;
+            }
+            #nav-check:checked ~ .nav-container .nav-toggle .hamburger-line:nth-child(3) {
+                transform: rotate(-45deg) translate(5px, -6px);
+            }
+
+            .nav-cta {
                 width: 100%;
-                height: 3px;
-                background: var(--text-dark);
-                margin-bottom: 5px;
-                border-radius: 2px;
+                text-align: center;
             }
         }
 
-        /* --- HERO SECTION --- */
-        .page-header {
-            background: linear-gradient(135deg, rgba(0,78,146,0.9), rgba(0,30,60,0.9)), url('https://images.unsplash.com/photo-1523050854058-8df90110c9f1?auto=format&fit=crop&q=80');
-            background-size: cover;
-            background-position: center;
-            color: var(--white);
-            padding: 100px 0 60px;
-            text-align: center;
-        }
-
-        .page-header p {
-            font-size: 1.2rem;
-            max-width: 700px;
-            margin: 0 auto;
-            opacity: 0.9;
-        }
-
-        /* --- BREADCRUMBS (Styled from Content) --- */
-        .breadcrumbs {
-            background: #f0f0f0;
-            padding: 10px 0;
-            font-size: 0.9rem;
-            color: var(--text-light);
-        }
-        .breadcrumbs a { color: var(--primary-color); }
-
-        /* --- SERVICES GRID --- */
-        .services-section {
-            padding: 80px 0;
-            background-color: var(--white);
-        }
-
-        .intro-text {
+        /* Placeholder Content Area */
+        .content-spacer {
+            flex: 1;
+            padding: 4rem 1.5rem;
             text-align: center;
             max-width: 800px;
-            margin: 0 auto 60px;
-        }
-
-        .grid-container {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-        }
-
-        .service-card {
-            background: var(--white);
-            border: 1px solid #eee;
-            border-radius: var(--border-radius);
-            padding: 40px 30px;
-            transition: var(--transition);
-            position: relative;
-            overflow: hidden;
-            box-shadow: var(--shadow);
-            display: flex;
-            flex-direction: column;
-        }
-
-        .service-card:hover {
-            transform: translateY(-10px);
-            border-color: var(--primary-color);
-        }
-
-        .service-icon {
-            font-size: 3rem;
-            margin-bottom: 20px;
-            color: var(--secondary-color);
-        }
-
-        .service-card h3 {
-            margin-bottom: 15px;
-            color: var(--primary-color);
-        }
-
-        .service-card p {
-            color: var(--text-light);
-            margin-bottom: 20px;
-            flex-grow: 1;
-        }
-
-        .service-link {
-            font-weight: 600;
-            color: var(--primary-color);
-            display: inline-flex;
-            align-items: center;
-        }
-
-        .service-link::after {
-            content: '→';
-            margin-left: 5px;
-            transition: margin 0.3s;
-        }
-
-        .service-card:hover .service-link::after { margin-left: 10px; }
-
-        /* --- PROFILES SECTION --- */
-        .profiles-section {
-            padding: 80px 0;
-            background-color: var(--bg-light);
-        }
-
-        .profiles-wrapper {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 50px;
-            align-items: center;
-        }
-
-        .profiles-content { flex: 1; min-width: 300px; }
-        .profiles-image { 
-            flex: 1; 
-            min-width: 300px; 
-            height: 400px;
-            background: url('https://images.unsplash.com/photo-1577896337318-2869d389d85c?auto=format&fit=crop&q=80') center/cover;
-            border-radius: var(--border-radius);
-            box-shadow: var(--shadow);
-        }
-
-        .profile-item {
-            margin-bottom: 30px;
-            padding-left: 20px;
-            border-left: 4px solid var(--secondary-color);
-        }
-
-        .profile-item h4 { color: var(--text-dark); margin-bottom: 5px; font-size: 1.2rem; }
-
-        /* --- ADMIN/SECRETARIAT SECTION --- */
-        .admin-section {
-            padding: 80px 0;
-            text-align: center;
-        }
-
-        .admin-box {
-            background: var(--primary-color);
-            color: var(--white);
-            padding: 50px;
-            border-radius: var(--border-radius);
-            max-width: 900px;
             margin: 0 auto;
-            position: relative;
-            overflow: hidden;
         }
 
-        .admin-box h2 { color: var(--white); }
-        
-        .btn-white {
-            display: inline-block;
-            background: var(--white);
-            color: var(--primary-color);
-            padding: 12px 30px;
-            border-radius: 50px;
-            font-weight: 600;
-            margin-top: 20px;
-            transition: var(--transition);
-        }
-
-        .btn-white:hover {
-            background: #f0f0f0;
-            transform: scale(1.05);
-        }
-
-        /* --- FOOTER STYLES (Required for provided HTML) --- */
+        /* --- FOOTER --- */
         .footer {
-            background-color: #111;
-            color: #ccc;
-            padding: 60px 0 0;
-            font-size: 0.95rem;
+            background-color: var(--secondary);
+            color: var(--white);
+            padding: 4rem 1.5rem 1.5rem;
+            margin-top: auto;
         }
 
         .footer-container {
             max-width: 1200px;
             margin: 0 auto;
-            padding: 0 20px;
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 40px;
-            margin-bottom: 40px;
+            gap: 3rem;
+            margin-bottom: 3rem;
         }
 
-        .footer h3 {
+        .footer-brand h2 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            letter-spacing: -0.5px;
+        }
+
+        .footer-brand p {
+            color: var(--text-light);
+            margin-bottom: 1.5rem;
+            font-size: 0.95rem;
+        }
+
+        .footer-heading {
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
             color: var(--white);
-            margin-bottom: 20px;
-            font-size: 1.2rem;
-            border-bottom: 2px solid var(--secondary-color);
-            display: inline-block;
-            padding-bottom: 5px;
+            position: relative;
+            padding-bottom: 0.5rem;
         }
 
-        .footer-text { line-height: 1.8; }
+        .footer-heading::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 40px;
+            height: 3px;
+            background-color: var(--primary);
+            border-radius: 2px;
+        }
 
-        .footer-links li { margin-bottom: 10px; }
-        .footer-links a { transition: color 0.3s; }
-        .footer-links a:hover { color: var(--secondary-color); text-decoration: none; }
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 0.8rem;
+        }
+
+        .footer-links a {
+            color: var(--text-light);
+            text-decoration: none;
+            transition: var(--transition);
+            font-size: 0.95rem;
+            display: inline-flex;
+            align-items: center;
+        }
+
+        .footer-links a:hover {
+            color: var(--primary);
+            padding-left: 5px;
+        }
 
         .footer-contact-item {
             display: flex;
-            gap: 15px;
-            margin-bottom: 15px;
             align-items: flex-start;
+            gap: 10px;
+            margin-bottom: 1rem;
+            color: var(--text-light);
+            font-size: 0.95rem;
         }
 
-        .footer-contact-icon { font-size: 1.2rem; }
+        .footer-contact-item strong {
+            color: var(--white);
+            min-width: 60px;
+        }
 
         .footer-bottom {
-            background-color: #000;
-            padding: 20px;
-            text-align: center;
-            border-top: 1px solid #222;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding-top: 1.5rem;
             display: flex;
             justify-content: space-between;
+            align-items: center;
             flex-wrap: wrap;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .footer-bottom-links a {
-            margin-left: 20px;
+            gap: 1rem;
             font-size: 0.85rem;
-            color: #888;
+            color: var(--text-light);
         }
-        
-        .footer-bottom-links a:hover { color: var(--white); }
 
-        @media (max-width: 768px) {
-            .footer-bottom { flex-direction: column; gap: 15px; }
-            .footer-bottom-links a { margin: 0 10px; }
+        .footer-legal a {
+            color: var(--text-light);
+            text-decoration: none;
+            margin-left: 1.5rem;
+            transition: var(--transition);
+        }
+
+        .footer-legal a:hover {
+            color: var(--white);
+            text-decoration: underline;
+        }
+
+        @media (max-width: 600px) {
+            .footer-bottom {
+                flex-direction: column;
+                text-align: center;
+            }
+            .footer-legal a {
+                margin: 0 0.75rem;
+            }
         }
     </style>
-  <link rel="stylesheet" href="styles.css">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: 'Inter', system-ui, sans-serif; line-height: 1.6; color: #1f2937; }
+    .container { max-width: 1200px; margin: 0 auto; padding: 0 1.5rem; }
+    .section { padding: 4rem 0; }
+    .btn { display: inline-block; padding: 0.75rem 1.5rem; border-radius: 8px; text-decoration: none; font-weight: 600; transition: all 0.2s; }
+    .btn-primary { background: var(--primary, #2563eb); color: white; }
+    .btn-primary:hover { opacity: 0.9; transform: translateY(-2px); }
+  </style>
 </head>
 <body>
-
-    <!-- NAVIGATION (EXAKT KOPIERT) -->
-    <nav class="nav">
+  <nav class="nav">
         <div class="nav-container">
             <!-- Logo -->
             <a href="index.html" class="nav-logo">
-                KV<span>Basel</span> <small>Meine Berufsbildung</small>
+                <span class="nav-logo-main">KV Basel</span>
+                <span class="nav-logo-sub">Meine Berufsbildung</span>
             </a>
 
-            <!-- Mobile Toggle -->
-            <input type="checkbox" id="nav-toggle" class="nav-toggle">
-            <label for="nav-toggle" class="nav-toggle-label">
-                <span></span>
-                <span></span>
-                <span></span>
-            </label>
+            <!-- Mobile Checkbox Hack -->
+            <input type="checkbox" id="nav-check">
 
-            <!-- Menu Links -->
+            <!-- Links -->
             <ul class="nav-menu">
                 <li><a href="index.html" class="nav-link">Startseite</a></li>
                 <li><a href="ueber-uns.html" class="nav-link">Über uns</a></li>
                 <li><a href="leistungen.html" class="nav-link">Leistungen</a></li>
-                <li><a href="kontakt.html" class="nav-link">Kontakt</a></li>
+                <!-- Impressum in Nav as requested, though usually footer -->
                 <li><a href="impressum.html" class="nav-link">Impressum</a></li>
-                <li><a href="kontakt.html" class="nav-link nav-cta">Jetzt bewerben</a></li>
+                <li><a href="kontakt.html" class="nav-link nav-cta">Kontakt</a></li>
             </ul>
+
+            <!-- Mobile Hamburger Icon -->
+            <label for="nav-check" class="nav-toggle">
+                <span class="hamburger-line"></span>
+                <span class="hamburger-line"></span>
+                <span class="hamburger-line"></span>
+            </label>
         </div>
     </nav>
+  
+  <main>
+    <div class="hero" style="background: linear-gradient(135deg, #d32f2f 0%, #b71c1c 100%); color: white; padding: 100px 0; text-align: center;">
+    <div class="container" style="max-width: 1200px; margin: 0 auto; padding: 0 20px;">
+        <h1 style="font-size: 3rem; margin-bottom: 20px; font-weight: 700;">Bildung ist unsere Kompetenz</h1>
+        <p style="font-size: 1.25rem; opacity: 0.9; max-width: 800px; margin: 0 auto;">Willkommen am KV Basel. Wir begleiten Sie auf Ihrem Weg zum erfolgreichen Berufsabschluss und öffnen Türen für Ihre kaufmännische Zukunft.</p>
+    </div>
+</div>
 
-    <!-- MAIN CONTENT -->
-    <main>
-        <!-- Breadcrumbs based on input -->
-        <div class="breadcrumbs">
-            <div class="container">
-                HOME / LEISTUNGEN
-            </div>
+<section class="section" style="padding: 80px 0; background-color: #f8f9fa;">
+    <div class="container" style="max-width: 1200px; margin: 0 auto; padding: 0 20px;">
+        <div style="text-align: center; margin-bottom: 60px;">
+            <h2 style="color: #333; font-size: 2.2rem; margin-bottom: 15px;">Unser Ausbildungsangebot</h2>
+            <p style="color: #666; font-size: 1.1rem;">Massgeschneiderte Bildungswege für Lernende und Berufstätige in der Region Basel.</p>
         </div>
 
-        <!-- Hero Section -->
-        <section class="page-header">
-            <div class="container">
-                <h1>Unser Bildungsangebot</h1>
-                <p>Kompetenz, Praxisnähe und Zukunftsorientierung. Das KV Basel begleitet Sie von der Grundbildung bis zur höheren Fachprüfung.</p>
-            </div>
-        </section>
-
-        <!-- Intro -->
-        <section class="services-section">
-            <div class="container">
-                <div class="intro-text">
-                    <h2>Vielfältige Wege zum Erfolg</h2>
-                    <p>Als führendes Kompetenzzentrum für kaufmännische Bildung in der Region Basel bieten wir massgeschneiderte Ausbildungswege an. Egal ob Sie am Anfang Ihrer Karriere stehen oder sich beruflich weiterentwickeln möchten – wir haben das passende Angebot.</p>
-                </div>
-
-                <!-- Services Grid -->
-                <div class="grid-container">
-                    <!-- Service 1 -->
-                    <article class="service-card">
-                        <div class="service-icon">🎓</div>
-                        <h3>Kaufmännische Grundbildung</h3>
-                        <p>Der klassische Einstieg in die Wirtschaftswelt. Wir bieten die Ausbildung zur Kauffrau / zum Kaufmann EFZ (Eidgenössisches Fähigkeitszeugnis) sowie die zweijährige Grundbildung EBA (Eidgenössisches Berufsattest) an.</p>
-                        <a href="#grundbildung" class="service-link">Mehr erfahren</a>
-                    </article>
-
-                    <!-- Service 2 -->
-                    <article class="service-card">
-                        <div class="service-icon">📈</div>
-                        <h3>Berufsmaturität (BM)</h3>
-                        <p>Ergänzen Sie Ihre Lehre mit der Berufsmaturität. Wir bieten sowohl die BM 1 (lehrbegleitend) als auch die BM 2 (nach der Lehre) für verschiedene Ausrichtungen an. Ihr Ticket zur Fachhochschule.</p>
-                        <a href="#bm" class="service-link">Zu den Modellen</a>
-                    </article>
-
-                    <!-- Service 3 -->
-                    <article class="service-card">
-                        <div class="service-icon">📚</div>
-                        <h3>Nachholbildung & Kurse</h3>
-                        <p>Für Erwachsene, die den Berufsabschluss nachholen möchten (Art. 32 BBV) oder spezifische Kompetenzen in IT, Sprachen und Rechnungswesen stärken wollen.</p>
-                        <a href="#kurse" class="service-link">Kursangebot</a>
-                    </article>
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px;">
+            <!-- Service Card 1 -->
+            <div class="card" style="background: white; border-radius: 8px; overflow: hidden; box-shadow: 0 4px 15px rgba(0,0,0,0.05); transition: transform 0.3s ease;">
+                <div style="padding: 30px;">
+                    <h3 style="color: #d32f2f; margin-bottom: 15px; font-size: 1.5rem;">Kaufmännische Grundbildung</h3>
+                    <p style="color: #555; line-height: 1.6; margin-bottom: 20px;">
+                        Der klassische Einstieg in die Wirtschaftswelt. Wir bieten die Ausbildung zur Kauffrau / zum Kaufmann EFZ in den verschiedenen Profilen an. Ob B-Profil (Basis-Grundbildung) oder E-Profil (Erweiterte Grundbildung) – wir vermitteln das nötige Rüstzeug für den modernen Berufsalltag.
+                    </p>
+                    <ul style="padding-left: 20px; margin-bottom: 25px; color: #555;">
+                        <li style="margin-bottom: 8px;">Eidgenössisches Fähigkeitszeugnis (EFZ)</li>
+                        <li style="margin-bottom: 8px;">Basis- und Erweiterte Grundbildung</li>
+                        <li style="margin-bottom: 8px;">Digitale Kompetenzen & Sprachen</li>
+                    </ul>
+                    <a href="#" class="btn" style="display: inline-block; padding: 10px 25px; background-color: #333; color: white; text-decoration: none; border-radius: 4px; font-weight: 600;">Mehr erfahren</a>
                 </div>
             </div>
-        </section>
 
-        <!-- Detailed Profiles Section -->
-        <section class="profiles-section" id="grundbildung">
-            <div class="container">
-                <div class="profiles-wrapper">
-                    <div class="profiles-image"></div>
-                    <div class="profiles-content">
-                        <h2>Die Profile der Grundbildung</h2>
-                        <p style="margin-bottom: 30px;">Je nach schulischen Voraussetzungen und Interessen bieten wir im Rahmen der KV-Lehre verschiedene Profile an:</p>
-                        
-                        <div class="profile-item">
-                            <h4>B-Profil (Basis-Grundbildung)</h4>
-                            <p>Fokus auf Information, Kommunikation und Administration. Ideal für praktisch begabte Lernende mit Stärken in der Kommunikation.</p>
-                        </div>
-
-                        <div class="profile-item">
-                            <h4>E-Profil (Erweiterte Grundbildung)</h4>
-                            <p>Vertiefte theoretische Kenntnisse in Wirtschaft und Gesellschaft sowie zwei Fremdsprachen. Für Lernende mit guten schulischen Leistungen.</p>
-                        </div>
-
-                        <div class="profile-item">
-                            <h4>M-Profil (Mit Berufsmaturität)</h4>
-                            <p>Kombiniert die Lehre mit der Berufsmaturität. Anspruchsvollste Variante, die den prüfungsfreien Zugang zu Fachhochschulen ermöglicht.</p>
-                        </div>
-                    </div>
+            <!-- Service Card 2 -->
+            <div class="card" style="background: white; border-radius: 8px; overflow: hidden; box-shadow: 0 4px 15px rgba(0,0,0,0.05); transition: transform 0.3s ease;">
+                <div style="padding: 30px;">
+                    <h3 style="color: #d32f2f; margin-bottom: 15px; font-size: 1.5rem;">Berufsmaturität (BM)</h3>
+                    <p style="color: #555; line-height: 1.6; margin-bottom: 20px;">
+                        Verbinden Sie Praxis mit Theorie auf höchstem Niveau. Die Berufsmaturität ermöglicht Ihnen den prüfungsfreien Zugang zu Fachhochschulen. Wir bieten sowohl die BM 1 (lehrbegleitend) als auch die BM 2 (nach der Lehre) für qualifizierte Berufsleute an.
+                    </p>
+                    <ul style="padding-left: 20px; margin-bottom: 25px; color: #555;">
+                        <li style="margin-bottom: 8px;">BM 1: Integriert in die Lehre (M-Profil)</li>
+                        <li style="margin-bottom: 8px;">BM 2: Vollzeit oder Berufsbegleitend</li>
+                        <li style="margin-bottom: 8px;">Zugang zu Fachhochschulen</li>
+                    </ul>
+                    <a href="#" class="btn" style="display: inline-block; padding: 10px 25px; background-color: #333; color: white; text-decoration: none; border-radius: 4px; font-weight: 600;">Zu den Modellen</a>
                 </div>
             </div>
-        </section>
 
-        <!-- Secretariat / Support Section (Based on Input) -->
-        <section class="admin-section">
-            <div class="container">
-                <div class="admin-box">
-                    <h2>Berufsschulsekretariat & Services</h2>
-                    <p style="margin: 20px 0;">Unser Sekretariat unterstützt Lernende und Lehrbetriebe bei allen administrativen Fragen rund um die Ausbildung, Prüfungsanmeldungen und Zeugnisse. Wir sind für Sie da.</p>
-                    <p><strong>Öffnungszeiten:</strong> Mo-Fr: 08:00 - 12:00 Uhr & 13:30 - 16:30 Uhr</p>
-                    <a href="kontakt.html" class="btn-white">Kontakt aufnehmen</a>
+            <!-- Service Card 3 -->
+            <div class="card" style="background: white; border-radius: 8px; overflow: hidden; box-shadow: 0 4px 15px rgba(0,0,0,0.05); transition: transform 0.3s ease;">
+                <div style="padding: 30px;">
+                    <h3 style="color: #d32f2f; margin-bottom: 15px; font-size: 1.5rem;">Detailhandel & EBA</h3>
+                    <p style="color: #555; line-height: 1.6; margin-bottom: 20px;">
+                        Für praxisorientierte Talente bieten wir die zweijährige Ausbildung zum Büroassistenten / zur Büroassistentin EBA sowie Ausbildungen im Detailhandel an. Der Fokus liegt auf der direkten Anwendbarkeit im Betrieb und einer soliden schulischen Basis.
+                    </p>
+                    <ul style="padding-left: 20px; margin-bottom: 25px; color: #555;">
+                        <li style="margin-bottom: 8px;">Eidgenössisches Berufsattest (EBA)</li>
+                        <li style="margin-bottom: 8px;">Individuelle Lernförderung</li>
+                        <li style="margin-bottom: 8px;">Anschlussmöglichkeiten ans EFZ</li>
+                    </ul>
+                    <a href="#" class="btn" style="display: inline-block; padding: 10px 25px; background-color: #333; color: white; text-decoration: none; border-radius: 4px; font-weight: 600;">Details ansehen</a>
                 </div>
             </div>
-        </section>
-    </main>
+        </div>
+    </div>
+</section>
 
-    <!-- FOOTER (EXAKT KOPIERT) -->
-    <footer class="footer">
+<section class="section" style="padding: 80px 0; background-color: white;">
+    <div class="container" style="max-width: 1200px; margin: 0 auto; padding: 0 20px; display: flex; flex-wrap: wrap; align-items: center; gap: 50px;">
+        <div style="flex: 1; min-width: 300px;">
+            <h2 style="color: #333; font-size: 2.2rem; margin-bottom: 20px;">Berufsschulsekretariat & Services</h2>
+            <p style="color: #555; line-height: 1.6; margin-bottom: 20px;">
+                Unser Sekretariat ist die zentrale Drehscheibe für alle administrativen Belange Ihrer Ausbildung am KV Basel. Wir unterstützen Lernende, Lehrbetriebe und Eltern bei Fragen zur Schulanmeldung, Stundenplänen, Zeugnissen und Absenzenwesen.
+            </p>
+            <p style="color: #555; line-height: 1.6; margin-bottom: 30px;">
+                Zusätzlich bieten wir Beratungsdienstleistungen an, um Sie bei schulischen Herausforderungen oder Laufbahnfragen optimal zu unterstützen. Nutzen Sie unsere Ressourcen für Ihren Erfolg.
+            </p>
+            
+            <div style="display: flex; gap: 15px;">
+                <a href="#" class="btn" style="padding: 12px 30px; background-color: #d32f2f; color: white; text-decoration: none; border-radius: 4px; font-weight: 600;">Kontakt aufnehmen</a>
+                <a href="#" class="btn" style="padding: 12px 30px; background-color: white; color: #333; text-decoration: none; border: 2px solid #ddd; border-radius: 4px; font-weight: 600;">Öffnungszeiten</a>
+            </div>
+        </div>
+        
+        <div style="flex: 1; min-width: 300px;">
+            <div style="background-color: #f0f0f0; padding: 40px; border-radius: 8px; border-left: 5px solid #d32f2f;">
+                <h3 style="margin-bottom: 20px; color: #333;">Wichtige Dokumente & Links</h3>
+                <ul style="list-style: none; padding: 0;">
+                    <li style="margin-bottom: 15px; padding-bottom: 15px; border-bottom: 1px solid #ddd;">
+                        <a href="#" style="color: #d32f2f; text-decoration: none; font-weight: 500; display: flex; align-items: center;">
+                            <span style="margin-right: 10px;">›</span> Ferienplan & Termine
+                        </a>
+                    </li>
+                    <li style="margin-bottom: 15px; padding-bottom: 15px; border-bottom: 1px solid #ddd;">
+                        <a href="#" style="color: #d32f2f; text-decoration: none; font-weight: 500; display: flex; align-items: center;">
+                            <span style="margin-right: 10px;">›</span> Formulare Absenzenwesen
+                        </a>
+                    </li>
+                    <li style="margin-bottom: 15px; padding-bottom: 15px; border-bottom: 1px solid #ddd;">
+                        <a href="#" style="color: #d32f2f; text-decoration: none; font-weight: 500; display: flex; align-items: center;">
+                            <span style="margin-right: 10px;">›</span> Reglemente & Schulordnung
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" style="color: #d32f2f; text-decoration: none; font-weight: 500; display: flex; align-items: center;">
+                            <span style="margin-right: 10px;">›</span> BYOD (Bring Your Own Device) Infos
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="section" style="padding: 60px 0; background-color: #333; color: white; text-align: center;">
+    <div class="container" style="max-width: 800px; margin: 0 auto; padding: 0 20px;">
+        <h2 style="font-size: 2rem; margin-bottom: 20px;">Bleiben Sie informiert</h2>
+        <p style="font-size: 1.1rem; margin-bottom: 30px; opacity: 0.8;">
+            Erfahren Sie das Neueste aus dem Schulalltag, wichtige Termine und Erfolgsgeschichten unserer Lernenden in unserem News-Bereich.
+        </p>
+        <a href="#" class="btn" style="display: inline-block; padding: 15px 40px; background-color: white; color: #333; text-decoration: none; border-radius: 50px; font-weight: 700; transition: background 0.3s;">Zu den News</a>
+    </div>
+</section>
+  </main>
+  
+  <footer class="footer">
         <div class="footer-container">
-            <!-- Column 1: About -->
-            <div class="footer-col">
-                <h3>KV Basel</h3>
-                <p class="footer-text">
-                    Wir engagieren uns für praxisnahe Bildung und fördern Talente in der Region Basel. Ihre Karriere startet hier mit moderner Infrastruktur und erfahrenen Dozenten.
-                </p>
+            <!-- Brand / About -->
+            <div class="footer-brand">
+                <h2>KV Basel</h2>
+                <p>Ihr kompetenter Partner für kaufmännische Grund- und Weiterbildung in der Region. Wir fördern Talente und schaffen Perspektiven für eine erfolgreiche Karriere.</p>
             </div>
 
-            <!-- Column 2: Quick Links -->
+            <!-- Quick Links -->
             <div class="footer-col">
-                <h3>Direktlinks</h3>
+                <h3 class="footer-heading">Navigation</h3>
                 <ul class="footer-links">
-                    <li><a href="ueber-uns.html">› Über das KV Basel</a></li>
-                    <li><a href="leistungen.html">› Ausbildungen & Kurse</a></li>
-                    <li><a href="leistungen.html#termine">› Prüfungstermine</a></li>
-                    <li><a href="kontakt.html">› Sekretariat & Öffnungszeiten</a></li>
+                    <li><a href="index.html">Startseite</a></li>
+                    <li><a href="ueber-uns.html">Über uns</a></li>
+                    <li><a href="leistungen.html">Bildungsangebote & Leistungen</a></li>
+                    <li><a href="impressum.html">Rechtliches & Impressum</a></li>
                 </ul>
             </div>
 
-            <!-- Column 3: Contact -->
+            <!-- Contact -->
             <div class="footer-col">
-                <h3>Kontakt</h3>
+                <h3 class="footer-heading">Kontaktieren Sie uns</h3>
                 <div class="footer-contact-item">
-                    <span class="footer-contact-icon">📍</span>
-                    <span>Aeschenvorstadt 15<br>4051 Basel<br>Schweiz</span>
+                    <strong>Adresse:</strong>
+                    <span>Aeschenvorstadt 15<br>4051 Basel</span>
                 </div>
                 <div class="footer-contact-item">
-                    <span class="footer-contact-icon">📞</span>
-                    <a href="tel:+41611234567">+41 61 123 45 67</a>
+                    <strong>Telefon:</strong>
+                    <span>+41 61 200 50 50</span>
                 </div>
                 <div class="footer-contact-item">
-                    <span class="footer-contact-icon">✉️</span>
-                    <a href="mailto:info@kv-basel-bildung.ch">info@kv-basel-bildung.ch</a>
+                    <strong>E-Mail:</strong>
+                    <span>info@kvbasel-bildung.ch</span>
                 </div>
             </div>
         </div>
 
-        <!-- Copyright Bar -->
+        <!-- Bottom Bar -->
         <div class="footer-bottom">
-            <div>
+            <div class="copyright">
                 &copy; 2023 KV Basel - Meine Berufsbildung. Alle Rechte vorbehalten.
             </div>
-            <div class="footer-bottom-links">
+            <div class="footer-legal">
                 <a href="impressum.html">Impressum</a>
                 <a href="datenschutz.html">Datenschutz</a>
-                <a href="#">AGB</a>
             </div>
         </div>
     </footer>
-
 </body>
 </html>
