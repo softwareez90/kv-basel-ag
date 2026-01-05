@@ -5,1151 +5,647 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Homepage - KV Basel - Meine Berufsbildung. - Startseite</title>
   <style>
-/* === INJECTED BY CSS-GUARD === */
-/* CSS Variables */
-
-:root {
-  --primary: #7c3aed;
-  --secondary: #8b5cf6;
-  --accent: #fbbf24;
-  --background: #faf5ff;
-  --text: #1f2937;
-  --text-light: #1f2937cc;
-  --white: #ffffff;
-  --font-heading: 'Playfair Display', sans-serif;
-  --font-body: 'Inter', sans-serif;
-  --radius: 12px;
-  --shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
-  --shadow-lg: 0 10px 40px rgba(0, 0, 0, 0.12);
-  --shadow-glow: 0 0 30px #7c3aed40;
-  --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  --glass-bg: rgba(255, 255, 255, 0.1);
-  --glass-border: rgba(255, 255, 255, 0.2);
-  
-    --hero-height: 85vh;
-    --heading-size: clamp(2.5rem, 6vw, 5rem);
-    --section-padding: 5rem;
-  
-}
-
-/* Base Styles */
-
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;800;900&family=Inter:wght@300;400;500;600&display=swap');
-
-*, *::before, *::after {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-html {
-  scroll-behavior: smooth;
-}
-
-body {
-  font-family: var(--font-body);
-  color: var(--text);
-  background: var(--background);
-  line-height: 1.6;
-  -webkit-font-smoothing: antialiased;
-}
-
-.container {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 1.5rem;
-}
-
-h1, h2, h3, h4, h5, h6 {
-  font-family: var(--font-heading);
-  font-weight: 700;
-  line-height: 1.2;
-  color: var(--text);
-}
-
-h1 { font-size: clamp(2.5rem, 6vw, 4rem); }
-h2 { font-size: clamp(2rem, 4vw, 3rem); margin-bottom: 1rem; }
-h3 { font-size: clamp(1.25rem, 2vw, 1.5rem); }
-
-a {
-  color: inherit;
-  text-decoration: none;
-  transition: var(--transition);
-}
-
-img {
-  max-width: 100%;
-  height: auto;
-  display: block;
-}
-
-.section {
-  padding: 5rem 0;
-}
-
-.section-header {
-  text-align: center;
-  margin-bottom: 4rem;
-}
-
-.section-header h2 {
-  margin-bottom: 1rem;
-}
-
-.section-header p {
-  color: var(--text-light);
-  max-width: 600px;
-  margin: 0 auto;
-  font-size: 1.125rem;
-}
-
-/* Grid Systems */
-.cards-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 2rem;
-}
-
-.cards-grid-2 {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
-  gap: 2rem;
-}
-
-.cards-grid-4 {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 1.5rem;
-}
-
-/* ============================================
-   SECTION LAYOUTS - Verschiedene Typen!
-   ============================================ */
-
-/* SIMPLE-CARDS (ohne Icons) */
-.simple-card {
-  background: white;
-  border-radius: var(--radius);
-  padding: 2.5rem;
-  box-shadow: var(--shadow);
-  border-top: 4px solid var(--primary);
-  transition: var(--transition);
-}
-.simple-card:hover {
-  transform: translateY(-5px);
-  box-shadow: var(--shadow-lg);
-}
-.simple-card h3 {
-  margin-bottom: 1rem;
-  color: var(--primary);
-}
-.simple-card p {
-  color: var(--text-light);
-  line-height: 1.8;
-}
-
-/* NUMBERED-LIST (01, 02, 03...) */
-.numbered-list {
-  display: flex;
-  flex-direction: column;
-  gap: 2rem;
-  max-width: 800px;
-  margin: 0 auto;
-}
-.numbered-item {
-  display: flex;
-  gap: 2rem;
-  align-items: flex-start;
-}
-.numbered-item .num {
-  font-size: 3rem;
-  font-weight: 800;
-  color: var(--primary);
-  opacity: 0.3;
-  font-family: var(--font-heading);
-  line-height: 1;
-  min-width: 80px;
-}
-.numbered-item > div {
-  flex: 1;
-}
-.numbered-item h3 {
-  margin-bottom: 0.5rem;
-}
-.numbered-item p {
-  color: var(--text-light);
-  line-height: 1.7;
-}
-
-/* SPLIT-SECTION (2 Spalten) */
-.split-section {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 4rem;
-  align-items: center;
-}
-.split-text h3 {
-  margin-bottom: 1rem;
-}
-.split-text p {
-  color: var(--text-light);
-  line-height: 1.8;
-  margin-bottom: 1rem;
-}
-.split-list ul {
-  list-style: none;
-  padding: 0;
-}
-.split-list li {
-  padding: 0.75rem 0;
-  padding-left: 2rem;
-  position: relative;
-  border-bottom: 1px solid rgba(0,0,0,0.05);
-}
-.split-list li::before {
-  content: '✓';
-  position: absolute;
-  left: 0;
-  color: var(--primary);
-  font-weight: bold;
-}
-@media (max-width: 768px) {
-  .split-section { grid-template-columns: 1fr; gap: 2rem; }
-}
-
-/* STATS-ROW (Kennzahlen) */
-.stats-row {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-  gap: 2rem;
-  text-align: center;
-  padding: 3rem 0;
-}
-.stat {
-  padding: 1.5rem;
-}
-.stat-num {
-  display: block;
-  font-size: 3rem;
-  font-weight: 800;
-  color: var(--primary);
-  font-family: var(--font-heading);
-  line-height: 1;
-  margin-bottom: 0.5rem;
-}
-.stat-label {
-  color: var(--text-light);
-  font-size: 1rem;
-}
-
-/* TEXT-BLOCK (nur Absätze) */
-.text-block {
-  max-width: 800px;
-  margin: 0 auto;
-}
-.text-block h3 {
-  margin-bottom: 1.5rem;
-}
-.text-block p {
-  color: var(--text-light);
-  line-height: 1.9;
-  margin-bottom: 1.5rem;
-  font-size: 1.1rem;
-}
-.text-block p:last-child {
-  margin-bottom: 0;
-}
-
-/* FAQ-LIST */
-.faq-list {
-  max-width: 800px;
-  margin: 0 auto;
-  display: flex;
-  flex-direction: column;
-  gap: 1.5rem;
-}
-.faq-item {
-  background: white;
-  border-radius: var(--radius);
-  padding: 2rem;
-  box-shadow: var(--shadow);
-}
-.faq-item h4 {
-  color: var(--primary);
-  margin-bottom: 1rem;
-  font-size: 1.1rem;
-}
-.faq-item p {
-  color: var(--text-light);
-  line-height: 1.7;
-}
-
-/* FEATURE-BOXES (große 2er Boxen) */
-.feature-boxes {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 2rem;
-}
-.feature-box {
-  background: linear-gradient(135deg, var(--primary), var(--secondary));
-  color: white;
-  padding: 3rem;
-  border-radius: var(--radius);
-}
-.feature-box h3 {
-  color: white;
-  margin-bottom: 1rem;
-}
-.feature-box p {
-  opacity: 0.9;
-  line-height: 1.8;
-}
-@media (max-width: 768px) {
-  .feature-boxes { grid-template-columns: 1fr; }
-}
-
-/* KONTAKT LAYOUTS */
-.contact-split {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 4rem;
-  align-items: start;
-}
-.contact-form, .contact-form-full {
-  background: white;
-  padding: 2.5rem;
-  border-radius: var(--radius);
-  box-shadow: var(--shadow);
-}
-.contact-info {
-  padding: 2rem 0;
-}
-.contact-info h3 {
-  margin-bottom: 2rem;
-  color: var(--text);
-}
-.info-item {
-  display: flex;
-  gap: 1rem;
-  margin-bottom: 1.5rem;
-  align-items: flex-start;
-}
-.info-item span {
-  font-size: 1.5rem;
-  line-height: 1;
-}
-.info-item p {
-  color: var(--text-light);
-  line-height: 1.6;
-}
-.info-item a {
-  color: var(--primary);
-  text-decoration: none;
-}
-.info-item a:hover {
-  text-decoration: underline;
-}
-.form {
-  display: flex;
-  flex-direction: column;
-  gap: 1.5rem;
-}
-.form-row {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 1.5rem;
-}
-.form-group {
-  display: flex;
-  flex-direction: column;
-  gap: 0.5rem;
-}
-.form-group label {
-  font-weight: 500;
-  color: var(--text);
-  font-size: 0.9rem;
-}
-.form-group input,
-.form-group textarea {
-  padding: 1rem;
-  border: 2px solid #e5e5e5;
-  border-radius: calc(var(--radius) - 4px);
-  font-size: 1rem;
-  font-family: inherit;
-  transition: var(--transition);
-}
-.form-group input:focus,
-.form-group textarea:focus {
-  outline: none;
-  border-color: var(--primary);
-}
-.form-group textarea {
-  resize: vertical;
-  min-height: 120px;
-}
-@media (max-width: 768px) {
-  .contact-split { grid-template-columns: 1fr; gap: 2rem; }
-  .form-row { grid-template-columns: 1fr; }
-}
-
-/* Alt Background für abwechselnde Sections */
-.section.alt-bg {
-  background: rgba(0,0,0,0.02);
-}
-
-/* Card Styles */
-.card {
-  background: white;
-  border-radius: var(--radius);
-  padding: 2rem;
-  box-shadow: var(--shadow);
-  transition: var(--transition);
-}
-
-.card:hover {
-  transform: translateY(-5px);
-  box-shadow: var(--shadow-lg);
-}
-
-.card-icon {
-  width: 60px;
-  height: 60px;
-  background: linear-gradient(135deg, var(--primary), var(--secondary));
-  border-radius: calc(var(--radius) - 4px);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 1.5rem;
-  margin-bottom: 1.25rem;
-}
-
-.card h3 {
-  margin-bottom: 0.75rem;
-}
-
-.card p {
-  color: var(--text-light);
-  line-height: 1.7;
-}
-
-/* Buttons */
-.btn {
-  display: inline-block;
-  padding: 1rem 2rem;
-  font-weight: 600;
-  border-radius: var(--radius);
-  cursor: pointer;
-  transition: var(--transition);
-  border: none;
-  font-size: 1rem;
-}
-
-.btn-primary {
-  background: linear-gradient(135deg, var(--primary), var(--secondary));
-  color: white;
-}
-
-.btn-primary:hover {
-  transform: translateY(-2px);
-  box-shadow: var(--shadow-glow);
-}
-
-.btn-secondary {
-  background: transparent;
-  color: var(--primary);
-  border: 2px solid var(--primary);
-}
-
-.btn-secondary:hover {
-  background: var(--primary);
-  color: white;
-}
-
-/* Form Styles */
-.form-group {
-  margin-bottom: 1.5rem;
-}
-
-.form-group label {
-  display: block;
-  margin-bottom: 0.5rem;
-  font-weight: 500;
-}
-
-.form-group input,
-.form-group textarea,
-.form-group select {
-  width: 100%;
-  padding: 1rem;
-  border: 2px solid rgba(0,0,0,0.1);
-  border-radius: var(--radius);
-  font-family: inherit;
-  font-size: 1rem;
-  transition: var(--transition);
-}
-
-.form-group input:focus,
-.form-group textarea:focus,
-.form-group select:focus {
-  outline: none;
-  border-color: var(--primary);
-  box-shadow: 0 0 0 3px #7c3aed20;
-}
-
-.form-group textarea {
-  min-height: 150px;
-  resize: vertical;
-}
-
-/* CTA Section */
-.cta-section {
-  background: linear-gradient(135deg, var(--primary), var(--secondary));
-  color: white;
-  padding: 5rem 0;
-  text-align: center;
-}
-
-.cta-section h2 {
-  color: white;
-  margin-bottom: 1rem;
-}
-
-.cta-section p {
-  opacity: 0.9;
-  margin-bottom: 2rem;
-  max-width: 600px;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-.cta-section .btn {
-  background: white;
-  color: var(--primary);
-}
-
-/* Responsive */
-@media (max-width: 768px) {
-  .section { padding: 3rem 0; }
-  .cards-grid, .cards-grid-2 { grid-template-columns: 1fr; }
-}
-
-
-/* Animations */
-
-@keyframes fadeIn {
-  from { opacity: 0; transform: translateY(20px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-
-@keyframes slideUp {
-  from { opacity: 0; transform: translateY(40px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-
-@keyframes float {
-  0%, 100% { transform: translateY(0) rotate(0deg); }
-  50% { transform: translateY(-20px) rotate(3deg); }
-}
-
-@keyframes gradientBG {
-  0% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
-  100% { background-position: 0% 50%; }
-}
-
-@keyframes morph {
-  0%, 100% { border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%; }
-  50% { border-radius: 30% 60% 70% 40% / 50% 60% 30% 60%; }
-}
-
-.fade-in { animation: fadeIn 0.6s ease forwards; }
-.slide-up { animation: slideUp 0.8s ease forwards; }
-.float { animation: float 6s ease-in-out infinite; }
-
-.delay-1 { animation-delay: 0.1s; }
-.delay-2 { animation-delay: 0.2s; }
-.delay-3 { animation-delay: 0.3s; }
-.delay-4 { animation-delay: 0.4s; }
-
-
-/* Component Styles (Navigation, Footer, Hero, Card, Section, Form) */
-.navbar {
-  position: sticky;
-  top: 0;
-  z-index: 1000;
-  background: white;
-  box-shadow: 0 2px 20px rgba(0,0,0,0.08);
-  padding: 0;
-}
-.navbar .container {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 1rem 1.5rem;
-}
-.nav-brand {
-  font-family: var(--font-heading);
-  font-size: 1.5rem;
-  font-weight: 700;
-  color: var(--primary);
-}
-.nav-links {
-  display: flex;
-  gap: 2rem;
-  list-style: none;
-  align-items: center;
-}
-.nav-links a {
-  color: var(--text);
-  font-weight: 500;
-  padding: 0.5rem 0;
-}
-.nav-links a:hover { color: var(--primary); }
-.nav-cta {
-  background: linear-gradient(135deg, var(--primary), var(--secondary)) !important;
-  color: white !important;
-  padding: 0.875rem 1.75rem !important;
-  border-radius: var(--radius) !important;
-  font-weight: 600;
-  box-shadow: 0 4px 15px rgba(var(--primary-rgb), 0.3);
-}
-.nav-cta:hover { transform: translateY(-2px); }
-@media (max-width: 768px) {
-  .nav-links { display: none; }
-}
-
-.footer {
-  background: var(--background);
-  padding: 5rem 0 2rem;
-  margin-top: 4rem;
-  border-top: 1px solid rgba(0,0,0,0.08);
-}
-.footer-content {
-  display: grid;
-  grid-template-columns: 1.5fr repeat(3, 1fr);
-  gap: 3rem;
-  margin-bottom: 3rem;
-}
-.footer-brand {
-  font-family: var(--font-heading);
-  font-size: 1.5rem;
-  font-weight: 700;
-  color: var(--primary);
-  margin-bottom: 1rem;
-}
-.footer-desc {
-  color: var(--text);
-  opacity: 0.7;
-  line-height: 1.7;
-  font-size: 0.95rem;
-}
-.footer h4 {
-  font-weight: 600;
-  margin-bottom: 1.25rem;
-  color: var(--text);
-}
-.footer-links {
-  list-style: none;
-}
-.footer-links li {
-  margin-bottom: 0.625rem;
-}
-.footer-links a {
-  color: var(--text);
-  opacity: 0.7;
-  font-size: 0.95rem;
-}
-.footer-links a:hover { opacity: 1; color: var(--primary); }
-.footer-bottom {
-  border-top: 1px solid rgba(0,0,0,0.08);
-  padding-top: 2rem;
-  text-align: center;
-  color: var(--text);
-  opacity: 0.5;
-  font-size: 0.9rem;
-}
-@media (max-width: 768px) {
-  .footer-content { grid-template-columns: 1fr 1fr; }
-}
-
-.hero {
-  min-height: 85vh;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  align-items: center;
-  padding-top: 5rem;
-  background: var(--background);
-}
-.hero-content {
-  padding: 4rem;
-}
-.hero h1 {
-  font-size: clamp(2.5rem, 5vw, 4rem);
-  font-weight: 700;
-  color: var(--text);
-  line-height: 1.15;
-  margin-bottom: 1.5rem;
-}
-.hero p {
-  font-size: 1.125rem;
-  color: var(--text);
-  opacity: 0.7;
-  margin-bottom: 2rem;
-  line-height: 1.7;
-}
-.hero-buttons {
-  display: flex;
-  gap: 1rem;
-}
-.hero .btn-primary {
-  background: linear-gradient(135deg, var(--primary), var(--secondary));
-  color: white;
-  padding: 1rem 2rem;
-  border-radius: var(--radius);
-  font-weight: 600;
-  box-shadow: 0 4px 20px rgba(0,0,0,0.15);
-}
-.hero .btn-secondary {
-  background: transparent;
-  color: var(--primary);
-  padding: 1rem 2rem;
-  border: 2px solid var(--primary);
-  border-radius: var(--radius);
-}
-.hero-visual {
-  height: 100%;
-  background: linear-gradient(135deg, var(--primary), var(--secondary));
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  position: relative;
-  overflow: hidden;
-}
-.hero-visual::before {
-  content: '✦';
-  font-size: 20rem;
-  color: white;
-  opacity: 0.1;
-}
-@media (max-width: 768px) {
-  .hero { grid-template-columns: 1fr; }
-  .hero-visual { min-height: 300px; }
-}
-
-.cards-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 2rem;
-}
-@media (max-width: 1024px) {
-  .cards-grid { grid-template-columns: repeat(2, 1fr); }
-}
-@media (max-width: 640px) {
-  .cards-grid { grid-template-columns: 1fr; }
-}
-
-.content-section {
-  padding: 5rem 0;
-}
-.content-section.alt-bg {
-  background: rgba(0,0,0,0.02);
-}
-.section-header {
-  text-align: center;
-  margin-bottom: 4rem;
-}
-.section-header h2 {
-  margin-bottom: 1rem;
-}
-.section-header p {
-  color: var(--text-light);
-  max-width: 600px;
-  margin: 0 auto;
-}
-
-.contact-form {
-  background: white;
-  padding: 3rem;
-  border-radius: var(--radius);
-  box-shadow: var(--shadow-lg);
-}
-.contact-form h3 {
-  margin-bottom: 2rem;
-  text-align: center;
-}
-.form-row {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 1rem;
-}
-@media (max-width: 768px) {
-  .form-row { grid-template-columns: 1fr; }
-  .contact-form { padding: 2rem; }
-}
-
-/* Fallback Grid Classes */
-.cards-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 2rem;
-}
-.cards-grid-2 {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
-  gap: 2rem;
-}
-.cards-grid-4 {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 1.5rem;
-}
-.container {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 1.5rem;
-}
-.section {
-  padding: 4rem 0;
-}
-.section-title {
-  text-align: center;
-  margin-bottom: 2rem;
-}
-/* === END CSS-GUARD === */
-</style>
-</head>
-<body>
-  <!-- NAVIGATION (PFLICHT - von unten kopieren) -->
-  <style>
-    .navbar {
-      position: sticky;
-      top: 0;
-      z-index: 1000;
+    :root {
+      --primary: #cfc926;
+      --secondary: #d8d569;
+      --accent: #4666e7;
+      --background: #fbfbf4;
+      --text: #35341d;
+      --text-light: #35341dcc;
+      --white: #ffffff;
+      --font-heading: 'Sora', sans-serif;
+      --font-body: 'Roboto', sans-serif;
+      --radius: 25px;
+      --section-padding: 85px;
+      --container-width: 1197px;
+      --nav-height: 84px;
+      --shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+      --shadow-lg: 0 10px calc(15px * 2) rgba(0, 0, 0, 0.12);
+      --shadow-glow: 0 0 30px #cfc92640;
+      --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      --glass-bg: rgba(255, 255, 255, 0.1);
+      --glass-border: rgba(255, 255, 255, 0.2);
+      --btn-padding: 16px 38px;
+    }
+
+    @import url('https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700;800;900&family=Roboto:wght@300;400;500;600&display=swap');
+
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: var(--font-body);
+      color: var(--text);
+      background: var(--background);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 1.5rem;
+    }
+
+    h1, h2, h3, h4, h5, h6 {
+      font-family: var(--font-heading);
+      font-weight: 700;
+      line-height: 1.2;
+      color: var(--text);
+    }
+
+    h1 { font-size: clamp(2.5rem, 6vw, 4rem); }
+    h2 { font-size: clamp(2rem, 4vw, 3rem); margin-bottom: 1rem; }
+    h3 { font-size: clamp(1.25rem, 2vw, 1.5rem); }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+      transition: var(--transition);
+    }
+
+    img {
+      max-width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    .section {
+      padding: 5rem 0;
+    }
+
+    .section-header {
+      text-align: center;
+      margin-bottom: 4rem;
+    }
+
+    .section-header h2 {
+      margin-bottom: 1rem;
+    }
+
+    .section-header p {
+      color: var(--text-light);
+      max-width: 600px;
+      margin: 0 auto;
+      font-size: 1.125rem;
+    }
+
+    .cards-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+    }
+
+    .cards-grid-2 {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+      gap: 2rem;
+    }
+
+    .cards-grid-4 {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .simple-card {
       background: white;
-      box-shadow: 0 2px 20px rgba(0,0,0,0.08);
+      border-radius: var(--radius);
+      padding: 2.5rem;
+      box-shadow: var(--shadow);
+      border-top: 4px solid var(--primary);
+      transition: var(--transition);
+    }
+    .simple-card:hover {
+      transform: translateY(-5px);
+      box-shadow: var(--shadow-lg);
+    }
+    .simple-card h3 {
+      margin-bottom: 1rem;
+      color: var(--primary);
+    }
+    .simple-card p {
+      color: var(--text-light);
+      line-height: 1.8;
+    }
+
+    .numbered-list {
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+    .numbered-item {
+      display: flex;
+      gap: 2rem;
+      align-items: flex-start;
+    }
+    .numbered-item .num {
+      font-size: 3rem;
+      font-weight: 800;
+      color: var(--primary);
+      opacity: 0.3;
+      font-family: var(--font-heading);
+      line-height: 1;
+      min-width: 80px;
+    }
+    .numbered-item > div {
+      flex: 1;
+    }
+    .numbered-item h3 {
+      margin-bottom: 0.5rem;
+    }
+    .numbered-item p {
+      color: var(--text-light);
+      line-height: 1.7;
+    }
+
+    .split-section {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      align-items: center;
+    }
+    .split-text h3 {
+      margin-bottom: 1rem;
+    }
+    .split-text p {
+      color: var(--text-light);
+      line-height: 1.8;
+      margin-bottom: 1rem;
+    }
+    .split-list ul {
+      list-style: none;
       padding: 0;
     }
-    .navbar .container {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 1rem 1.5rem;
+    .split-list li {
+      padding: 0.75rem 0;
+      padding-left: 2rem;
+      position: relative;
+      border-bottom: 1px solid rgba(0,0,0,0.05);
     }
-    .nav-brand {
+    .split-list li::before {
+      content: '✓';
+      position: absolute;
+      left: 0;
+      color: var(--primary);
+      font-weight: bold;
+    }
+
+    .stats-row {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      gap: 2rem;
+      text-align: center;
+      padding: 3rem 0;
+    }
+    .stat {
+      padding: 1.5rem;
+    }
+    .stat-num {
+      display: block;
+      font-size: 3rem;
+      font-weight: 800;
+      color: var(--primary);
+      font-family: var(--font-heading);
+      line-height: 1;
+      margin-bottom: 0.5rem;
+    }
+    .stat-label {
+      color: var(--text-light);
+      font-size: 1rem;
+    }
+
+    .text-block {
+      max-width: 800px;
+      margin: 0 auto;
+    }
+    .text-block h3 {
+      margin-bottom: 1.5rem;
+    }
+    .text-block p {
+      color: var(--text-light);
+      line-height: 1.9;
+      margin-bottom: 1.5rem;
+      font-size: 1.1rem;
+    }
+    .text-block p:last-child {
+      margin-bottom: 0;
+    }
+
+    .faq-list {
+      max-width: 800px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+    .faq-item {
+      background: white;
+      border-radius: var(--radius);
+      padding: 2rem;
+      box-shadow: var(--shadow);
+    }
+    .faq-item h4 {
+      color: var(--primary);
+      margin-bottom: 1rem;
+      font-size: 1.1rem;
+    }
+    .faq-item p {
+      color: var(--text-light);
+      line-height: 1.7;
+    }
+
+    .feature-boxes {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 2rem;
+    }
+    .feature-box {
+      background: linear-gradient(135deg, var(--primary), var(--secondary));
+      color: white;
+      padding: 3rem;
+      border-radius: var(--radius);
+    }
+    .feature-box h3 {
+      color: white;
+      margin-bottom: 1rem;
+    }
+    .feature-box p {
+      opacity: 0.9;
+      line-height: 1.8;
+    }
+
+    .contact-split {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      align-items: start;
+    }
+    .contact-form, .contact-form-full {
+      background: white;
+      padding: 2.5rem;
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+    }
+    .contact-info {
+      padding: 2rem 0;
+    }
+    .contact-info h3 {
+      margin-bottom: 2rem;
+      color: var(--text);
+    }
+    .info-item {
+      display: flex;
+      gap: 1rem;
+      margin-bottom: 1.5rem;
+      align-items: flex-start;
+    }
+    .info-item span {
+      font-size: 1.5rem;
+      line-height: 1;
+    }
+    .info-item p {
+      color: var(--text-light);
+      line-height: 1.6;
+    }
+    .info-item a {
+      color: var(--primary);
+      text-decoration: none;
+    }
+    .info-item a:hover {
+      text-decoration: underline;
+    }
+    .form {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5rem;
+    }
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+    .form-group label {
+      font-weight: 500;
+      color: var(--text);
+      font-size: 0.9rem;
+    }
+    .form-group input,
+    .form-group textarea {
+      padding: 1rem;
+      border: 2px solid #e5e5e5;
+      border-radius: calc(var(--radius) - 4px);
+      font-size: 1rem;
+      font-family: inherit;
+      transition: var(--transition);
+    }
+    .form-group input:focus,
+    .form-group textarea:focus {
+      outline: none;
+      border-color: var(--primary);
+    }
+    .form-group textarea {
+      resize: vertical;
+      min-height: 120px;
+    }
+
+    @media (max-width: 768px) {
+      .split-section { grid-template-columns: 1fr; gap: 2rem; }
+      .section { padding: 3rem 0; }
+      .cards-grid, .cards-grid-2 { grid-template-columns: 1fr; }
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes slideUp {
+      from { opacity: 0; transform: translateY(40px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0) rotate(0deg); }
+      50% { transform: translateY(-20px) rotate(3deg); }
+    }
+
+    @keyframes gradientBG {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    @keyframes morph {
+      0%, 100% { border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%; }
+      50% { border-radius: 30% 60% 70% 40% / 50% 60% 30% 60%; }
+    }
+
+    .fade-in { animation: fadeIn 0.6s ease forwards; }
+    .slide-up { animation: slideUp 0.8s ease forwards; }
+    .float { animation: float 6s ease-in-out infinite; }
+
+    .delay-1 { animation-delay: 0.1s; }
+    .delay-2 { animation-delay: 0.2s; }
+    .delay-3 { animation-delay: 0.3s; }
+    .delay-4 { animation-delay: 0.4s; }
+
+    .nav {
+      position: sticky; top: 0; z-index: 1000;
+      background: linear-gradient(90deg, var(--primary), var(--secondary));
+      box-shadow: var(--shadow);
+      height: var(--nav-height);
+      display: flex;
+      align-items: center;
+      transition: var(--transition);
+    }
+    .nav-container {
+      max-width: var(--container-width);
+      margin: 0 auto;
+      padding: 0 1.5rem;
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .nav-logo {
       font-family: var(--font-heading);
       font-size: 1.5rem;
       font-weight: 700;
-      color: var(--primary);
+      color: white;
     }
     .nav-links {
       display: flex;
       gap: 2rem;
       list-style: none;
-      align-items: center;
     }
     .nav-links a {
-      color: var(--text);
+      color: white;
       font-weight: 500;
       padding: 0.5rem 0;
+      position: relative;
     }
     .nav-links a:hover { color: var(--primary); }
     .nav-cta {
-      background: linear-gradient(135deg, var(--primary), var(--secondary)) !important;
-      color: white !important;
-      padding: 0.875rem 1.75rem !important;
-      border-radius: var(--radius) !important;
+      background: white;
+      color: var(--primary);
+      padding: var(--btn-padding);
+      border-radius: var(--radius);
       font-weight: 600;
-      box-shadow: 0 4px 15px rgba(var(--primary-rgb), 0.3);
     }
-    .nav-cta:hover { transform: translateY(-2px); }
     @media (max-width: 768px) {
       .nav-links { display: none; }
     }
+
+    .footer {
+      background: linear-gradient(135deg, var(--text) 0%, var(--primary) 100%); color: white;
+      padding: 4rem 0 2rem;
+    }
+    .footer-container {
+      max-width: var(--container-width);
+      margin: 0 auto;
+      padding: 0 1.5rem;
+      text-align: center;
+    }
+    .footer-col h4 {
+      margin-bottom: 1.5rem;
+      font-size: 1.1rem;
+      color: white;
+    }
+    .footer-col ul {
+      list-style: none;
+    }
+    .footer-col li {
+      margin-bottom: 0.75rem;
+    }
+    .footer-col a {
+      color: rgba(255,255,255,0.7);
+      transition: var(--transition);
+    }
+    .footer-col a:hover {
+      color: white;
+    }
+    .footer-bottom {
+      margin-top: 3rem;
+      padding-top: 2rem;
+      border-top: 1px solid rgba(255,255,255,0.1);
+      text-align: center;
+      font-size: 0.9rem;
+      color: rgba(255,255,255,0.6);
+    }
+    @media (max-width: 768px) {
+      .footer-container { grid-template-columns: 1fr 1fr; }
+    }
+    @media (max-width: 480px) {
+      .footer-container { grid-template-columns: 1fr; text-align: center; }
+    }
   </style>
-  <nav class="navbar">
-    <div class="container">
-      <a href="index.html" class="nav-brand">Homepage - KV Basel - Meine Berufsbildung.</a>
+</head>
+<body>
+  <!-- NAVIGATION (PFLICHT - von unten kopieren) -->
+  <nav class="nav">
+    <div class="nav-container">
+      <div class="nav-logo">Homepage - KV Basel - Meine Berufsbildung.</div>
       <ul class="nav-links">
         <li><a href="index.html">Startseite</a></li>
         <li><a href="ueber-uns.html">Über uns</a></li>
         <li><a href="leistungen.html">Leistungen</a></li>
-        <li><a href="kontakt.html" class="nav-cta">Kontakt</a></li>
+        <li><a href="kontakt.html">Kontakt</a></li>
+        <li><a href="impressum.html">Impressum</a></li>
       </ul>
     </div>
   </nav>
 
-  <!-- MAIN CONTENT -->
-  <style>
-    .hero {
-      min-height: 85vh;
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      align-items: center;
-      padding-top: 5rem;
-      background: var(--background);
-    }
-    .hero-content {
-      padding: 4rem;
-    }
-    .hero h1 {
-      font-size: clamp(2.5rem, 5vw, 4rem);
-      font-weight: 700;
-      color: var(--text);
-      line-height: 1.15;
-      margin-bottom: 1.5rem;
-    }
-    .hero p {
-      font-size: 1.125rem;
-      color: var(--text);
-      opacity: 0.7;
-      margin-bottom: 2rem;
-      line-height: 1.7;
-    }
-    .hero-buttons {
-      display: flex;
-      gap: 1rem;
-    }
-    .hero .btn-primary {
-      background: linear-gradient(135deg, var(--primary), var(--secondary));
-      color: white;
-      padding: 1rem 2rem;
-      border-radius: var(--radius);
-      font-weight: 600;
-      box-shadow: 0 4px 20px rgba(0,0,0,0.15);
-    }
-    .hero .btn-secondary {
-      background: transparent;
-      color: var(--primary);
-      padding: 1rem 2rem;
-      border: 2px solid var(--primary);
-      border-radius: var(--radius);
-    }
-    .hero-visual {
-      height: 100%;
-      background: linear-gradient(135deg, var(--primary), var(--secondary));
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      position: relative;
-      overflow: hidden;
-    }
-    .hero-visual::before {
-      content: '✦';
-      font-size: 20rem;
-      color: white;
-      opacity: 0.1;
-    }
-    @media (max-width: 768px) {
-      .hero { grid-template-columns: 1fr; }
-      .hero-visual { min-height: 300px; }
-    }
-  </style>
+  <!-- HERO SECTION -->
   <section class="hero">
-    <div class="hero-content">
-      <h1>Willkommen bei KV Basel</h1>
-      <p>Entdecken Sie Ihre Möglichkeiten mit unserer umfassenden Berufsbildung. Wir begleiten Sie auf Ihrem Weg zum Erfolg.</p>
-      <div class="hero-buttons">
-        <a href="kontakt.html" class="btn btn-primary">Jetzt Kontakt aufnehmen</a>
-        <a href="leistungen.html" class="btn btn-secondary">Unsere Leistungen</a>
-      </div>
-    </div>
-    <div class="hero-visual"></div>
-  </section>
-
-  <section class="section">
-    <div class="container">
-      <div class="section-header">
-        <h2>Warum wir?</h2>
-      </div>
-      <div class="split-section">
-        <div class="split-text">
-          <h3>Ihre Vorteile bei uns</h3>
-          <p>Unsere Berufsausbildung bietet Ihnen die besten Voraussetzungen für eine erfolgreiche Karriere. Wir legen großen Wert auf praxisnahe Ausbildung und individuelle Förderung.</p>
-          <p>Mit einem breiten Spektrum an Kursen und erfahrenen Dozenten bieten wir Ihnen die Möglichkeit, Ihre Fähigkeiten optimal zu entwickeln.</p>
-        </div>
-        <div class="split-list">
-          <ul>
-            <li>Individuelle Betreuung</li>
-            <li>Praxisnahe Ausbildung</li>
-            <li>Erfahrene Dozenten</li>
-            <li>Moderne Lernumgebung</li>
-          </ul>
+    <div class="hero-container">
+      <div class="hero-content">
+        <h1>Willkommen bei der KV Basel - Meine Berufsbildung</h1>
+        <p>Wir bieten Ihnen eine umfassende Berufsbildung mit vielfältigen Möglichkeiten, um Ihre Karriere zu starten. Entdecken Sie unsere Programme und Angebote.</p>
+        <div class="hero-buttons">
+          <a href="leistungen.html" class="btn btn-primary">Unsere Leistungen</a>
+          <a href="kontakt.html" class="btn btn-secondary">Kontakt aufnehmen</a>
         </div>
       </div>
+      <div class="hero-visual"></div>
     </div>
   </section>
 
+  <!-- CONTENT SECTIONS -->
+  <!-- Section 3: NUMBERED-LIST -->
   <section class="section alt-bg">
     <div class="container">
       <div class="section-header">
-        <h2>Unsere Leistungen</h2>
-        <p>Entdecken Sie unsere vielfältigen Leistungen und finden Sie den passenden Weg für Ihre berufliche Zukunft.</p>
+        <h2>Unsere Bildungsansätze</h2>
+        <p>Erfahren Sie mehr über unsere innovativen Lehrmethoden und wie wir die nächste Generation vorbereiten.</p>
       </div>
       <div class="numbered-list">
         <div class="numbered-item">
           <span class="num">01</span>
           <div>
-            <h3>Berufsausbildung</h3>
-            <p>Wir bieten ein breites Spektrum an Berufsausbildungen in verschiedenen Branchen. Lernen Sie von den Besten und starten Sie Ihre Karriere bei uns.</p>
+            <h3>Individuelle Betreuung</h3>
+            <p>Wir bieten eine maßgeschneiderte Betreuung für jeden Schüler, um seine Potenziale zu entfalten. Unsere erfahrenen Lehrer stehen Ihnen jederzeit zur Verfügung.</p>
           </div>
         </div>
         <div class="numbered-item">
           <span class="num">02</span>
           <div>
-            <h3>Weiterbildung</h3>
-            <p>Erweitern Sie Ihre Kenntnisse und Fähigkeiten mit unseren maßgeschneiderten Weiterbildungsprogrammen. Bleiben Sie wettbewerbsfähig in der sich schnell verändernden Arbeitswelt.</p>
+            <h3>Moderne Lernmethoden</h3>
+            <p>Unsere Lehrpläne sind auf dem neuesten Stand der Technik und beinhalten interaktive Lernmethoden, um das Lernen spannender und effektiver zu gestalten.</p>
           </div>
         </div>
         <div class="numbered-item">
           <span class="num">03</span>
           <div>
-            <h3>Karriereberatung</h3>
-            <p>Unsere erfahrenen Berater unterstützen Sie bei der Planung und Umsetzung Ihrer Karriereziele. Nutzen Sie unsere Expertise für Ihren beruflichen Erfolg.</p>
+            <h3>Praxisnahe Ausbildung</h3>
+            <p>Wir legen großen Wert auf praxisnahe Ausbildung. Unsere Partnerschaften mit Unternehmen ermöglichen es Ihnen, wertvolle Erfahrungen zu sammeln.</p>
           </div>
         </div>
       </div>
     </div>
   </section>
 
+  <!-- Section 4: SIMPLE-CARDS -->
   <section class="section">
     <div class="container">
       <div class="section-header">
-        <h2>Unsere Erfolge</h2>
+        <h2>Unsere Programme</h2>
+        <p>Entdecken Sie unsere vielfältigen Bildungsangebote, die Ihnen helfen, Ihre beruflichen Ziele zu erreichen.</p>
       </div>
-      <div class="stats-row">
-        <div class="stat">
-          <span class="stat-num">100+</span>
-          <span class="stat-label">Zufriedene Schüler</span>
+      <div class="cards-grid-2">
+        <div class="simple-card">
+          <h3>Berufsausbildung</h3>
+          <p>Unsere Berufsausbildung bietet Ihnen die Möglichkeit, praktische Fähigkeiten zu erlernen und sich auf Ihren zukünftigen Job vorzubereiten. Wir unterstützen Sie auf Ihrem Weg zum erfolgreichen Abschluss.</p>
         </div>
-        <div class="stat">
-          <span class="stat-num">10+</span>
-          <span class="stat-label">Jahre Erfahrung</span>
-        </div>
-        <div class="stat">
-          <span class="stat-num">50+</span>
-          <span class="stat-label">Kurse</span>
-        </div>
-        <div class="stat">
-          <span class="stat-num">24/7</span>
-          <span class="stat-label">Support</span>
+        <div class="simple-card">
+          <h3>Weiterbildung</h3>
+          <p>Unsere Weiterbildungsprogramme sind darauf ausgelegt, Ihre Kenntnisse zu vertiefen und Ihre Karrierechancen zu verbessern. Entdecken Sie die vielfältigen Möglichkeiten, die wir bieten.</p>
         </div>
       </div>
     </div>
   </section>
 
-  <section class="section alt-bg">
+  <!-- Section 5: FEATURE-BOXES -->
+  <section class="section">
     <div class="container">
       <div class="section-header">
-        <h2>Unsere Highlights</h2>
+        <h2>Warum uns wählen?</h2>
       </div>
       <div class="feature-boxes">
         <div class="feature-box">
-          <h3>Innovative Lernmethoden</h3>
-          <p>Wir setzen auf innovative Lernmethoden, um Ihnen den bestmöglichen Lernerfolg zu garantieren. Erleben Sie Lernen neu und effizient.</p>
+          <h3>Erfahrene Lehrkräfte</h3>
+          <p>Unsere Lehrkräfte sind hochqualifiziert und verfügen über umfangreiche Erfahrung in ihren jeweiligen Fachgebieten. Sie sind stets bestrebt, das Beste aus ihren Schülern herauszuholen.</p>
         </div>
         <div class="feature-box">
-          <h3>Persönliche Entwicklung</h3>
-          <p>Unser Fokus liegt nicht nur auf fachlichen, sondern auch auf persönlichen Kompetenzen. Entwickeln Sie sich umfassend weiter.</p>
+          <h3>State-of-the-Art Einrichtungen</h3>
+          <p>Unsere modernen Einrichtungen bieten die perfekte Umgebung, um das Beste aus Ihrer Ausbildung zu machen. Wir investieren kontinuierlich in die neueste Technologie.</p>
         </div>
       </div>
     </div>
   </section>
 
+  <!-- Section 6: SPLIT-SECTION -->
+  <section class="section alt-bg">
+    <div class="container">
+      <div class="section-header">
+        <h2>Unser Engagement</h2>
+      </div>
+      <div class="split-section">
+        <div class="split-text">
+          <h3>Warum wir?</h3>
+          <p>Wir sind bestrebt, eine qualitativ hochwertige Bildung zu bieten, die auf die Bedürfnisse der Schüler zugeschnitten ist. Unser Ziel ist es, Ihre Karriere zu fördern und Ihnen den bestmöglichen Start zu ermöglichen.</p>
+          <p>Unser engagiertes Team steht Ihnen jederzeit zur Verfügung, um Sie bei jedem Schritt Ihres Bildungsweges zu unterstützen.</p>
+        </div>
+        <div class="split-list">
+          <ul>
+            <li>Kompetente Beratung</li>
+            <li>Umfassende Unterstützung</li>
+            <li>Innovative Lernansätze</li>
+            <li>Starke Netzwerke</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA SECTION -->
   <section class="cta-section">
     <div class="container">
-      <h2>Bereit für Ihre Zukunft?</h2>
-      <p>Kontaktieren Sie uns noch heute und erfahren Sie mehr über Ihre Möglichkeiten bei der KV Basel.</p>
-      <a href="kontakt.html" class="btn">Kontakt aufnehmen</a>
+      <h2>Bereit, Ihre Zukunft zu gestalten?</h2>
+      <p>Nehmen Sie noch heute Kontakt mit uns auf, um mehr über unsere Programme zu erfahren und wie wir Ihnen helfen können, Ihre Ziele zu erreichen.</p>
+      <a href="kontakt.html" class="btn btn-primary">Kontakt aufnehmen</a>
     </div>
   </section>
 
   <!-- FOOTER (PFLICHT - von unten kopieren) -->
-  <style>
-    .footer {
-      background: var(--background);
-      padding: 5rem 0 2rem;
-      margin-top: 4rem;
-      border-top: 1px solid rgba(0,0,0,0.08);
-    }
-    .footer-content {
-      display: grid;
-      grid-template-columns: 1.5fr repeat(3, 1fr);
-      gap: 3rem;
-      margin-bottom: 3rem;
-    }
-    .footer-brand {
-      font-family: var(--font-heading);
-      font-size: 1.5rem;
-      font-weight: 700;
-      color: var(--primary);
-      margin-bottom: 1rem;
-    }
-    .footer-desc {
-      color: var(--text);
-      opacity: 0.7;
-      line-height: 1.7;
-      font-size: 0.95rem;
-    }
-    .footer h4 {
-      font-weight: 600;
-      margin-bottom: 1.25rem;
-      color: var(--text);
-    }
-    .footer-links {
-      list-style: none;
-    }
-    .footer-links li {
-      margin-bottom: 0.625rem;
-    }
-    .footer-links a {
-      color: var(--text);
-      opacity: 0.7;
-      font-size: 0.95rem;
-    }
-    .footer-links a:hover { opacity: 1; color: var(--primary); }
-    .footer-bottom {
-      border-top: 1px solid rgba(0,0,0,0.08);
-      padding-top: 2rem;
-      text-align: center;
-      color: var(--text);
-      opacity: 0.5;
-      font-size: 0.9rem;
-    }
-    @media (max-width: 768px) {
-      .footer-content { grid-template-columns: 1fr 1fr; }
-    }
-  </style>
   <footer class="footer">
-    <div class="container">
-      <div class="footer-content">
-        <div>
-          <div class="footer-brand">Homepage - KV Basel - Meine Berufsbildung.</div>
-          <p class="footer-desc">Wir bieten umfassende Bildungsangebote für Ihre persönliche und berufliche Entwicklung. Vertrauen Sie auf unsere langjährige Erfahrung und unser Engagement.</p>
-        </div>
-        <div>
-          <h4>Navigation</h4>
-          <ul class="footer-links">
-            <li><a href="index.html">Startseite</a></li>
-            <li><a href="ueber-uns.html">Über uns</a></li>
-            <li><a href="leistungen.html">Leistungen</a></li>
-          </ul>
-        </div>
-        <div>
-          <h4>Kontakt</h4>
-          <ul class="footer-links">
-            <li>📧 termin@kvbaselag.info</li>
-            <li><a href="kontakt.html">Kontakt</a></li>
-          </ul>
-        </div>
-        <div>
-          <h4>Rechtliches</h4>
-          <ul class="footer-links">
-            <li><a href="impressum.html">Impressum</a></li>
-          </ul>
-        </div>
+    <div class="footer-container">
+      <div class="footer-col">
+        <h4>Navigation</h4>
+        <ul>
+          <li><a href="index.html">Startseite</a></li>
+          <li><a href="ueber-uns.html">Über uns</a></li>
+          <li><a href="leistungen.html">Leistungen</a></li>
+          <li><a href="kontakt.html">Kontakt</a></li>
+          <li><a href="impressum.html">Impressum</a></li>
+        </ul>
       </div>
       <div class="footer-bottom">
-        © 2026 Homepage - KV Basel - Meine Berufsbildung. Alle Rechte vorbehalten.
+        <p>&copy; 2023 Homepage - KV Basel - Meine Berufsbildung. Alle Rechte vorbehalten. | <a href="mailto:termin@kvbaselag.info">termin@kvbaselag.info</a></p>
       </div>
     </div>
   </footer>

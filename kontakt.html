@@ -5,29 +5,31 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Homepage - KV Basel - Meine Berufsbildung. - Kontakt</title>
   <style>
+    /* HIER: Alle CSS Variables, Base Styles, Animations, Component Styles */
     :root {
-      --primary: #7c3aed;
-      --secondary: #8b5cf6;
-      --accent: #fbbf24;
-      --background: #faf5ff;
-      --text: #1f2937;
-      --text-light: #1f2937cc;
+      --primary: #cfc926;
+      --secondary: #d8d569;
+      --accent: #4666e7;
+      --background: #fbfbf4;
+      --text: #35341d;
+      --text-light: #35341dcc;
       --white: #ffffff;
-      --font-heading: 'Playfair Display', sans-serif;
-      --font-body: 'Inter', sans-serif;
-      --radius: 12px;
-      --shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
-      --shadow-lg: 0 10px 40px rgba(0, 0, 0, 0.12);
-      --shadow-glow: 0 0 30px #7c3aed40;
+      --font-heading: 'Sora', sans-serif;
+      --font-body: 'Roboto', sans-serif;
+      --radius: 25px;
+      --section-padding: 85px;
+      --container-width: 1197px;
+      --nav-height: 84px;
+      --shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+      --shadow-lg: 0 10px calc(15px * 2) rgba(0, 0, 0, 0.12);
+      --shadow-glow: 0 0 30px #cfc92640;
       --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
       --glass-bg: rgba(255, 255, 255, 0.1);
       --glass-border: rgba(255, 255, 255, 0.2);
-      --hero-height: 85vh;
-      --heading-size: clamp(2.5rem, 6vw, 5rem);
-      --section-padding: 5rem;
+      --btn-padding: 16px 38px;
     }
 
-    @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;800;900&family=Inter:wght@300;400;500;600&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700;800;900&family=Roboto:wght@300;400;500;600&display=swap');
 
     *, *::before, *::after {
       margin: 0;
@@ -76,153 +78,32 @@
       display: block;
     }
 
-    /* ============================================
-       NAVIGATION STYLES
-       ============================================ */
-    .navbar {
-      position: sticky;
-      top: 0;
-      z-index: 1000;
-      background: white;
-      box-shadow: 0 2px 20px rgba(0,0,0,0.08);
-      padding: 0;
-    }
-    .navbar .container {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 1rem 1.5rem;
-    }
-    .nav-brand {
-      font-family: var(--font-heading);
-      font-size: 1.5rem;
-      font-weight: 700;
-      color: var(--primary);
-    }
-    .nav-links {
-      display: flex;
-      gap: 2rem;
-      list-style: none;
-      align-items: center;
-    }
-    .nav-links a {
-      color: var(--text);
-      font-weight: 500;
-      padding: 0.5rem 0;
-    }
-    .nav-links a:hover { color: var(--primary); }
-    .nav-cta {
-      background: linear-gradient(135deg, var(--primary), var(--secondary)) !important;
-      color: white !important;
-      padding: 0.875rem 1.75rem !important;
-      border-radius: var(--radius) !important;
-      font-weight: 600;
-      box-shadow: 0 4px 15px rgba(var(--primary-rgb), 0.3);
-    }
-    .nav-cta:hover { transform: translateY(-2px); }
-    @media (max-width: 768px) {
-      .nav-links { display: none; }
+    .section {
+      padding: 5rem 0;
     }
 
-    /* ============================================
-       FOOTER STYLES
-       ============================================ */
-    .footer {
-      background: var(--background);
-      padding: 5rem 0 2rem;
-      margin-top: 4rem;
-      border-top: 1px solid rgba(0,0,0,0.08);
+    .section-header {
+      text-align: center;
+      margin-bottom: 4rem;
     }
-    .footer-content {
-      display: grid;
-      grid-template-columns: 1.5fr repeat(3, 1fr);
-      gap: 3rem;
-      margin-bottom: 3rem;
-    }
-    .footer-brand {
-      font-family: var(--font-heading);
-      font-size: 1.5rem;
-      font-weight: 700;
-      color: var(--primary);
+
+    .section-header h2 {
       margin-bottom: 1rem;
     }
-    .footer-desc {
-      color: var(--text);
-      opacity: 0.7;
-      line-height: 1.7;
-      font-size: 0.95rem;
-    }
-    .footer h4 {
-      font-weight: 600;
-      margin-bottom: 1.25rem;
-      color: var(--text);
-    }
-    .footer-links {
-      list-style: none;
-    }
-    .footer-links li {
-      margin-bottom: 0.625rem;
-    }
-    .footer-links a {
-      color: var(--text);
-      opacity: 0.7;
-      font-size: 0.95rem;
-    }
-    .footer-links a:hover { opacity: 1; color: var(--primary); }
-    .footer-bottom {
-      border-top: 1px solid rgba(0,0,0,0.08);
-      padding-top: 2rem;
-      text-align: center;
-      color: var(--text);
-      opacity: 0.5;
-      font-size: 0.9rem;
-    }
-    @media (max-width: 768px) {
-      .footer-content { grid-template-columns: 1fr 1fr; }
+
+    .section-header p {
+      color: var(--text-light);
+      max-width: 600px;
+      margin: 0 auto;
+      font-size: 1.125rem;
     }
 
-    /* ============================================
-       KONTAKT FORM STYLES
-       ============================================ */
-    .contact-split {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 4rem;
-      align-items: start;
-    }
-    .contact-form, .contact-form-full {
+    /* Kontakt Layouts */
+    .contact-form-full {
       background: white;
       padding: 2.5rem;
       border-radius: var(--radius);
       box-shadow: var(--shadow);
-    }
-    .contact-info {
-      padding: 2rem 0;
-    }
-    .contact-info h3 {
-      margin-bottom: 2rem;
-      color: var(--text);
-    }
-    .info-item {
-      display: flex;
-      gap: 1rem;
-      margin-bottom: 1.5rem;
-      align-items: flex-start;
-    }
-    .info-item span {
-      font-size: 1.5rem;
-      line-height: 1;
-    }
-    .info-item p {
-      color: var(--text-light);
-      line-height: 1.6;
-    }
-    .info-item a {
-      color: var(--primary);
-      text-decoration: none;
-    }
-    .info-item a:hover {
-      text-decoration: underline;
     }
     .form {
       display: flex;
@@ -262,22 +143,154 @@
       resize: vertical;
       min-height: 120px;
     }
+    .btn {
+      display: inline-block;
+      padding: 1rem 2rem;
+      font-weight: 600;
+      border-radius: var(--radius);
+      cursor: pointer;
+      transition: var(--transition);
+      border: none;
+      font-size: 1rem;
+      background: linear-gradient(135deg, var(--primary), var(--secondary));
+      color: white;
+    }
+    .btn:hover {
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-glow);
+    }
+    .stats-row {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      gap: 2rem;
+      text-align: center;
+      padding: 3rem 0;
+    }
+    .stat {
+      padding: 1.5rem;
+    }
+    .stat-num {
+      display: block;
+      font-size: 3rem;
+      font-weight: 800;
+      color: var(--primary);
+      font-family: var(--font-heading);
+      line-height: 1;
+      margin-bottom: 0.5rem;
+    }
+    .stat-label {
+      color: var(--text-light);
+      font-size: 1rem;
+    }
     @media (max-width: 768px) {
-      .contact-split { grid-template-columns: 1fr; gap: 2rem; }
+      .section { padding: 3rem 0; }
       .form-row { grid-template-columns: 1fr; }
+    }
+
+    /* NAVIGATION STYLES */
+    .nav {
+      position: sticky; top: 0; z-index: 1000;
+      background: linear-gradient(90deg, var(--primary), var(--secondary));
+      box-shadow: var(--shadow);
+      height: var(--nav-height);
+      display: flex;
+      align-items: center;
+      transition: var(--transition);
+    }
+    .nav-container {
+      max-width: var(--container-width);
+      margin: 0 auto;
+      padding: 0 1.5rem;
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .nav-logo {
+      font-family: var(--font-heading);
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: white;
+    }
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+      list-style: none;
+    }
+    .nav-links a {
+      color: white;
+      font-weight: 500;
+      padding: 0.5rem 0;
+      position: relative;
+    }
+    .nav-links a:hover { color: var(--primary); }
+    .nav-cta {
+      background: white;
+      color: var(--primary);
+      padding: var(--btn-padding);
+      border-radius: var(--radius);
+      font-weight: 600;
+    }
+    @media (max-width: 768px) {
+      .nav-links { display: none; }
+    }
+
+    /* FOOTER STYLES */
+    .footer {
+      background: linear-gradient(135deg, var(--text) 0%, var(--primary) 100%); color: white;
+      padding: 4rem 0 2rem;
+    }
+    .footer-container {
+      max-width: var(--container-width);
+      margin: 0 auto;
+      padding: 0 1.5rem;
+      text-align: center;
+    }
+    .footer-col h4 {
+      margin-bottom: 1.5rem;
+      font-size: 1.1rem;
+      color: white;
+    }
+    .footer-col ul {
+      list-style: none;
+    }
+    .footer-col li {
+      margin-bottom: 0.75rem;
+    }
+    .footer-col a {
+      color: rgba(255,255,255,0.7);
+      transition: var(--transition);
+    }
+    .footer-col a:hover {
+      color: white;
+    }
+    .footer-bottom {
+      margin-top: 3rem;
+      padding-top: 2rem;
+      border-top: 1px solid rgba(255,255,255,0.1);
+      text-align: center;
+      font-size: 0.9rem;
+      color: rgba(255,255,255,0.6);
+    }
+    @media (max-width: 768px) {
+      .footer-container { grid-template-columns: 1fr 1fr; }
+    }
+    @media (max-width: 480px) {
+      .footer-container { grid-template-columns: 1fr; text-align: center; }
     }
   </style>
 </head>
 <body>
   <!-- NAVIGATION (PFLICHT - von unten kopieren) -->
-  <nav class="navbar">
-    <div class="container">
-      <a href="index.html" class="nav-brand">Homepage - KV Basel - Meine Berufsbildung.</a>
+  <nav class="nav">
+    <div class="nav-container">
+      <div class="nav-logo">Homepage - KV Basel - Meine Berufsbildung.</div>
       <ul class="nav-links">
         <li><a href="index.html">Startseite</a></li>
         <li><a href="ueber-uns.html">Über uns</a></li>
         <li><a href="leistungen.html">Leistungen</a></li>
-        <li><a href="kontakt.html" class="nav-cta">Kontakt</a></li>
+        <li><a href="kontakt.html">Kontakt</a></li>
+        <li><a href="impressum.html">Impressum</a></li>
       </ul>
     </div>
   </nav>
@@ -287,61 +300,54 @@
     <div class="container">
       <div class="section-header">
         <h2>Kontaktieren Sie uns</h2>
-        <p>Wir sind für Sie da und freuen uns auf Ihre Nachricht. Nutzen Sie das Kontaktformular oder kontaktieren Sie uns direkt.</p>
+        <p>Wir sind hier, um Ihnen zu helfen und alle Ihre Fragen zu beantworten.</p>
       </div>
-      <div class="contact-split">
-        <div class="contact-form">
-          <form class="form">
-            <div class="form-group"><label>Name</label><input type="text" name="name" required></div>
-            <div class="form-group"><label>E-Mail</label><input type="email" name="email" required></div>
-            <div class="form-group"><label>Telefon</label><input type="tel" name="phone"></div>
-            <div class="form-group"><label>Nachricht</label><textarea name="message" rows="5" required></textarea></div>
-            <button type="submit" class="btn">Absenden</button>
-          </form>
-        </div>
-        <div class="contact-info">
-          <h3>Direkter Kontakt</h3>
-          <div class="info-item"><span>📍</span><p>Musterstraße 123, 12345 Stadt</p></div>
-          <div class="info-item"><span>📞</span><p><a href="tel:+49123456789">+49 123 456789</a></p></div>
-          <div class="info-item"><span>📧</span><p><a href="mailto:info@example.de">info@example.de</a></p></div>
-          <div class="info-item"><span>🕐</span><p>Mo-Fr: 9:00 - 18:00 Uhr</p></div>
-        </div>
+      <div class="stats-row">
+        <div class="stat"><span class="stat-num">📍</span><span class="stat-label">Musterstraße 123<br>12345 Stadt</span></div>
+        <div class="stat"><span class="stat-num">📞</span><span class="stat-label"><a href="tel:+49123456789">+49 123 456789</a></span></div>
+        <div class="stat"><span class="stat-num">📧</span><span class="stat-label"><a href="mailto:termin@kvbaselag.info">termin@kvbaselag.info</a></span></div>
+        <div class="stat"><span class="stat-num">🕐</span><span class="stat-label">Mo-Fr: 9:00 - 18:00</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section alt-bg">
+    <div class="container">
+      <div class="section-header">
+        <h2>Schreiben Sie uns</h2>
+      </div>
+      <div class="contact-form-full">
+        <form class="form">
+          <div class="form-row">
+            <div class="form-group"><label>Name</label><input type="text" required></div>
+            <div class="form-group"><label>E-Mail</label><input type="email" required></div>
+          </div>
+          <div class="form-row">
+            <div class="form-group"><label>Telefon</label><input type="tel"></div>
+            <div class="form-group"><label>Betreff</label><input type="text"></div>
+          </div>
+          <div class="form-group"><label>Nachricht</label><textarea rows="5" required></textarea></div>
+          <button type="submit" class="btn">Nachricht senden</button>
+        </form>
       </div>
     </div>
   </section>
 
   <!-- FOOTER (PFLICHT - von unten kopieren) -->
   <footer class="footer">
-    <div class="container">
-      <div class="footer-content">
-        <div>
-          <div class="footer-brand">Homepage - KV Basel - Meine Berufsbildung.</div>
-          <p class="footer-desc">Ihre Bildung ist unser Anliegen. Kontaktieren Sie uns für weitere Informationen zu unseren Bildungsangeboten.</p>
-        </div>
-        <div>
-          <h4>Navigation</h4>
-          <ul class="footer-links">
-            <li><a href="index.html">Startseite</a></li>
-            <li><a href="ueber-uns.html">Über uns</a></li>
-            <li><a href="leistungen.html">Leistungen</a></li>
-          </ul>
-        </div>
-        <div>
-          <h4>Kontakt</h4>
-          <ul class="footer-links">
-            <li>📧 termin@kvbaselag.info</li>
-            <li><a href="kontakt.html">Kontakt</a></li>
-          </ul>
-        </div>
-        <div>
-          <h4>Rechtliches</h4>
-          <ul class="footer-links">
-            <li><a href="impressum.html">Impressum</a></li>
-          </ul>
-        </div>
+    <div class="footer-container">
+      <div class="footer-col">
+        <h4>Navigation</h4>
+        <ul>
+          <li><a href="index.html">Startseite</a></li>
+          <li><a href="ueber-uns.html">Über uns</a></li>
+          <li><a href="leistungen.html">Leistungen</a></li>
+          <li><a href="kontakt.html">Kontakt</a></li>
+          <li><a href="impressum.html">Impressum</a></li>
+        </ul>
       </div>
       <div class="footer-bottom">
-        © 2026 Homepage - KV Basel - Meine Berufsbildung. Alle Rechte vorbehalten.
+        &copy; 2023 Homepage - KV Basel - Meine Berufsbildung. Alle Rechte vorbehalten. Kontakt: <a href="mailto:termin@kvbaselag.info">termin@kvbaselag.info</a>
       </div>
     </div>
   </footer>
