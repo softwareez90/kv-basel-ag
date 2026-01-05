@@ -6,29 +6,29 @@
   <title>Homepage - KV Basel - Meine Berufsbildung. - Über uns</title>
   <style>
     :root {
-      --primary: #b0277b;
-      --secondary: #cd569f;
-      --accent: #54d96c;
-      --background: #fbf4f8;
-      --text: #462539;
-      --text-light: #462539cc;
+      --primary: #6612e2;
+      --secondary: #925ae7;
+      --accent: #abe91c;
+      --background: #f7f5fa;
+      --text: #261d35;
+      --text-light: #261d35cc;
       --white: #ffffff;
-      --font-heading: 'Roboto Slab', sans-serif;
-      --font-body: 'Urbanist', sans-serif;
-      --radius: 13px;
-      --section-padding: 80px;
-      --container-width: 1327px;
-      --nav-height: 81px;
-      --shadow: 0 4px 30px rgba(0, 0, 0, 0.08);
-      --shadow-lg: 0 10px calc(30px * 2) rgba(0, 0, 0, 0.12);
-      --shadow-glow: 0 0 30px #b0277b40;
+      --font-heading: 'Montserrat', sans-serif;
+      --font-body: 'Nunito', sans-serif;
+      --radius: 9px;
+      --section-padding: 97px;
+      --container-width: 1314px;
+      --nav-height: 86px;
+      --shadow: 0 4px 34px rgba(0, 0, 0, 0.08);
+      --shadow-lg: 0 10px calc(34px * 2) rgba(0, 0, 0, 0.12);
+      --shadow-glow: 0 0 30px #6612e240;
       --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
       --glass-bg: rgba(255, 255, 255, 0.1);
       --glass-border: rgba(255, 255, 255, 0.2);
-      --btn-padding: 16px 30px;
+      --btn-padding: 14px 38px;
     }
 
-    @import url('https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@400;600;700;800;900&family=Urbanist:wght@300;400;500;600&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800;900&family=Nunito:wght@300;400;500;600&display=swap');
 
     *, *::before, *::after {
       margin: 0;
@@ -71,96 +71,12 @@
       transition: var(--transition);
     }
 
-    .nav {
-      position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
-      background: white;
-      box-shadow: var(--shadow);
-      height: var(--nav-height);
-      display: flex;
-      align-items: center;
-      transition: var(--transition);
-    }
-    .nav-container {
-      max-width: var(--container-width);
-      margin: 0 auto;
-      padding: 0 1.5rem;
-      width: 100%;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-    }
-    .nav-logo {
-      font-family: var(--font-heading);
-      font-size: 1.5rem;
-      font-weight: 700;
-      color: var(--text);
-    }
-    .nav-links {
-      display: flex;
-      gap: 2rem;
-      list-style: none;
-    }
-    .nav-links a {
-      color: var(--text-light);
-      font-weight: 500;
-      padding: 0.5rem 0;
-      position: relative;
-    }
-    .nav-links a:hover { color: var(--primary); }
-    .nav-cta {
-      background: var(--primary);
-      color: white;
-      padding: var(--btn-padding);
-      border-radius: var(--radius);
-      font-weight: 600;
-    }
-    @media (max-width: 768px) {
-      .nav-links { display: none; }
+    img {
+      max-width: 100%;
+      height: auto;
+      display: block;
     }
 
-    .footer {
-      background: var(--background); color: var(--text);
-      padding: 4rem 0 2rem;
-    }
-    .footer-container {
-      max-width: var(--container-width);
-      margin: 0 auto;
-      padding: 0 1.5rem;
-      display: grid; grid-template-columns: repeat(2, 1fr); gap: 3rem;
-    }
-    .footer-col h4 {
-      margin-bottom: 1.5rem;
-      font-size: 1.1rem;
-      color: var(--text);
-    }
-    .footer-col ul {
-      list-style: none;
-    }
-    .footer-col li {
-      margin-bottom: 0.75rem;
-    }
-    .footer-col a {
-      color: var(--text-light);
-      transition: var(--transition);
-    }
-    .footer-col a:hover {
-      color: var(--primary);
-    }
-    .footer-bottom {
-      margin-top: 3rem;
-      padding-top: 2rem;
-      border-top: 1px solid rgba(0,0,0,0.1);
-      display: flex; justify-content: space-between; align-items: center;
-      font-size: 0.9rem;
-      color: var(--text-light);
-    }
-    @media (max-width: 768px) {
-      .footer-container { grid-template-columns: 1fr 1fr; }
-    }
-    @media (max-width: 480px) {
-      .footer-container { grid-template-columns: 1fr; text-align: center; }
-    }
-    
     .section {
       padding: 5rem 0;
     }
@@ -188,11 +104,13 @@
       max-width: 800px;
       margin: 0 auto;
     }
+
     .numbered-item {
       display: flex;
       gap: 2rem;
       align-items: flex-start;
     }
+
     .numbered-item .num {
       font-size: 3rem;
       font-weight: 800;
@@ -202,50 +120,18 @@
       line-height: 1;
       min-width: 80px;
     }
+
     .numbered-item > div {
       flex: 1;
     }
+
     .numbered-item h3 {
       margin-bottom: 0.5rem;
     }
+
     .numbered-item p {
       color: var(--text-light);
       line-height: 1.7;
-    }
-
-    .split-section {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 4rem;
-      align-items: center;
-    }
-    .split-text h3 {
-      margin-bottom: 1rem;
-    }
-    .split-text p {
-      color: var(--text-light);
-      line-height: 1.8;
-      margin-bottom: 1rem;
-    }
-    .split-list ul {
-      list-style: none;
-      padding: 0;
-    }
-    .split-list li {
-      padding: 0.75rem 0;
-      padding-left: 2rem;
-      position: relative;
-      border-bottom: 1px solid rgba(0,0,0,0.05);
-    }
-    .split-list li::before {
-      content: '✓';
-      position: absolute;
-      left: 0;
-      color: var(--primary);
-      font-weight: bold;
-    }
-    @media (max-width: 768px) {
-      .split-section { grid-template-columns: 1fr; gap: 2rem; }
     }
 
     .stats-row {
@@ -255,9 +141,11 @@
       text-align: center;
       padding: 3rem 0;
     }
+
     .stat {
       padding: 1.5rem;
     }
+
     .stat-num {
       display: block;
       font-size: 3rem;
@@ -267,38 +155,124 @@
       line-height: 1;
       margin-bottom: 0.5rem;
     }
+
     .stat-label {
       color: var(--text-light);
       font-size: 1rem;
     }
 
-    .cta-section {
-      background: linear-gradient(135deg, var(--primary), var(--secondary));
-      color: white;
-      padding: 5rem 0;
-      text-align: center;
+    .feature-boxes {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 2rem;
     }
 
-    .cta-section h2 {
+    .feature-box {
+      background: linear-gradient(135deg, var(--primary), var(--secondary));
+      color: white;
+      padding: 3rem;
+      border-radius: var(--radius);
+    }
+
+    .feature-box h3 {
       color: white;
       margin-bottom: 1rem;
     }
 
-    .cta-section p {
+    .feature-box p {
       opacity: 0.9;
-      margin-bottom: 2rem;
-      max-width: 600px;
-      margin-left: auto;
-      margin-right: auto;
+      line-height: 1.8;
     }
 
-    .cta-section .btn {
+    .nav {
+      position: relative;
+      background: linear-gradient(90deg, var(--primary), var(--secondary));
+      box-shadow: var(--shadow);
+      border-bottom: 1px solid rgba(0,0,0,0.1);
+      height: var(--nav-height);
+      display: flex;
+      align-items: center;
+      transition: var(--transition);
+    }
+    .nav-container {
+      max-width: var(--container-width);
+      margin: 0 auto;
+      padding: 0 1.5rem;
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .nav-logo {
+      font-family: var(--font-heading);
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: white;
+    }
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+      list-style: none;
+    }
+    .nav-links a {
+      color: white;
+      font-weight: 500;
+      padding: 0.5rem 0;
+      position: relative;
+    }
+    .nav-links a:hover { color: var(--primary); }
+    .nav-cta {
       background: white;
       color: var(--primary);
+      padding: var(--btn-padding);
+      border-radius: var(--radius);
+      font-weight: 600;
+    }
+    @media (max-width: 768px) {
+      .nav-links { display: none; }
     }
 
+    .footer {
+      background: var(--primary); color: white;
+      padding: 4rem 0 2rem;
+    }
+    .footer-container {
+      max-width: var(--container-width);
+      margin: 0 auto;
+      padding: 0 1.5rem;
+      text-align: center;
+    }
+    .footer-col h4 {
+      margin-bottom: 1.5rem;
+      font-size: 1.1rem;
+      color: white;
+    }
+    .footer-col ul {
+      list-style: none;
+    }
+    .footer-col li {
+      margin-bottom: 0.75rem;
+    }
+    .footer-col a {
+      color: rgba(255,255,255,0.7);
+      transition: var(--transition);
+    }
+    .footer-col a:hover {
+      color: white;
+    }
+    .footer-bottom {
+      margin-top: 3rem;
+      padding-top: 2rem;
+      border-top: 1px solid rgba(255,255,255,0.1);
+      text-align: center;
+      font-size: 0.9rem;
+      color: rgba(255,255,255,0.6);
+    }
     @media (max-width: 768px) {
-      .section { padding: 3rem 0; }
+      .footer-container { grid-template-columns: 1fr 1fr; }
+    }
+    @media (max-width: 480px) {
+      .footer-container { grid-template-columns: 1fr; text-align: center; }
     }
   </style>
 </head>
@@ -322,67 +296,39 @@
     <div class="container">
       <div class="section-header">
         <h2>Über uns</h2>
-        <p>Erfahren Sie mehr über unser Engagement und unsere Werte.</p>
+        <p>Erfahren Sie mehr über unsere Werte und unsere Mission.</p>
       </div>
     </div>
   </section>
 
-  <!-- NUMBERED-LIST -->
   <section class="section">
     <div class="container">
-      <div class="section-header">
-        <h2>Wofür wir stehen</h2>
-      </div>
       <div class="numbered-list">
         <div class="numbered-item">
           <span class="num">01</span>
           <div>
             <h3>Qualität</h3>
-            <p>Unsere Ausbildung steht für höchste Qualität. Wir setzen auf innovative Lehrmethoden und engagierte Lehrkräfte, um den Lernprozess zu fördern.</p>
+            <p>Unsere oberste Priorität ist die Qualität der Bildung, die wir unseren Schülern bieten. Wir setzen auf modernste Lehrmethoden und individuelle Förderung.</p>
           </div>
         </div>
         <div class="numbered-item">
           <span class="num">02</span>
           <div>
             <h3>Zuverlässigkeit</h3>
-            <p>Wir sind ein verlässlicher Partner für Schüler und Eltern. Unser Ziel ist es, eine stabile und unterstützende Umgebung zu schaffen.</p>
+            <p>Wir sind ein verlässlicher Partner in der Berufsbildung. Unsere Prozesse sind transparent und strukturiert, um beste Ergebnisse zu gewährleisten.</p>
           </div>
         </div>
         <div class="numbered-item">
           <span class="num">03</span>
           <div>
             <h3>Kundennähe</h3>
-            <p>Der direkte Kontakt mit unseren Schülern ist uns wichtig. Wir legen Wert auf offene Kommunikation und individuelle Betreuung.</p>
+            <p>Der persönliche Kontakt zu unseren Schülern und deren Eltern ist uns wichtig. Wir stehen jederzeit für Fragen und Anliegen zur Verfügung.</p>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- SPLIT-SECTION -->
-  <section class="section alt-bg">
-    <div class="container">
-      <div class="section-header">
-        <h2>Unsere Mission</h2>
-      </div>
-      <div class="split-section">
-        <div class="split-text">
-          <h3>Was uns antreibt</h3>
-          <p>Unsere Mission ist es, die beste Bildungserfahrung zu bieten. Wir setzen uns dafür ein, dass unsere Schüler ihre Ziele erreichen und über sich hinauswachsen können.</p>
-        </div>
-        <div class="split-list">
-          <ul>
-            <li>Wert 1: Qualität</li>
-            <li>Wert 2: Zuverlässigkeit</li>
-            <li>Wert 3: Kundenservice</li>
-            <li>Wert 4: Innovation</li>
-          </ul>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- STATS-ROW -->
   <section class="section alt-bg">
     <div class="container">
       <div class="section-header">
@@ -405,12 +351,26 @@
     </div>
   </section>
 
-  <!-- CTA SECTION -->
+  <section class="section">
+    <div class="container">
+      <div class="feature-boxes">
+        <div class="feature-box">
+          <h3>Unsere Vision</h3>
+          <p>Wir streben danach, die führende Institution für Berufsbildung in der Region zu sein, indem wir innovative und praxisnahe Bildungsangebote schaffen.</p>
+        </div>
+        <div class="feature-box">
+          <h3>Unser Versprechen</h3>
+          <p>Wir garantieren eine qualitativ hochwertige Ausbildung, die den Anforderungen der modernen Arbeitswelt gerecht wird und unsere Schüler optimal vorbereitet.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <section class="cta-section">
     <div class="container">
-      <h2>Kontaktieren Sie uns!</h2>
-      <p>Wir freuen uns darauf, von Ihnen zu hören. Lassen Sie uns gemeinsam Ihre Bildungsziele erreichen.</p>
-      <a href="kontakt.html" class="btn btn-primary">Jetzt kontaktieren</a>
+      <h2>Kontaktieren Sie uns</h2>
+      <p>Fragen? Unser Team steht Ihnen jederzeit zur Verfügung.</p>
+      <a href="kontakt.html" class="btn btn-primary">Jetzt Kontakt aufnehmen</a>
     </div>
   </section>
 
@@ -429,13 +389,11 @@
       </div>
       <div class="footer-col">
         <h4>Kontakt</h4>
-        <ul>
-          <li><a href="mailto:termin@kvbaselag.info">E-Mail: termin@kvbaselag.info</a></li>
-        </ul>
+        <p>Email: <a href="mailto:termin@kvbaselag.info">termin@kvbaselag.info</a></p>
       </div>
-    </div>
-    <div class="footer-bottom">
-      <p>&copy; 2023 Homepage - KV Basel - Meine Berufsbildung. Alle Rechte vorbehalten.</p>
+      <div class="footer-bottom">
+        &copy; 2023 Homepage - KV Basel - Meine Berufsbildung. Alle Rechte vorbehalten.
+      </div>
     </div>
   </footer>
 </body>

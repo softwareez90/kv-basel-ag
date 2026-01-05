@@ -6,40 +6,40 @@
   <title>Homepage - KV Basel - Meine Berufsbildung. - Startseite</title>
   <style>
     :root {
-      --primary: #b0277b;
-      --secondary: #cd569f;
-      --accent: #54d96c;
-      --background: #fbf4f8;
-      --text: #462539;
-      --text-light: #462539cc;
+      --primary: #6612e2;
+      --secondary: #925ae7;
+      --accent: #abe91c;
+      --background: #f7f5fa;
+      --text: #261d35;
+      --text-light: #261d35cc;
       --white: #ffffff;
-      --font-heading: 'Roboto Slab', sans-serif;
-      --font-body: 'Urbanist', sans-serif;
-      --radius: 13px;
-      --section-padding: 80px;
-      --container-width: 1327px;
-      --nav-height: 81px;
-      --shadow: 0 4px 30px rgba(0, 0, 0, 0.08);
-      --shadow-lg: 0 10px calc(30px * 2) rgba(0, 0, 0, 0.12);
-      --shadow-glow: 0 0 30px #b0277b40;
+      --font-heading: 'Montserrat', sans-serif;
+      --font-body: 'Nunito', sans-serif;
+      --radius: 9px;
+      --section-padding: 97px;
+      --container-width: 1314px;
+      --nav-height: 86px;
+      --shadow: 0 4px 34px rgba(0, 0, 0, 0.08);
+      --shadow-lg: 0 10px calc(34px * 2) rgba(0, 0, 0, 0.12);
+      --shadow-glow: 0 0 30px #6612e240;
       --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
       --glass-bg: rgba(255, 255, 255, 0.1);
       --glass-border: rgba(255, 255, 255, 0.2);
-      --btn-padding: 16px 30px;
+      --btn-padding: 14px 38px;
     }
-    
-    @import url('https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@400;600;700;800;900&family=Urbanist:wght@300;400;500;600&display=swap');
-    
+
+    @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800;900&family=Nunito:wght@300;400;500;600&display=swap');
+
     *, *::before, *::after {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
     }
-    
+
     html {
       scroll-behavior: smooth;
     }
-    
+
     body {
       font-family: var(--font-body);
       color: var(--text);
@@ -47,78 +47,62 @@
       line-height: 1.6;
       -webkit-font-smoothing: antialiased;
     }
-    
+
     .container {
       max-width: 1200px;
       margin: 0 auto;
       padding: 0 1.5rem;
     }
-    
+
     h1, h2, h3, h4, h5, h6 {
       font-family: var(--font-heading);
       font-weight: 700;
       line-height: 1.2;
       color: var(--text);
     }
-    
+
     h1 { font-size: clamp(2.5rem, 6vw, 4rem); }
     h2 { font-size: clamp(2rem, 4vw, 3rem); margin-bottom: 1rem; }
     h3 { font-size: clamp(1.25rem, 2vw, 1.5rem); }
-    
+
     a {
       color: inherit;
       text-decoration: none;
       transition: var(--transition);
     }
-    
+
     img {
       max-width: 100%;
       height: auto;
       display: block;
     }
-    
+
     .section {
       padding: 5rem 0;
     }
-    
+
     .section-header {
       text-align: center;
       margin-bottom: 4rem;
     }
-    
+
     .section-header h2 {
       margin-bottom: 1rem;
     }
-    
+
     .section-header p {
       color: var(--text-light);
       max-width: 600px;
       margin: 0 auto;
       font-size: 1.125rem;
     }
-    
-    .cards-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 2rem;
-    }
-    
-    .cards-grid-2 {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
-      gap: 2rem;
-    }
-    
-    .cards-grid-4 {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 1.5rem;
-    }
-    
+
+    /* Navigation */
     .nav {
-      position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
-      background: white;
+      position: relative;
+      background: linear-gradient(90deg, var(--primary), var(--secondary));
       box-shadow: var(--shadow);
+      border-bottom: 1px solid rgba(0,0,0,0.1);
       height: var(--nav-height);
       display: flex;
       align-items: center;
@@ -131,13 +115,13 @@
       width: 100%;
       display: flex;
       align-items: center;
-      justify-content: space-between;
+      justify-content: center;
     }
     .nav-logo {
       font-family: var(--font-heading);
       font-size: 1.5rem;
       font-weight: 700;
-      color: var(--text);
+      color: white;
     }
     .nav-links {
       display: flex;
@@ -145,15 +129,15 @@
       list-style: none;
     }
     .nav-links a {
-      color: var(--text-light);
+      color: white;
       font-weight: 500;
       padding: 0.5rem 0;
       position: relative;
     }
     .nav-links a:hover { color: var(--primary); }
     .nav-cta {
-      background: var(--primary);
-      color: white;
+      background: white;
+      color: var(--primary);
       padding: var(--btn-padding);
       border-radius: var(--radius);
       font-weight: 600;
@@ -161,54 +145,11 @@
     @media (max-width: 768px) {
       .nav-links { display: none; }
     }
-    
-    .footer {
-      background: var(--background); color: var(--text);
-      padding: 4rem 0 2rem;
-    }
-    .footer-container {
-      max-width: var(--container-width);
-      margin: 0 auto;
-      padding: 0 1.5rem;
-      display: grid; grid-template-columns: repeat(2, 1fr); gap: 3rem;
-    }
-    .footer-col h4 {
-      margin-bottom: 1.5rem;
-      font-size: 1.1rem;
-      color: var(--text);
-    }
-    .footer-col ul {
-      list-style: none;
-    }
-    .footer-col li {
-      margin-bottom: 0.75rem;
-    }
-    .footer-col a {
-      color: var(--text-light);
-      transition: var(--transition);
-    }
-    .footer-col a:hover {
-      color: var(--primary);
-    }
-    .footer-bottom {
-      margin-top: 3rem;
-      padding-top: 2rem;
-      border-top: 1px solid rgba(0,0,0,0.1);
-      display: flex; justify-content: space-between; align-items: center;
-      font-size: 0.9rem;
-      color: var(--text-light);
-    }
-    @media (max-width: 768px) {
-      .footer-container { grid-template-columns: 1fr 1fr; }
-    }
-    @media (max-width: 480px) {
-      .footer-container { grid-template-columns: 1fr; text-align: center; }
-    }
-    
+
+    /* Hero Section */
     .hero {
-      min-height: 70vh;
+      min-height: 80vh;
       padding: calc(var(--nav-height) + 4rem) 0 4rem;
-      background: linear-gradient(135deg, var(--background) 0%, var(--secondary) 100%);
       position: relative;
       overflow: hidden;
     }
@@ -216,8 +157,9 @@
       max-width: var(--container-width);
       margin: 0 auto;
       padding: 0 1.5rem;
-      display: flex; flex-direction: column; align-items: flex-start;
+      display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center;
     }
+    .hero-content {}
     .hero-content h1 {
       margin-bottom: 1.5rem;
     }
@@ -241,7 +183,7 @@
       position: absolute;
       width: 300px;
       height: 300px;
-      background: linear-gradient(135deg, var(--primary), var(--accent));
+      background: linear-gradient(135deg, var(--primary)30, var(--accent)30);
       border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
       animation: blob 8s ease-in-out infinite;
       right: 0;
@@ -253,7 +195,35 @@
       .hero-buttons { justify-content: center; }
       .hero-visual { display: none; }
     }
-    
+
+    /* Simple Cards */
+    .simple-card {
+      background: white;
+      border-radius: var(--radius);
+      padding: 2.5rem;
+      box-shadow: var(--shadow);
+      border-top: 4px solid var(--primary);
+      transition: var(--transition);
+    }
+    .simple-card:hover {
+      transform: translateY(-5px);
+      box-shadow: var(--shadow-lg);
+    }
+    .cards-grid-2 {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+      gap: 2rem;
+    }
+    .simple-card h3 {
+      margin-bottom: 1rem;
+      color: var(--primary);
+    }
+    .simple-card p {
+      color: var(--text-light);
+      line-height: 1.8;
+    }
+
+    /* Numbered List */
     .numbered-list {
       display: flex;
       flex-direction: column;
@@ -285,31 +255,8 @@
       color: var(--text-light);
       line-height: 1.7;
     }
-    
-    .stats-row {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-      gap: 2rem;
-      text-align: center;
-      padding: 3rem 0;
-    }
-    .stat {
-      padding: 1.5rem;
-    }
-    .stat-num {
-      display: block;
-      font-size: 3rem;
-      font-weight: 800;
-      color: var(--primary);
-      font-family: var(--font-heading);
-      line-height: 1;
-      margin-bottom: 0.5rem;
-    }
-    .stat-label {
-      color: var(--text-light);
-      font-size: 1rem;
-    }
-    
+
+    /* FAQ List */
     .faq-list {
       max-width: 800px;
       margin: 0 auto;
@@ -332,42 +279,54 @@
       color: var(--text-light);
       line-height: 1.7;
     }
-    
-    .feature-boxes {
+
+    /* Split Section */
+    .split-section {
       display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 2rem;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      align-items: center;
     }
-    .feature-box {
-      background: linear-gradient(135deg, var(--primary), var(--secondary));
-      color: white;
-      padding: 3rem;
-      border-radius: var(--radius);
-    }
-    .feature-box h3 {
-      color: white;
+    .split-text h3 {
       margin-bottom: 1rem;
     }
-    .feature-box p {
-      opacity: 0.9;
+    .split-text p {
+      color: var(--text-light);
       line-height: 1.8;
+      margin-bottom: 1rem;
+    }
+    .split-list ul {
+      list-style: none;
+      padding: 0;
+    }
+    .split-list li {
+      padding: 0.75rem 0;
+      padding-left: 2rem;
+      position: relative;
+      border-bottom: 1px solid rgba(0,0,0,0.05);
+    }
+    .split-list li::before {
+      content: '✓';
+      position: absolute;
+      left: 0;
+      color: var(--primary);
+      font-weight: bold;
     }
     @media (max-width: 768px) {
-      .feature-boxes { grid-template-columns: 1fr; }
+      .split-section { grid-template-columns: 1fr; gap: 2rem; }
     }
-    
+
+    /* CTA Section */
     .cta-section {
       background: linear-gradient(135deg, var(--primary), var(--secondary));
       color: white;
       padding: 5rem 0;
       text-align: center;
     }
-    
     .cta-section h2 {
       color: white;
       margin-bottom: 1rem;
     }
-    
     .cta-section p {
       opacity: 0.9;
       margin-bottom: 2rem;
@@ -375,23 +334,61 @@
       margin-left: auto;
       margin-right: auto;
     }
-    
     .cta-section .btn {
       background: white;
       color: var(--primary);
     }
-    
-    @keyframes blob {
-      0%, 100% { border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%; }
-      50% { border-radius: 30% 60% 70% 40% / 50% 60% 30% 60%; }
+
+    /* Footer */
+    .footer {
+      background: var(--primary); color: white;
+      padding: 4rem 0 2rem;
+    }
+    .footer-container {
+      max-width: var(--container-width);
+      margin: 0 auto;
+      padding: 0 1.5rem;
+      text-align: center;
+    }
+    .footer-col h4 {
+      margin-bottom: 1.5rem;
+      font-size: 1.1rem;
+      color: white;
+    }
+    .footer-col ul {
+      list-style: none;
+    }
+    .footer-col li {
+      margin-bottom: 0.75rem;
+    }
+    .footer-col a {
+      color: rgba(255,255,255,0.7);
+      transition: var(--transition);
+    }
+    .footer-col a:hover {
+      color: white;
+    }
+    .footer-bottom {
+      margin-top: 3rem;
+      padding-top: 2rem;
+      border-top: 1px solid rgba(255,255,255,0.1);
+      text-align: center;
+      font-size: 0.9rem;
+      color: rgba(255,255,255,0.6);
+    }
+    @media (max-width: 768px) {
+      .footer-container { grid-template-columns: 1fr 1fr; }
+    }
+    @media (max-width: 480px) {
+      .footer-container { grid-template-columns: 1fr; text-align: center; }
     }
   </style>
 </head>
 <body>
-  <!-- NAVIGATION (PFLICHT - von unten kopieren) -->
+  <!-- NAVIGATION -->
   <nav class="nav">
     <div class="nav-container">
-      <a href="index.html" class="nav-logo">Homepage - KV Basel - Meine Berufsbildung.</a>
+      <div class="nav-logo">Homepage - KV Basel - Meine Berufsbildung.</div>
       <ul class="nav-links">
         <li><a href="index.html">Startseite</a></li>
         <li><a href="ueber-uns.html">Über uns</a></li>
@@ -401,119 +398,124 @@
       </ul>
     </div>
   </nav>
-  
-  <!-- MAIN CONTENT -->
-  <div class="hero">
+
+  <!-- HERO SECTION -->
+  <section class="hero">
     <div class="hero-container">
       <div class="hero-content">
-        <h1>Willkommen bei KV Basel - Meine Berufsbildung.</h1>
-        <p>Hier bei KV Basel bieten wir umfassende Unterstützung für Ihre berufliche Bildung. Unser engagiertes Team steht bereit, um Ihnen den besten Service zu bieten.</p>
+        <h1>Willkommen bei KV Basel</h1>
+        <p>Entdecken Sie Ihre beruflichen Möglichkeiten mit unserer umfassenden Ausbildung. Wir helfen Ihnen, Ihre Karriereziele zu erreichen.</p>
         <div class="hero-buttons">
           <a href="leistungen.html" class="btn btn-primary">Mehr erfahren</a>
-          <a href="kontakt.html" class="btn btn-secondary">Kontaktieren Sie uns</a>
         </div>
       </div>
       <div class="hero-visual"></div>
     </div>
-  </div>
-  
+  </section>
+
+  <!-- CONTENT SECTIONS -->
+  <section class="section">
+    <div class="container">
+      <div class="section-header">
+        <h2>Unsere Dienstleistungen</h2>
+        <p>Erfahren Sie mehr über unser vielfältiges Angebot an Bildungsprogrammen und Unterstützung.</p>
+      </div>
+      <div class="cards-grid-2">
+        <div class="simple-card">
+          <h3>Berufsberatung</h3>
+          <p>Unsere erfahrenen Berater unterstützen Sie bei der Wahl der richtigen Karriere. Sie bieten individuelle Beratung und helfen Ihnen, Ihre Stärken zu erkennen.</p>
+        </div>
+        <div class="simple-card">
+          <h3>Weiterbildung</h3>
+          <p>Wir bieten eine Vielzahl von Weiterbildungsmöglichkeiten, um Ihre Fähigkeiten zu erweitern. Unsere Kurse sind auf die aktuellen Anforderungen des Arbeitsmarktes abgestimmt.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <section class="section alt-bg">
     <div class="container">
       <div class="section-header">
-        <h2>Unsere Leistungen</h2>
-        <p>Wir bieten eine Vielzahl von Dienstleistungen an, die auf Ihre Bedürfnisse zugeschnitten sind.</p>
+        <h2>Wie wir arbeiten</h2>
+        <p>Einblicke in unseren Ansatz und unsere Methodik.</p>
       </div>
       <div class="numbered-list">
         <div class="numbered-item">
           <span class="num">01</span>
           <div>
-            <h3>Individuelle Beratung</h3>
-            <p>Unser Team aus erfahrenen Beratern steht Ihnen zur Seite, um die bestmöglichen Bildungswege zu planen. Wir analysieren Ihre Bedürfnisse und bieten maßgeschneiderte Lösungen.</p>
+            <h3>Individuelle Betreuung</h3>
+            <p>Wir legen großen Wert auf persönliche Betreuung. Jeder Teilnehmer wird individuell beraten und unterstützt, um die bestmöglichen Ergebnisse zu erzielen.</p>
           </div>
         </div>
         <div class="numbered-item">
           <span class="num">02</span>
           <div>
-            <h3>Berufsschulsekretariat</h3>
-            <p>Unser Sekretariat unterstützt Sie bei allen administrativen Belangen. Ob Anmeldungen oder allgemeine Anfragen, wir sind für Sie da und kümmern uns um reibungslose Abläufe.</p>
+            <h3>Praxisnahe Ausbildung</h3>
+            <p>Unsere Programme sind praxisorientiert und bereiten Sie optimal auf die beruflichen Herausforderungen vor. Wir setzen auf reale Fallstudien und praktische Übungen.</p>
           </div>
         </div>
         <div class="numbered-item">
           <span class="num">03</span>
           <div>
-            <h3>Flexible Kursangebote</h3>
-            <p>Wir bieten eine breite Palette an Kursen, die flexibel gestaltet werden können, um den Anforderungen unserer Lernenden gerecht zu werden. Lassen Sie sich von unserer Vielfalt inspirieren.</p>
+            <h3>Erfahrene Dozenten</h3>
+            <p>Unsere Dozenten sind Experten auf ihrem Gebiet. Sie teilen ihr Wissen und ihre Erfahrungen, um Ihnen eine qualitativ hochwertige Ausbildung zu bieten.</p>
           </div>
         </div>
       </div>
     </div>
   </section>
-  
+
   <section class="section alt-bg">
     <div class="container">
-      <div class="section-header"><h2>Kennzahlen</h2></div>
-      <div class="stats-row">
-        <div class="stat">
-          <span class="stat-num">100+</span>
-          <span class="stat-label">Zufriedene Kunden</span>
-        </div>
-        <div class="stat">
-          <span class="stat-num">10+</span>
-          <span class="stat-label">Jahre Erfahrung</span>
-        </div>
-        <div class="stat">
-          <span class="stat-num">50+</span>
-          <span class="stat-label">Projekte</span>
-        </div>
-        <div class="stat">
-          <span class="stat-num">24/7</span>
-          <span class="stat-label">Support</span>
-        </div>
+      <div class="section-header">
+        <h2>Häufige Fragen</h2>
       </div>
-    </div>
-  </section>
-  
-  <section class="section alt-bg">
-    <div class="container">
-      <div class="section-header"><h2>Häufige Fragen</h2></div>
       <div class="faq-list">
         <div class="faq-item">
-          <h4>Wie lange dauert die Anmeldung?</h4>
-          <p>Die Anmeldung kann innerhalb weniger Minuten online abgeschlossen werden. Unsere Website führt Sie durch den Prozess.</p>
+          <h4>Wie lange dauern die Kurse?</h4>
+          <p>Die Dauer unserer Kurse variiert je nach Programm. In der Regel dauert ein Kurs zwischen 6 und 12 Monaten.</p>
         </div>
         <div class="faq-item">
-          <h4>Welche Kurse werden angeboten?</h4>
-          <p>Wir bieten eine Vielzahl von Kursen in verschiedenen Fachbereichen an. Eine vollständige Liste finden Sie auf unserer Website unter Leistungen.</p>
+          <h4>Kann ich die Kurse auch berufsbegleitend absolvieren?</h4>
+          <p>Ja, viele unserer Kurse sind so konzipiert, dass sie berufsbegleitend besucht werden können. Wir bieten flexible Zeitpläne an.</p>
         </div>
       </div>
     </div>
   </section>
-  
+
   <section class="section">
     <div class="container">
-      <div class="section-header"><h2>Besondere Features</h2></div>
-      <div class="feature-boxes">
-        <div class="feature-box">
-          <h3>Innovative Lehrmethoden</h3>
-          <p>Unsere Lehrmethoden sind darauf ausgerichtet, das Lernen interaktiv und interessant zu gestalten. Wir setzen auf moderne Technologien, um den Unterricht zu bereichern.</p>
+      <div class="section-header">
+        <h2>Warum wählen Sie uns?</h2>
+      </div>
+      <div class="split-section">
+        <div class="split-text">
+          <h3>Unsere Vorteile</h3>
+          <p>Wir bieten eine umfassende Ausbildung, die auf die individuellen Bedürfnisse jedes Teilnehmers abgestimmt ist. Unsere Programme sind praxisnah und fördern die Entwicklung wichtiger beruflicher Fähigkeiten.</p>
+          <p>Darüber hinaus bieten wir eine unterstützende Lernumgebung und individuelle Betreuung durch erfahrene Fachkräfte.</p>
         </div>
-        <div class="feature-box">
-          <h3>Flexibilität und Anpassung</h3>
-          <p>Unsere Kurse sind flexibel gestaltet, um den individuellen Bedürfnissen der Lernenden gerecht zu werden. Wir bieten maßgeschneiderte Lösungen für jeden Bildungsweg.</p>
+        <div class="split-list">
+          <ul>
+            <li>Praxisorientierte Inhalte</li>
+            <li>Erfahrene Dozenten</li>
+            <li>Individuelle Betreuung</li>
+            <li>Flexible Lernzeiten</li>
+          </ul>
         </div>
       </div>
     </div>
   </section>
-  
+
+  <!-- CTA SECTION -->
   <section class="cta-section">
     <div class="container">
-      <h2>Interessiert an unseren Angeboten?</h2>
-      <p>Kontaktieren Sie uns noch heute und lassen Sie uns Ihre Bildungsreise gemeinsam planen!</p>
+      <h2>Bereit für den nächsten Schritt?</h2>
+      <p>Kontaktieren Sie uns noch heute und erfahren Sie mehr über unsere Bildungsangebote.</p>
       <a href="kontakt.html" class="btn">Kontakt aufnehmen</a>
     </div>
   </section>
-  
-  <!-- FOOTER (PFLICHT - von unten kopieren) -->
+
+  <!-- FOOTER -->
   <footer class="footer">
     <div class="footer-container">
       <div class="footer-col">
@@ -526,15 +528,9 @@
           <li><a href="impressum.html">Impressum</a></li>
         </ul>
       </div>
-      <div class="footer-col">
-        <h4>Kontakt</h4>
-        <ul>
-          <li><a href="mailto:termin@kvbaselag.info">Email: termin@kvbaselag.info</a></li>
-        </ul>
+      <div class="footer-bottom">
+        &copy; 2023 Homepage - KV Basel - Meine Berufsbildung. Alle Rechte vorbehalten. | <a href="mailto:termin@kvbaselag.info">termin@kvbaselag.info</a>
       </div>
-    </div>
-    <div class="footer-bottom">
-      <p>&copy; 2023 Homepage - KV Basel - Meine Berufsbildung. Alle Rechte vorbehalten.</p>
     </div>
   </footer>
 </body>
