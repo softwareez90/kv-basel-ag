@@ -13,22 +13,18 @@
       --text: #831843;
       --text-light: #831843cc;
       --white: #ffffff;
-      --font-heading: 'Sora', sans-serif;
-      --font-body: 'IBM Plex Sans', sans-serif;
-      --radius: 20px;
+      --font-heading: 'Outfit', sans-serif;
+      --font-body: 'Lora', sans-serif;
+      --radius: 16px;
       --shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
       --shadow-lg: 0 10px 40px rgba(0, 0, 0, 0.12);
       --shadow-glow: 0 0 30px #be185d40;
       --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
       --glass-bg: rgba(255, 255, 255, 0.1);
       --glass-border: rgba(255, 255, 255, 0.2);
-      --hero-height: 70vh;
-      --heading-size: clamp(2rem, 5vw, 4rem);
-      --section-padding: 6rem;
-      --letter-spacing: 0.05em;
     }
 
-    @import url('https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700;800;900&family=IBM+Plex+Sans:wght@300;400;500;600&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700;800;900&family=Lora:wght@300;400;500;600&display=swap');
 
     *, *::before, *::after {
       margin: 0;
@@ -71,13 +67,7 @@
       transition: var(--transition);
     }
 
-    img {
-      max-width: 100%;
-      height: auto;
-      display: block;
-    }
-
-    .section {
+    .content-section {
       padding: 5rem 0;
     }
 
@@ -99,103 +89,110 @@
 
     .navbar {
       position: fixed;
-      top: 0;
-      left: 0;
-      right: 0;
+      top: 1.5rem;
+      left: 50%;
+      transform: translateX(-50%);
       z-index: 1000;
-      padding: 2.5rem 0;
-      background: var(--background);
+      background: rgba(255,255,255,0.8);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border-radius: 100px;
+      padding: 0.75rem 2rem;
+      box-shadow: 0 8px 32px rgba(0,0,0,0.1);
+      border: 1px solid rgba(255,255,255,0.3);
     }
     .navbar .container {
       display: flex;
-      justify-content: space-between;
       align-items: center;
-      border-bottom: 1px solid rgba(0,0,0,0.05);
-      padding-bottom: 1.5rem;
+      gap: 3rem;
     }
     .nav-brand {
       font-family: var(--font-heading);
       font-size: 1.25rem;
-      font-weight: 400;
-      color: var(--text);
-      letter-spacing: 0.3em;
-      text-transform: uppercase;
+      font-weight: 700;
+      background: linear-gradient(135deg, var(--primary), var(--accent));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
     }
     .nav-links {
       display: flex;
-      gap: 4rem;
+      gap: 2rem;
       list-style: none;
+      align-items: center;
     }
     .nav-links a {
       color: var(--text);
-      font-weight: 300;
-      font-size: 0.85rem;
-      letter-spacing: 0.15em;
-      text-transform: uppercase;
-      opacity: 0.7;
-      transition: opacity 0.3s;
+      font-weight: 500;
+      font-size: 0.9rem;
+      transition: color 0.3s;
     }
-    .nav-links a:hover { opacity: 1; }
+    .nav-links a:hover { color: var(--primary); }
+    .nav-cta {
+      background: var(--primary) !important;
+      color: white !important;
+      padding: 0.625rem 1.5rem !important;
+      border-radius: 100px !important;
+      font-weight: 600;
+      font-size: 0.9rem;
+    }
     @media (max-width: 768px) {
       .nav-links { display: none; }
+      .navbar { padding: 0.75rem 1.5rem; }
     }
 
-    .footer {
-      padding: 4rem 0;
+    .footer-wave {
       margin-top: 6rem;
-      border-top: 1px solid rgba(0,0,0,0.05);
     }
-    .footer .container {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
+    .footer-wave svg {
+      display: block;
+      width: 100%;
+      height: 80px;
+    }
+    .footer {
+      background: var(--primary);
+      color: white;
+      padding: 4rem 0 2rem;
+    }
+    .footer-content {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr;
+      gap: 3rem;
+      margin-bottom: 3rem;
     }
     .footer-brand {
       font-family: var(--font-heading);
-      font-size: 1rem;
-      font-weight: 400;
-      letter-spacing: 0.2em;
-      text-transform: uppercase;
-      color: var(--text);
-    }
-    .footer-links {
-      display: flex;
-      gap: 3rem;
-      list-style: none;
-    }
-    .footer-links a {
-      color: var(--text);
-      opacity: 0.5;
-      font-size: 0.85rem;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-    }
-    .footer-links a:hover { opacity: 1; }
-    .footer-copy {
-      font-size: 0.85rem;
-      opacity: 0.4;
-    }
-    @media (max-width: 768px) {
-      .footer .container { flex-direction: column; gap: 2rem; text-align: center; }
-    }
-
-    .content-section {
-      padding: 5rem 0;
-    }
-    .content-section.alt-bg {
-      background: rgba(0,0,0,0.02);
-    }
-    .section-header {
-      text-align: center;
-      margin-bottom: 4rem;
-    }
-    .section-header h2 {
+      font-size: 1.75rem;
+      font-weight: 700;
       margin-bottom: 1rem;
     }
-    .section-header p {
-      color: var(--text-light);
-      max-width: 600px;
-      margin: 0 auto;
+    .footer-desc {
+      opacity: 0.8;
+      line-height: 1.7;
+    }
+    .footer h4 {
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      margin-bottom: 1.25rem;
+      opacity: 0.6;
+    }
+    .footer-links {
+      list-style: none;
+    }
+    .footer-links li { margin-bottom: 0.75rem; }
+    .footer-links a {
+      color: rgba(255,255,255,0.8);
+    }
+    .footer-links a:hover { color: white; }
+    .footer-bottom {
+      border-top: 1px solid rgba(255,255,255,0.1);
+      padding-top: 2rem;
+      text-align: center;
+      opacity: 0.6;
+      font-size: 0.9rem;
+    }
+    @media (max-width: 768px) {
+      .footer-content { grid-template-columns: 1fr; }
     }
   </style>
 </head>
@@ -208,11 +205,11 @@
         <li><a href="index.html">Startseite</a></li>
         <li><a href="ueber-uns.html">Über uns</a></li>
         <li><a href="leistungen.html">Leistungen</a></li>
-        <li><a href="kontakt.html">Kontakt</a></li>
+        <li><a href="kontakt.html" class="nav-cta">Kontakt</a></li>
       </ul>
     </div>
   </nav>
-
+  
   <!-- MAIN CONTENT -->
   <section class="content-section">
     <div class="container">
@@ -230,14 +227,37 @@
   </section>
 
   <!-- FOOTER (PFLICHT - von unten kopieren) -->
+  <div class="footer-wave">
+    <svg viewBox="0 0 1440 80" preserveAspectRatio="none">
+      <path fill="var(--primary)" d="M0,40 C360,80 720,0 1080,40 C1260,60 1380,50 1440,40 L1440,80 L0,80 Z"></path>
+    </svg>
+  </div>
   <footer class="footer">
     <div class="container">
-      <div class="footer-brand">Homepage - KV Basel - Meine Berufsbildung.</div>
-      <ul class="footer-links">
-        <li><a href="impressum.html">Impressum</a></li>
-        <li><a href="kontakt.html">Kontakt</a></li>
-      </ul>
-      <span class="footer-copy">© 2026</span>
+      <div class="footer-content">
+        <div>
+          <div class="footer-brand">Homepage - KV Basel - Meine Berufsbildung.</div>
+          <p class="footer-desc">Bildung auf höchstem Niveau in Basel. Ihre Zukunft beginnt hier.</p>
+        </div>
+        <div>
+          <h4>Navigation</h4>
+          <ul class="footer-links">
+            <li><a href="index.html">Startseite</a></li>
+            <li><a href="leistungen.html">Leistungen</a></li>
+            <li><a href="kontakt.html">Kontakt</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Rechtliches</h4>
+          <ul class="footer-links">
+            <li>termin@kvbaselag.info</li>
+            <li><a href="impressum.html">Impressum</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        © 2026 Homepage - KV Basel - Meine Berufsbildung. Alle Rechte vorbehalten.
+      </div>
     </div>
   </footer>
 </body>

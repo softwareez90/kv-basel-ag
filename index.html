@@ -16,9 +16,9 @@
   --text: #831843;
   --text-light: #831843cc;
   --white: #ffffff;
-  --font-heading: 'Sora', sans-serif;
-  --font-body: 'IBM Plex Sans', sans-serif;
-  --radius: 20px;
+  --font-heading: 'Outfit', sans-serif;
+  --font-body: 'Lora', sans-serif;
+  --radius: 16px;
   --shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
   --shadow-lg: 0 10px 40px rgba(0, 0, 0, 0.12);
   --shadow-glow: 0 0 30px #be185d40;
@@ -26,16 +26,16 @@
   --glass-bg: rgba(255, 255, 255, 0.1);
   --glass-border: rgba(255, 255, 255, 0.2);
   
-    --hero-height: 70vh;
-    --heading-size: clamp(2rem, 5vw, 4rem);
+    --hero-height: 90vh;
+    --heading-size: clamp(2.5rem, 7vw, 6rem);
     --section-padding: 6rem;
-    --letter-spacing: 0.05em;
+    --glass-blur: 20px;
   
 }
 
 /* Base Styles */
 
-@import url('https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700;800;900&family=IBM+Plex+Sans:wght@300;400;500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700;800;900&family=Lora:wght@300;400;500;600&display=swap');
 
 *, *::before, *::after {
   margin: 0;
@@ -301,136 +301,193 @@ img {
 /* Component Styles (Navigation, Footer, Hero, Card, Section, Form) */
 .navbar {
   position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
+  top: 1.5rem;
+  left: 50%;
+  transform: translateX(-50%);
   z-index: 1000;
-  padding: 2.5rem 0;
-  background: var(--background);
+  background: rgba(255,255,255,0.8);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-radius: 100px;
+  padding: 0.75rem 2rem;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.1);
+  border: 1px solid rgba(255,255,255,0.3);
 }
 .navbar .container {
   display: flex;
-  justify-content: space-between;
   align-items: center;
-  border-bottom: 1px solid rgba(0,0,0,0.05);
-  padding-bottom: 1.5rem;
+  gap: 3rem;
 }
 .nav-brand {
   font-family: var(--font-heading);
   font-size: 1.25rem;
-  font-weight: 400;
-  color: var(--text);
-  letter-spacing: 0.3em;
-  text-transform: uppercase;
+  font-weight: 700;
+  background: linear-gradient(135deg, var(--primary), var(--accent));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 .nav-links {
   display: flex;
-  gap: 4rem;
+  gap: 2rem;
   list-style: none;
+  align-items: center;
 }
 .nav-links a {
   color: var(--text);
-  font-weight: 300;
-  font-size: 0.85rem;
-  letter-spacing: 0.15em;
-  text-transform: uppercase;
-  opacity: 0.7;
-  transition: opacity 0.3s;
+  font-weight: 500;
+  font-size: 0.9rem;
+  transition: color 0.3s;
 }
-.nav-links a:hover { opacity: 1; }
+.nav-links a:hover { color: var(--primary); }
+.nav-cta {
+  background: var(--primary) !important;
+  color: white !important;
+  padding: 0.625rem 1.5rem !important;
+  border-radius: 100px !important;
+  font-weight: 600;
+  font-size: 0.9rem;
+}
 @media (max-width: 768px) {
   .nav-links { display: none; }
+  .navbar { padding: 0.75rem 1.5rem; }
 }
 
-.footer {
-  padding: 4rem 0;
+.footer-wave {
   margin-top: 6rem;
-  border-top: 1px solid rgba(0,0,0,0.05);
 }
-.footer .container {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+.footer-wave svg {
+  display: block;
+  width: 100%;
+  height: 80px;
+}
+.footer {
+  background: var(--primary);
+  color: white;
+  padding: 4rem 0 2rem;
+}
+.footer-content {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr;
+  gap: 3rem;
+  margin-bottom: 3rem;
 }
 .footer-brand {
   font-family: var(--font-heading);
-  font-size: 1rem;
-  font-weight: 400;
-  letter-spacing: 0.2em;
+  font-size: 1.75rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+}
+.footer-desc {
+  opacity: 0.8;
+  line-height: 1.7;
+}
+.footer h4 {
+  font-size: 0.85rem;
   text-transform: uppercase;
-  color: var(--text);
+  letter-spacing: 0.1em;
+  margin-bottom: 1.25rem;
+  opacity: 0.6;
 }
 .footer-links {
-  display: flex;
-  gap: 3rem;
   list-style: none;
 }
+.footer-links li { margin-bottom: 0.75rem; }
 .footer-links a {
-  color: var(--text);
-  opacity: 0.5;
-  font-size: 0.85rem;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
+  color: rgba(255,255,255,0.8);
 }
-.footer-links a:hover { opacity: 1; }
-.footer-copy {
-  font-size: 0.85rem;
-  opacity: 0.4;
+.footer-links a:hover { color: white; }
+.footer-bottom {
+  border-top: 1px solid rgba(255,255,255,0.1);
+  padding-top: 2rem;
+  text-align: center;
+  opacity: 0.6;
+  font-size: 0.9rem;
 }
 @media (max-width: 768px) {
-  .footer .container { flex-direction: column; gap: 2rem; text-align: center; }
+  .footer-content { grid-template-columns: 1fr; }
 }
 
 .hero {
-  min-height: 70vh;
+  min-height: 90vh;
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 10rem 2rem 6rem;
-  background: var(--background);
+  position: relative;
+  background: linear-gradient(-45deg, var(--primary), var(--secondary), var(--accent), var(--primary));
+  background-size: 400% 400%;
+  animation: gradientBG 15s ease infinite;
+  overflow: hidden;
+}
+@keyframes gradientBG {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+.hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+  opacity: 0.5;
 }
 .hero-content {
   text-align: center;
-  max-width: 800px;
+  max-width: 900px;
+  padding: 2rem;
+  position: relative;
+  z-index: 1;
 }
 .hero h1 {
-  font-size: clamp(2rem, 5vw, 3.5rem);
-  font-weight: 400;
-  color: var(--text);
-  line-height: 1.3;
+  font-size: clamp(2.5rem, 7vw, 5rem);
+  font-weight: 800;
+  color: white;
+  line-height: 1.1;
   margin-bottom: 1.5rem;
-  letter-spacing: -0.01em;
+  text-shadow: 0 2px 40px rgba(0,0,0,0.2);
 }
 .hero p {
-  font-size: 1.125rem;
-  color: var(--text);
-  opacity: 0.7;
-  max-width: 500px;
+  font-size: 1.25rem;
+  color: rgba(255,255,255,0.9);
+  max-width: 600px;
   margin: 0 auto 2.5rem;
-  line-height: 1.8;
-  font-weight: 300;
+  line-height: 1.7;
 }
-.hero .btn {
-  background: transparent;
-  color: var(--text);
-  padding: 1rem 2rem;
-  border: 1px solid var(--text);
-  font-weight: 400;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  font-size: 0.8rem;
+.hero-buttons {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
 }
-.hero .btn:hover {
-  background: var(--text);
-  color: var(--background);
+.hero .btn-primary {
+  background: white;
+  color: var(--primary);
+  padding: 1.125rem 2.5rem;
+  border-radius: 100px;
+  font-weight: 700;
+  box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+}
+.hero .btn-secondary {
+  background: rgba(255,255,255,0.1);
+  color: white;
+  padding: 1.125rem 2.5rem;
+  border-radius: 100px;
+  border: 2px solid rgba(255,255,255,0.3);
+  backdrop-filter: blur(10px);
+}
+.hero .btn-secondary:hover {
+  background: rgba(255,255,255,0.2);
 }
 
 .cards-grid {
-  display: flex;
-  flex-direction: column;
-  gap: 0;
-  max-width: 700px;
-  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 3rem;
+}
+.cards-grid .card {
+  min-height: 300px;
+}
+@media (max-width: 768px) {
+  .cards-grid { grid-template-columns: 1fr; }
+  .cards-grid .card { min-height: auto; }
 }
 
 .content-section {
@@ -504,50 +561,61 @@ img {
 </style>
 </head>
 <body>
-  <!-- NAVIGATION (PFLICHT - von unten kopieren) -->
+
+  <!-- NAVIGATION -->
   <style>
-    .navbar {
-      position: fixed;
-      top: 0;
-      left: 0;
-      right: 0;
-      z-index: 1000;
-      padding: 2.5rem 0;
-      background: var(--background);
-    }
-    .navbar .container {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      border-bottom: 1px solid rgba(0,0,0,0.05);
-      padding-bottom: 1.5rem;
-    }
-    .nav-brand {
-      font-family: var(--font-heading);
-      font-size: 1.25rem;
-      font-weight: 400;
-      color: var(--text);
-      letter-spacing: 0.3em;
-      text-transform: uppercase;
-    }
-    .nav-links {
-      display: flex;
-      gap: 4rem;
-      list-style: none;
-    }
-    .nav-links a {
-      color: var(--text);
-      font-weight: 300;
-      font-size: 0.85rem;
-      letter-spacing: 0.15em;
-      text-transform: uppercase;
-      opacity: 0.7;
-      transition: opacity 0.3s;
-    }
-    .nav-links a:hover { opacity: 1; }
-    @media (max-width: 768px) {
-      .nav-links { display: none; }
-    }
+  .navbar {
+    position: fixed;
+    top: 1.5rem;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 1000;
+    background: rgba(255,255,255,0.8);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-radius: 100px;
+    padding: 0.75rem 2rem;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.1);
+    border: 1px solid rgba(255,255,255,0.3);
+  }
+  .navbar .container {
+    display: flex;
+    align-items: center;
+    gap: 3rem;
+  }
+  .nav-brand {
+    font-family: var(--font-heading);
+    font-size: 1.25rem;
+    font-weight: 700;
+    background: linear-gradient(135deg, var(--primary), var(--accent));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+  .nav-links {
+    display: flex;
+    gap: 2rem;
+    list-style: none;
+    align-items: center;
+  }
+  .nav-links a {
+    color: var(--text);
+    font-weight: 500;
+    font-size: 0.9rem;
+    transition: color 0.3s;
+  }
+  .nav-links a:hover { color: var(--primary); }
+  .nav-cta {
+    background: var(--primary) !important;
+    color: white !important;
+    padding: 0.625rem 1.5rem !important;
+    border-radius: 100px !important;
+    font-weight: 600;
+    font-size: 0.9rem;
+  }
+  @media (max-width: 768px) {
+    .nav-links { display: none; }
+    .navbar { padding: 0.75rem 1.5rem; }
+  }
   </style>
   <nav class="navbar">
     <div class="container">
@@ -556,102 +624,95 @@ img {
         <li><a href="index.html">Startseite</a></li>
         <li><a href="ueber-uns.html">Über uns</a></li>
         <li><a href="leistungen.html">Leistungen</a></li>
-        <li><a href="kontakt.html">Kontakt</a></li>
+        <li><a href="kontakt.html" class="nav-cta">Kontakt</a></li>
       </ul>
     </div>
   </nav>
 
-  <!-- MAIN CONTENT -->
+  <!-- HERO SECTION -->
   <style>
-    .hero {
-      min-height: 70vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: 10rem 2rem 6rem;
-      background: var(--background);
-    }
-    .hero-content {
-      text-align: center;
-      max-width: 800px;
-    }
-    .hero h1 {
-      font-size: clamp(2rem, 5vw, 3.5rem);
-      font-weight: 400;
-      color: var(--text);
-      line-height: 1.3;
-      margin-bottom: 1.5rem;
-      letter-spacing: -0.01em;
-    }
-    .hero p {
-      font-size: 1.125rem;
-      color: var(--text);
-      opacity: 0.7;
-      max-width: 500px;
-      margin: 0 auto 2.5rem;
-      line-height: 1.8;
-      font-weight: 300;
-    }
-    .hero .btn {
-      background: transparent;
-      color: var(--text);
-      padding: 1rem 2rem;
-      border: 1px solid var(--text);
-      font-weight: 400;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      font-size: 0.8rem;
-    }
-    .hero .btn:hover {
-      background: var(--text);
-      color: var(--background);
-    }
+  .hero {
+    min-height: 90vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    background: linear-gradient(-45deg, var(--primary), var(--secondary), var(--accent), var(--primary));
+    background-size: 400% 400%;
+    animation: gradientBG 15s ease infinite;
+    overflow: hidden;
+  }
+  @keyframes gradientBG {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+  }
+  .hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+    opacity: 0.5;
+  }
+  .hero-content {
+    text-align: center;
+    max-width: 900px;
+    padding: 2rem;
+    position: relative;
+    z-index: 1;
+  }
+  .hero h1 {
+    font-size: clamp(2.5rem, 7vw, 5rem);
+    font-weight: 800;
+    color: white;
+    line-height: 1.1;
+    margin-bottom: 1.5rem;
+    text-shadow: 0 2px 40px rgba(0,0,0,0.2);
+  }
+  .hero p {
+    font-size: 1.25rem;
+    color: rgba(255,255,255,0.9);
+    max-width: 600px;
+    margin: 0 auto 2.5rem;
+    line-height: 1.7;
+  }
+  .hero-buttons {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+  }
+  .hero .btn-primary {
+    background: white;
+    color: var(--primary);
+    padding: 1.125rem 2.5rem;
+    border-radius: 100px;
+    font-weight: 700;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+  }
+  .hero .btn-secondary {
+    background: rgba(255,255,255,0.1);
+    color: white;
+    padding: 1.125rem 2.5rem;
+    border-radius: 100px;
+    border: 2px solid rgba(255,255,255,0.3);
+    backdrop-filter: blur(10px);
+  }
+  .hero .btn-secondary:hover {
+    background: rgba(255,255,255,0.2);
+  }
   </style>
   <section class="hero">
     <div class="hero-content">
-      <h1>Aktuell</h1>
-      <p>Aktuell20-30Impressum | Cookies© KV Basel – Meine BerufsbildungKontakt</p>
-      <a href="kontakt.html" class="btn">Kontaktieren Sie uns</a>
-    </div>
-  </section>
-
-  <section class="content-section">
-    <div class="container">
-      <div class="section-header">
-        <h2>Fragen & Antworten</h2>
-        <p>Antworten auf wichtige Fragen.</p>
-      </div>
-      <div class="cards-grid">
-        <div class="card">
-          <h3>Frage 1</h3>
-          <p>Antwort auf Frage 1.</p>
-        </div>
-        <div class="card">
-          <h3>Frage 2</h3>
-          <p>Antwort auf Frage 2.</p>
-        </div>
-        <div class="card">
-          <h3>Frage 3</h3>
-          <p>Antwort auf Frage 3.</p>
-        </div>
-        <div class="card">
-          <h3>Frage 4</h3>
-          <p>Antwort auf Frage 4.</p>
-        </div>
+      <h1>Entdecken Sie Ihre Zukunft bei uns!</h1>
+      <p>Die KV Basel bietet Ihnen eine fundierte und vielseitige Berufsbildung mit einem starken Fokus auf Praxis und Theorie.</p>
+      <div class="hero-buttons">
+        <a href="kontakt.html" class="btn btn-primary">Kontaktieren Sie uns</a>
+        <a href="leistungen.html" class="btn btn-secondary">Unsere Leistungen</a>
       </div>
     </div>
   </section>
 
-  <section class="content-section alt-bg">
-    <div class="container">
-      <div class="section-header">
-        <h2>Die Geschichte</h2>
-        <p>Erfahrung und Innovation vereint.</p>
-      </div>
-      <p>Unsere Geschichte ist geprägt von kontinuierlicher Entwicklung und Innovation. Wir verbinden Tradition mit modernen Ansätzen, um die bestmögliche Bildung zu bieten.</p>
-    </div>
-  </section>
-
+  <!-- SECTION: Warum wir? -->
   <section class="content-section">
     <div class="container">
       <div class="section-header">
@@ -660,111 +721,202 @@ img {
       </div>
       <div class="cards-grid">
         <div class="card">
-          <div class="card-icon">🚗</div>
-          <h3>Erfahrung</h3>
-          <p>Langjährige Erfahrung in der Berufsbildung.</p>
+          <div class="card-icon">📚</div>
+          <h3>Erfahrene Dozenten</h3>
+          <p>Unsere Dozenten verfügen über langjährige Erfahrung und tiefes Fachwissen.</p>
         </div>
         <div class="card">
-          <div class="card-icon">🔋</div>
-          <h3>Innovation</h3>
-          <p>Moderne Lehrmethoden und Technologien.</p>
+          <div class="card-icon">🏫</div>
+          <h3>Moderne Einrichtungen</h3>
+          <p>Wir bieten Ihnen topmoderne Räumlichkeiten und neueste Technik.</p>
         </div>
         <div class="card">
-          <div class="card-icon">🛠️</div>
-          <h3>Praxisnähe</h3>
-          <p>Enge Zusammenarbeit mit der Industrie.</p>
+          <div class="card-icon">🌟</div>
+          <h3>Hohe Erfolgsquote</h3>
+          <p>Unsere Absolventen zeichnen sich durch überdurchschnittliche Ergebnisse aus.</p>
         </div>
         <div class="card">
-          <div class="card-icon">📞</div>
-          <h3>Unterstützung</h3>
-          <p>Individuelle Betreuung und Beratung.</p>
+          <div class="card-icon">🤝</div>
+          <h3>Starke Partnerschaften</h3>
+          <p>Wir arbeiten eng mit führenden Unternehmen und Institutionen zusammen.</p>
         </div>
       </div>
     </div>
   </section>
 
+  <!-- SECTION: Lassen Sie uns sprechen -->
+  <section class="cta-section">
+    <div class="container">
+      <h2>Lassen Sie uns sprechen</h2>
+      <p>Wir freuen uns auf Ihre Anfrage.</p>
+      <a href="kontakt.html" class="btn btn-primary">Jetzt Kontakt aufnehmen</a>
+    </div>
+  </section>
+
+  <!-- SECTION: Gut zu wissen -->
   <section class="content-section alt-bg">
     <div class="container">
       <div class="section-header">
-        <h2>Schritt für Schritt</h2>
-        <p>Sie wissen immer, woran Sie sind.</p>
+        <h2>Gut zu wissen</h2>
+        <p>Antworten auf wichtige Fragen.</p>
       </div>
       <div class="cards-grid-2">
         <div class="card">
-          <div class="card-icon">📧</div>
-          <h3>Information</h3>
-          <p>Umfassende Informationen zu unseren Programmen.</p>
+          <h3>Wie lange dauert die Ausbildung?</h3>
+          <p>Die Dauer der Ausbildung variiert je nach gewähltem Beruf und Ausbildungsmodell.</p>
         </div>
         <div class="card">
-          <div class="card-icon">📍</div>
-          <h3>Orientierung</h3>
-          <p>Hilfestellung bei der Wahl des richtigen Berufsweges.</p>
+          <h3>Welche Voraussetzungen brauche ich?</h3>
+          <p>Die Voraussetzungen können je nach Beruf und Bildungsweg unterschiedlich sein.</p>
         </div>
         <div class="card">
-          <div class="card-icon">🗂️</div>
-          <h3>Begleitung</h3>
-          <p>Unterstützung während der gesamten Ausbildung.</p>
+          <h3>Wie kann ich mich bewerben?</h3>
+          <p>Bewerbungen können direkt über unsere Webseite eingereicht werden.</p>
+        </div>
+        <div class="card">
+          <h3>Gibt es finanzielle Unterstützung?</h3>
+          <p>Es bestehen diverse Fördermöglichkeiten und Stipendien.</p>
+        </div>
+        <div class="card">
+          <h3>Wie sind die Unterrichtszeiten?</h3>
+          <p>Unsere Kurse finden sowohl vormittags als auch nachmittags statt.</p>
+        </div>
+        <div class="card">
+          <h3>Welche Weiterbildungen bieten Sie an?</h3>
+          <p>Wir bieten ein breites Spektrum an Weiterbildungen in verschiedenen Bereichen an.</p>
         </div>
       </div>
     </div>
   </section>
 
-  <section class="cta-section">
-    <h2>Lassen Sie uns sprechen</h2>
-    <p>Wir freuen uns darauf, von Ihnen zu hören.</p>
-    <a href="kontakt.html" class="btn">Kontaktieren Sie uns</a>
+  <!-- SECTION: Die Menschen dahinter -->
+  <section class="content-section">
+    <div class="container">
+      <div class="section-header">
+        <h2>Die Menschen dahinter</h2>
+        <p>Kompetenz und Engagement.</p>
+      </div>
+      <div class="cards-grid-2">
+        <div class="card">
+          <div class="card-icon">👨‍🏫</div>
+          <h3>Max Mustermann</h3>
+          <p>Leiter der Ausbildung mit über 20 Jahren Erfahrung im Bildungswesen.</p>
+        </div>
+        <div class="card">
+          <div class="card-icon">👩‍🏫</div>
+          <h3>Erika Beispiel</h3>
+          <p>Fachbereichsleiterin für kaufmännische Berufe und engagierte Pädagogin.</p>
+        </div>
+        <div class="card">
+          <div class="card-icon">👨‍💼</div>
+          <h3>Hans Muster</h3>
+          <p>Verantwortlich für die Zusammenarbeit mit Unternehmen und Institutionen.</p>
+        </div>
+      </div>
+    </div>
   </section>
 
-  <!-- FOOTER (PFLICHT - von unten kopieren) -->
+  <!-- SECTION: Die Geschichte -->
+  <section class="content-section alt-bg">
+    <div class="container">
+      <div class="section-header">
+        <h2>Die Geschichte</h2>
+        <p>Erfahrung und Innovation vereint.</p>
+      </div>
+      <p>Seit unserer Gründung vor über 100 Jahren haben wir uns stetig weiterentwickelt und an die Bedürfnisse der modernen Arbeitswelt angepasst. Unsere Tradition und unser Innovationsgeist machen uns zu einem führenden Bildungsinstitut.</p>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
   <style>
-    .footer {
-      padding: 4rem 0;
-      margin-top: 6rem;
-      border-top: 1px solid rgba(0,0,0,0.05);
-    }
-    .footer .container {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-    .footer-brand {
-      font-family: var(--font-heading);
-      font-size: 1rem;
-      font-weight: 400;
-      letter-spacing: 0.2em;
-      text-transform: uppercase;
-      color: var(--text);
-    }
-    .footer-links {
-      display: flex;
-      gap: 3rem;
-      list-style: none;
-    }
-    .footer-links a {
-      color: var(--text);
-      opacity: 0.5;
-      font-size: 0.85rem;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-    }
-    .footer-links a:hover { opacity: 1; }
-    .footer-copy {
-      font-size: 0.85rem;
-      opacity: 0.4;
-    }
-    @media (max-width: 768px) {
-      .footer .container { flex-direction: column; gap: 2rem; text-align: center; }
-    }
+  .footer-wave {
+    margin-top: 6rem;
+  }
+  .footer-wave svg {
+    display: block;
+    width: 100%;
+    height: 80px;
+  }
+  .footer {
+    background: var(--primary);
+    color: white;
+    padding: 4rem 0 2rem;
+  }
+  .footer-content {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr;
+    gap: 3rem;
+    margin-bottom: 3rem;
+  }
+  .footer-brand {
+    font-family: var(--font-heading);
+    font-size: 1.75rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+  }
+  .footer-desc {
+    opacity: 0.8;
+    line-height: 1.7;
+  }
+  .footer h4 {
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    margin-bottom: 1.25rem;
+    opacity: 0.6;
+  }
+  .footer-links {
+    list-style: none;
+  }
+  .footer-links li { margin-bottom: 0.75rem; }
+  .footer-links a {
+    color: rgba(255,255,255,0.8);
+  }
+  .footer-links a:hover { color: white; }
+  .footer-bottom {
+    border-top: 1px solid rgba(255,255,255,0.1);
+    padding-top: 2rem;
+    text-align: center;
+    opacity: 0.6;
+    font-size: 0.9rem;
+  }
+  @media (max-width: 768px) {
+    .footer-content { grid-template-columns: 1fr; }
+  }
   </style>
+  <div class="footer-wave">
+    <svg viewBox="0 0 1440 80" preserveAspectRatio="none">
+      <path fill="var(--primary)" d="M0,40 C360,80 720,0 1080,40 C1260,60 1380,50 1440,40 L1440,80 L0,80 Z"></path>
+    </svg>
+  </div>
   <footer class="footer">
     <div class="container">
-      <div class="footer-brand">Homepage - KV Basel - Meine Berufsbildung.</div>
-      <ul class="footer-links">
-        <li><a href="impressum.html">Impressum</a></li>
-        <li><a href="kontakt.html">Kontakt</a></li>
-      </ul>
-      <span class="footer-copy">© 2026</span>
+      <div class="footer-content">
+        <div>
+          <div class="footer-brand">Homepage - KV Basel - Meine Berufsbildung.</div>
+          <p class="footer-desc">Unser Ziel ist es, Ihnen eine umfassende und praxisnahe Ausbildung zu bieten, die Sie optimal auf Ihre berufliche Zukunft vorbereitet.</p>
+        </div>
+        <div>
+          <h4>Navigation</h4>
+          <ul class="footer-links">
+            <li><a href="index.html">Startseite</a></li>
+            <li><a href="leistungen.html">Leistungen</a></li>
+            <li><a href="kontakt.html">Kontakt</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Rechtliches</h4>
+          <ul class="footer-links">
+            <li>termin@kvbaselag.info</li>
+            <li><a href="impressum.html">Impressum</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        © 2026 Homepage - KV Basel - Meine Berufsbildung. Alle Rechte vorbehalten.
+      </div>
     </div>
   </footer>
+
 </body>
 </html>

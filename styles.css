@@ -1,6 +1,6 @@
 /* Design System - Auto-Generated */
 
-@import url('https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700;800;900&family=IBM+Plex+Sans:wght@300;400;500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700;800;900&family=Lora:wght@300;400;500;600&display=swap');
 
 *, *::before, *::after {
   margin: 0;
@@ -233,9 +233,9 @@ img {
   --text: #831843;
   --text-light: #831843cc;
   --white: #ffffff;
-  --font-heading: 'Sora', sans-serif;
-  --font-body: 'IBM Plex Sans', sans-serif;
-  --radius: 20px;
+  --font-heading: 'Outfit', sans-serif;
+  --font-body: 'Lora', sans-serif;
+  --radius: 16px;
   --shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
   --shadow-lg: 0 10px 40px rgba(0, 0, 0, 0.12);
   --shadow-glow: 0 0 30px #be185d40;
@@ -243,10 +243,10 @@ img {
   --glass-bg: rgba(255, 255, 255, 0.1);
   --glass-border: rgba(255, 255, 255, 0.2);
   
-    --hero-height: 70vh;
-    --heading-size: clamp(2rem, 5vw, 4rem);
+    --hero-height: 90vh;
+    --heading-size: clamp(2.5rem, 7vw, 6rem);
     --section-padding: 6rem;
-    --letter-spacing: 0.05em;
+    --glass-blur: 20px;
   
 }
 
