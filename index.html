@@ -16,8 +16,8 @@
   --text: #831843;
   --text-light: #831843cc;
   --white: #ffffff;
-  --font-heading: 'Oswald', sans-serif;
-  --font-body: 'Merriweather', sans-serif;
+  --font-heading: 'Sora', sans-serif;
+  --font-body: 'IBM Plex Sans', sans-serif;
   --radius: 20px;
   --shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
   --shadow-lg: 0 10px 40px rgba(0, 0, 0, 0.12);
@@ -35,7 +35,7 @@
 
 /* Base Styles */
 
-@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@400;600;700;800;900&family=Merriweather:wght@300;400;500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700;800;900&family=IBM+Plex+Sans:wght@300;400;500;600&display=swap');
 
 *, *::before, *::after {
   margin: 0;
@@ -425,30 +425,13 @@ img {
   color: var(--background);
 }
 
-.cards-grid .card {
-  background: white;
-  border-radius: var(--radius);
-  padding: 2rem;
-  box-shadow: var(--shadow);
-  transition: var(--transition);
-}
-.cards-grid .card:hover {
-  transform: translateY(-8px);
-  box-shadow: var(--shadow-lg);
-}
-.card-icon {
-  width: 60px;
-  height: 60px;
-  background: linear-gradient(135deg, var(--primary), var(--secondary));
-  border-radius: calc(var(--radius) - 4px);
+.cards-grid {
   display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 1.5rem;
-  margin-bottom: 1.25rem;
+  flex-direction: column;
+  gap: 0;
+  max-width: 700px;
+  margin: 0 auto;
 }
-.card h3 { margin-bottom: 0.75rem; }
-.card p { color: var(--text-light); line-height: 1.7; }
 
 .content-section {
   padding: 5rem 0;
@@ -626,71 +609,9 @@ img {
   </style>
   <section class="hero">
     <div class="hero-content">
-      <h1>Innovation trifft Erfahrung</h1>
-      <p>Entdecken Sie unser Angebot und lassen Sie sich von unserer Qualität überzeugen. Wir freuen uns auf Sie.</p>
-      <a href="kontakt.html" class="btn">Mehr erfahren</a>
-    </div>
-  </section>
-
-  <section class="content-section">
-    <div class="container">
-      <div class="section-header">
-        <h2>Unsere Stärken</h2>
-        <p>Gute Gründe, uns zu wählen.</p>
-      </div>
-      <div class="cards-grid">
-        <div class="card">
-          <div class="card-icon">🚗</div>
-          <h3>Flexibilität</h3>
-          <p>Wir passen uns Ihren Bedürfnissen an und bieten maßgeschneiderte Lösungen.</p>
-        </div>
-        <div class="card">
-          <div class="card-icon">🔋</div>
-          <h3>Effizienz</h3>
-          <p>Unsere Prozesse sind optimiert, um Ihnen die besten Ergebnisse zu liefern.</p>
-        </div>
-        <div class="card">
-          <div class="card-icon">🛠️</div>
-          <h3>Kompetenz</h3>
-          <p>Unser Team besteht aus erfahrenen Fachleuten, die ihr Handwerk verstehen.</p>
-        </div>
-        <div class="card">
-          <div class="card-icon">📞</div>
-          <h3>Kundenservice</h3>
-          <p>Wir sind immer für Sie da und beantworten Ihre Fragen schnell und zuverlässig.</p>
-        </div>
-        <div class="card">
-          <div class="card-icon">📧</div>
-          <h3>Kommunikation</h3>
-          <p>Offene und klare Kommunikation ist uns wichtig, um Missverständnisse zu vermeiden.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section class="content-section alt-bg">
-    <div class="container">
-      <div class="section-header">
-        <h2>Ihr Ansprechpartner</h2>
-        <p>Kompetenz und Engagement.</p>
-      </div>
-      <div class="cards-grid-2">
-        <div class="card">
-          <div class="card-icon">📍</div>
-          <h3>Standort</h3>
-          <p>Unser Büro befindet sich im Herzen von Basel, leicht erreichbar für alle.</p>
-        </div>
-        <div class="card">
-          <div class="card-icon">📞</div>
-          <h3>Kontakt</h3>
-          <p>Rufen Sie uns an oder schreiben Sie uns eine E-Mail, wir sind für Sie da.</p>
-        </div>
-        <div class="card">
-          <div class="card-icon">📧</div>
-          <h3>Support</h3>
-          <p>Unser Support-Team steht Ihnen bei allen Fragen zur Verfügung.</p>
-        </div>
-      </div>
+      <h1>Aktuell</h1>
+      <p>Aktuell20-30Impressum | Cookies© KV Basel – Meine BerufsbildungKontakt</p>
+      <a href="kontakt.html" class="btn">Kontaktieren Sie uns</a>
     </div>
   </section>
 
@@ -700,72 +621,98 @@ img {
         <h2>Fragen & Antworten</h2>
         <p>Antworten auf wichtige Fragen.</p>
       </div>
-      <div class="faq">
-        <div class="faq-item">
-          <h3>Wie kann ich mich anmelden?</h3>
-          <p>Die Anmeldung erfolgt über unser Online-Portal. Folgen Sie einfach den Anweisungen auf der Webseite.</p>
+      <div class="cards-grid">
+        <div class="card">
+          <h3>Frage 1</h3>
+          <p>Antwort auf Frage 1.</p>
         </div>
-        <div class="faq-item">
-          <h3>Welche Kurse bieten Sie an?</h3>
-          <p>Wir bieten eine Vielzahl von Kursen in verschiedenen Bereichen an. Eine vollständige Liste finden Sie auf unserer Webseite.</p>
+        <div class="card">
+          <h3>Frage 2</h3>
+          <p>Antwort auf Frage 2.</p>
         </div>
-        <div class="faq-item">
-          <h3>Wie erreiche ich den Kundenservice?</h3>
-          <p>Unser Kundenservice ist per E-Mail und Telefon erreichbar. Die Kontaktdaten finden Sie auf unserer Kontaktseite.</p>
+        <div class="card">
+          <h3>Frage 3</h3>
+          <p>Antwort auf Frage 3.</p>
         </div>
-        <div class="faq-item">
-          <h3>Welche Zahlungsmethoden akzeptieren Sie?</h3>
-          <p>Wir akzeptieren alle gängigen Zahlungsmethoden, einschließlich Kreditkarte und PayPal.</p>
-        </div>
-        <div class="faq-item">
-          <h3>Gibt es Rabatte für Gruppen?</h3>
-          <p>Ja, wir bieten Rabatte für Gruppenanmeldungen. Bitte kontaktieren Sie uns für weitere Informationen.</p>
-        </div>
-        <div class="faq-item">
-          <h3>Wie kann ich meinen Kurs stornieren?</h3>
-          <p>Stornierungen sind bis zu einer Woche vor Kursbeginn möglich. Bitte kontaktieren Sie unseren Kundenservice.</p>
+        <div class="card">
+          <h3>Frage 4</h3>
+          <p>Antwort auf Frage 4.</p>
         </div>
       </div>
-    </div>
-  </section>
-
-  <section class="cta-section">
-    <div class="container">
-      <h2>Lassen Sie uns sprechen</h2>
-      <p>Wir freuen uns auf Ihre Anfrage.</p>
-      <a href="kontakt.html" class="btn">Mehr erfahren</a>
     </div>
   </section>
 
   <section class="content-section alt-bg">
     <div class="container">
       <div class="section-header">
-        <h2>So arbeiten wir</h2>
-        <p>Transparent und strukturiert.</p>
+        <h2>Die Geschichte</h2>
+        <p>Erfahrung und Innovation vereint.</p>
+      </div>
+      <p>Unsere Geschichte ist geprägt von kontinuierlicher Entwicklung und Innovation. Wir verbinden Tradition mit modernen Ansätzen, um die bestmögliche Bildung zu bieten.</p>
+    </div>
+  </section>
+
+  <section class="content-section">
+    <div class="container">
+      <div class="section-header">
+        <h2>Warum wir?</h2>
+        <p>Gute Gründe, uns zu wählen.</p>
       </div>
       <div class="cards-grid">
         <div class="card">
-          <div class="card-icon">🔍</div>
-          <h3>Analyse</h3>
-          <p>Wir beginnen mit einer gründlichen Analyse Ihrer Bedürfnisse und Anforderungen.</p>
+          <div class="card-icon">🚗</div>
+          <h3>Erfahrung</h3>
+          <p>Langjährige Erfahrung in der Berufsbildung.</p>
         </div>
         <div class="card">
-          <div class="card-icon">📝</div>
-          <h3>Planung</h3>
-          <p>Gemeinsam mit Ihnen entwickeln wir einen detaillierten Plan für die Umsetzung.</p>
+          <div class="card-icon">🔋</div>
+          <h3>Innovation</h3>
+          <p>Moderne Lehrmethoden und Technologien.</p>
         </div>
         <div class="card">
-          <div class="card-icon">🚀</div>
-          <h3>Umsetzung</h3>
-          <p>Unsere Experten setzen den Plan effizient und termingerecht um.</p>
+          <div class="card-icon">🛠️</div>
+          <h3>Praxisnähe</h3>
+          <p>Enge Zusammenarbeit mit der Industrie.</p>
         </div>
         <div class="card">
-          <div class="card-icon">🔄</div>
-          <h3>Optimierung</h3>
-          <p>Wir überprüfen regelmäßig die Ergebnisse und optimieren die Prozesse bei Bedarf.</p>
+          <div class="card-icon">📞</div>
+          <h3>Unterstützung</h3>
+          <p>Individuelle Betreuung und Beratung.</p>
         </div>
       </div>
     </div>
+  </section>
+
+  <section class="content-section alt-bg">
+    <div class="container">
+      <div class="section-header">
+        <h2>Schritt für Schritt</h2>
+        <p>Sie wissen immer, woran Sie sind.</p>
+      </div>
+      <div class="cards-grid-2">
+        <div class="card">
+          <div class="card-icon">📧</div>
+          <h3>Information</h3>
+          <p>Umfassende Informationen zu unseren Programmen.</p>
+        </div>
+        <div class="card">
+          <div class="card-icon">📍</div>
+          <h3>Orientierung</h3>
+          <p>Hilfestellung bei der Wahl des richtigen Berufsweges.</p>
+        </div>
+        <div class="card">
+          <div class="card-icon">🗂️</div>
+          <h3>Begleitung</h3>
+          <p>Unterstützung während der gesamten Ausbildung.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-section">
+    <h2>Lassen Sie uns sprechen</h2>
+    <p>Wir freuen uns darauf, von Ihnen zu hören.</p>
+    <a href="kontakt.html" class="btn">Kontaktieren Sie uns</a>
   </section>
 
   <!-- FOOTER (PFLICHT - von unten kopieren) -->

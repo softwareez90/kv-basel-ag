@@ -13,8 +13,8 @@
       --text: #831843;
       --text-light: #831843cc;
       --white: #ffffff;
-      --font-heading: 'Oswald', sans-serif;
-      --font-body: 'Merriweather', sans-serif;
+      --font-heading: 'Sora', sans-serif;
+      --font-body: 'IBM Plex Sans', sans-serif;
       --radius: 20px;
       --shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
       --shadow-lg: 0 10px 40px rgba(0, 0, 0, 0.12);
@@ -22,20 +22,20 @@
       --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
       --glass-bg: rgba(255, 255, 255, 0.1);
       --glass-border: rgba(255, 255, 255, 0.2);
+      --hero-height: 70vh;
+      --heading-size: clamp(2rem, 5vw, 4rem);
+      --section-padding: 6rem;
+      --letter-spacing: 0.05em;
     }
-
-    @import url('https://fonts.googleapis.com/css2?family=Oswald:wght@400;600;700;800;900&family=Merriweather:wght@300;400;500;600&display=swap');
-
+    @import url('https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700;800;900&family=IBM+Plex+Sans:wght@300;400;500;600&display=swap');
     *, *::before, *::after {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
     }
-
     html {
       scroll-behavior: smooth;
     }
-
     body {
       font-family: var(--font-body);
       color: var(--text);
@@ -43,62 +43,61 @@
       line-height: 1.6;
       -webkit-font-smoothing: antialiased;
     }
-
     .container {
       max-width: 1200px;
       margin: 0 auto;
       padding: 0 1.5rem;
     }
-
     h1, h2, h3, h4, h5, h6 {
       font-family: var(--font-heading);
       font-weight: 700;
       line-height: 1.2;
       color: var(--text);
     }
-
     h1 { font-size: clamp(2.5rem, 6vw, 4rem); }
     h2 { font-size: clamp(2rem, 4vw, 3rem); margin-bottom: 1rem; }
     h3 { font-size: clamp(1.25rem, 2vw, 1.5rem); }
-
     a {
       color: inherit;
       text-decoration: none;
       transition: var(--transition);
     }
-
     img {
       max-width: 100%;
       height: auto;
       display: block;
     }
-
     .section {
       padding: 5rem 0;
     }
-
     .section-header {
       text-align: center;
       margin-bottom: 4rem;
     }
-
     .section-header h2 {
       margin-bottom: 1rem;
     }
-
     .section-header p {
       color: var(--text-light);
       max-width: 600px;
       margin: 0 auto;
       font-size: 1.125rem;
     }
-
     .cards-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
       gap: 2rem;
     }
-
+    .cards-grid-2 {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+      gap: 2rem;
+    }
+    .cards-grid-4 {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1.5rem;
+    }
     .card {
       background: white;
       border-radius: var(--radius);
@@ -106,12 +105,10 @@
       box-shadow: var(--shadow);
       transition: var(--transition);
     }
-
     .card:hover {
       transform: translateY(-5px);
       box-shadow: var(--shadow-lg);
     }
-
     .card-icon {
       width: 60px;
       height: 60px;
@@ -123,16 +120,13 @@
       font-size: 1.5rem;
       margin-bottom: 1.25rem;
     }
-
     .card h3 {
       margin-bottom: 0.75rem;
     }
-
     .card p {
       color: var(--text-light);
       line-height: 1.7;
     }
-
     .btn {
       display: inline-block;
       padding: 1rem 2rem;
@@ -143,17 +137,41 @@
       border: none;
       font-size: 1rem;
     }
-
     .btn-primary {
       background: linear-gradient(135deg, var(--primary), var(--secondary));
       color: white;
     }
-
     .btn-primary:hover {
       transform: translateY(-2px);
       box-shadow: var(--shadow-glow);
     }
-
+    .btn-secondary {
+      background: transparent;
+      color: var(--primary);
+      border: 2px solid var(--primary);
+    }
+    .btn-secondary:hover {
+      background: var(--primary);
+      color: white;
+    }
+    .content-section {
+      padding: 5rem 0;
+    }
+    .content-section.alt-bg {
+      background: rgba(0,0,0,0.02);
+    }
+    .section-header {
+      text-align: center;
+      margin-bottom: 4rem;
+    }
+    .section-header h2 {
+      margin-bottom: 1rem;
+    }
+    .section-header p {
+      color: var(--text-light);
+      max-width: 600px;
+      margin: 0 auto;
+    }
     .navbar {
       position: fixed;
       top: 0;
@@ -196,7 +214,6 @@
     @media (max-width: 768px) {
       .nav-links { display: none; }
     }
-
     .footer {
       padding: 4rem 0;
       margin-top: 6rem;
@@ -250,56 +267,53 @@
       </ul>
     </div>
   </nav>
-
+  
   <!-- MAIN CONTENT -->
-  <section class="section">
+  <section class="content-section">
     <div class="container">
       <div class="section-header">
         <h2>Über uns</h2>
         <p>Entdecken Sie, wer wir sind und wofür wir stehen.</p>
       </div>
-      <p>Unser Unternehmen steht für exzellente Berufsbildung und bietet eine Vielzahl von Möglichkeiten zur persönlichen und beruflichen Weiterentwicklung. Wir legen großen Wert auf Qualität und Innovation in der Ausbildung und sind bestrebt, unseren Teilnehmern die bestmögliche Lernerfahrung zu bieten. Unsere Werte basieren auf Integrität, Engagement und einem starken Fokus auf die Bedürfnisse unserer Kunden.</p>
+      <div class="content">
+        <p>Die KV Basel - Meine Berufsbildung ist bekannt für ihre herausragende Bildungsqualität und ihr Engagement für die berufliche Entwicklung. Unsere Programme sind darauf ausgerichtet, den Lernenden die Fähigkeiten und das Wissen zu vermitteln, die sie für eine erfolgreiche Karriere benötigen.</p>
+      </div>
     </div>
   </section>
-
-  <section class="section alt-bg">
+  
+  <section class="content-section alt-bg">
     <div class="container">
       <div class="section-header">
-        <h2>Unsere Werte</h2>
+        <h2>Wofür wir stehen</h2>
       </div>
       <div class="cards-grid">
         <div class="card">
-          <div class="card-icon">💼</div>
+          <div class="card-icon">📚</div>
           <h3>Qualität</h3>
-          <p>Wir streben nach höchster Qualität in allen unseren Bildungsangeboten.</p>
+          <p>Wir setzen auf höchste Bildungsstandards, um unseren Lernenden die bestmögliche Ausbildung zu bieten.</p>
         </div>
         <div class="card">
           <div class="card-icon">🤝</div>
           <h3>Zuverlässigkeit</h3>
-          <p>Unsere Kunden können sich auf uns verlassen, um ihre Bildungsziele zu erreichen.</p>
+          <p>Unsere Programme sind darauf ausgelegt, den individuellen Bedürfnissen unserer Lernenden gerecht zu werden.</p>
         </div>
         <div class="card">
-          <div class="card-icon">📞</div>
+          <div class="card-icon">🌟</div>
           <h3>Kundenservice</h3>
-          <p>Wir bieten exzellenten Kundenservice und sind immer für unsere Teilnehmer da.</p>
-        </div>
-        <div class="card">
-          <div class="card-icon">🌱</div>
-          <h3>Nachhaltigkeit</h3>
-          <p>Wir setzen uns für nachhaltige Bildungspraktiken ein.</p>
+          <p>Wir legen großen Wert auf eine persönliche Betreuung und Unterstützung unserer Lernenden.</p>
         </div>
       </div>
     </div>
   </section>
-
-  <section class="section cta-section">
+  
+  <section class="cta-section">
     <div class="container">
       <h2>Kontaktieren Sie uns</h2>
-      <p>Wir freuen uns darauf, von Ihnen zu hören und Ihre Fragen zu beantworten.</p>
-      <a href="kontakt.html" class="btn btn-primary">Kontakt aufnehmen</a>
+      <p>Haben Sie Fragen oder benötigen Sie weitere Informationen? Zögern Sie nicht, uns zu kontaktieren.</p>
+      <a href="kontakt.html" class="btn btn-primary">Kontakt</a>
     </div>
   </section>
-
+  
   <!-- FOOTER (PFLICHT - von unten kopieren) -->
   <footer class="footer">
     <div class="container">

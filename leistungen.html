@@ -16,8 +16,8 @@
   --text: #831843;
   --text-light: #831843cc;
   --white: #ffffff;
-  --font-heading: 'Oswald', sans-serif;
-  --font-body: 'Merriweather', sans-serif;
+  --font-heading: 'Sora', sans-serif;
+  --font-body: 'IBM Plex Sans', sans-serif;
   --radius: 20px;
   --shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
   --shadow-lg: 0 10px 40px rgba(0, 0, 0, 0.12);
@@ -35,7 +35,7 @@
 
 /* Base Styles */
 
-@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@400;600;700;800;900&family=Merriweather:wght@300;400;500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700;800;900&family=IBM+Plex+Sans:wght@300;400;500;600&display=swap');
 
 *, *::before, *::after {
   margin: 0;
@@ -425,30 +425,13 @@ img {
   color: var(--background);
 }
 
-.cards-grid .card {
-  background: white;
-  border-radius: var(--radius);
-  padding: 2rem;
-  box-shadow: var(--shadow);
-  transition: var(--transition);
-}
-.cards-grid .card:hover {
-  transform: translateY(-8px);
-  box-shadow: var(--shadow-lg);
-}
-.card-icon {
-  width: 60px;
-  height: 60px;
-  background: linear-gradient(135deg, var(--primary), var(--secondary));
-  border-radius: calc(var(--radius) - 4px);
+.cards-grid {
   display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 1.5rem;
-  margin-bottom: 1.25rem;
+  flex-direction: column;
+  gap: 0;
+  max-width: 700px;
+  margin: 0 auto;
 }
-.card h3 { margin-bottom: 0.75rem; }
-.card p { color: var(--text-light); line-height: 1.7; }
 
 .content-section {
   padding: 5rem 0;
@@ -587,34 +570,24 @@ img {
       </div>
       <div class="cards-grid">
         <div class="card">
-          <div class="card-icon">📚</div>
-          <h3>Berufsberatung</h3>
-          <p>Unsere erfahrenen Berater helfen Ihnen, den richtigen Karriereweg zu finden. Profitieren Sie von individuellen Beratungsgesprächen und maßgeschneiderten Lösungen.</p>
+          <div class="card-icon">🚗</div>
+          <h3>Fahrzeugwartung</h3>
+          <p>Unsere umfassenden Wartungsdienste sorgen dafür, dass Ihr Fahrzeug stets in einwandfreiem Zustand bleibt. Regelmäßige Inspektionen und Reparaturen garantieren Sicherheit und Langlebigkeit.</p>
         </div>
         <div class="card">
-          <div class="card-icon">📝</div>
-          <h3>Bewerbungstraining</h3>
-          <p>Erhalten Sie wertvolle Tipps und Tricks für Ihre Bewerbungsunterlagen. Wir unterstützen Sie bei der Erstellung eines überzeugenden Lebenslaufs und Anschreibens.</p>
+          <div class="card-icon">🔋</div>
+          <h3>Batterieprüfung</h3>
+          <p>Wir bieten professionelle Batterieprüfungen an, um sicherzustellen, dass Ihr Fahrzeug jederzeit startbereit ist. Vermeiden Sie unerwartete Ausfälle durch regelmäßige Checks.</p>
         </div>
         <div class="card">
-          <div class="card-icon">💼</div>
-          <h3>Praktikumsvermittlung</h3>
-          <p>Nutzen Sie unsere Kontakte zu Unternehmen, um ein passendes Praktikum zu finden. Sammeln Sie wertvolle Praxiserfahrungen und erweitern Sie Ihr berufliches Netzwerk.</p>
+          <div class="card-icon">🛠️</div>
+          <h3>Reparaturservice</h3>
+          <p>Unser Reparaturservice deckt alle Arten von Fahrzeugproblemen ab. Von kleinen Reparaturen bis hin zu größeren Schäden – wir bringen Ihr Fahrzeug schnell wieder auf die Straße.</p>
         </div>
         <div class="card">
-          <div class="card-icon">🎓</div>
-          <h3>Weiterbildungskurse</h3>
-          <p>Bleiben Sie auf dem neuesten Stand mit unseren Weiterbildungskursen. Wir bieten eine Vielzahl von Kursen an, die Ihnen helfen, Ihre Fähigkeiten zu erweitern.</p>
-        </div>
-        <div class="card">
-          <div class="card-icon">🌐</div>
-          <h3>Online-Lernplattform</h3>
-          <p>Lernen Sie flexibel und ortsunabhängig mit unserer Online-Plattform. Greifen Sie auf eine Vielzahl von Lernmaterialien und interaktiven Kursen zu.</p>
-        </div>
-        <div class="card">
-          <div class="card-icon">🤝</div>
-          <h3>Netzwerkveranstaltungen</h3>
-          <p>Knüpfen Sie wertvolle Kontakte auf unseren Netzwerkveranstaltungen. Tauschen Sie sich mit Gleichgesinnten und Branchenexperten aus.</p>
+          <div class="card-icon">📞</div>
+          <h3>Kundendienst</h3>
+          <p>Unser freundlicher Kundendienst steht Ihnen bei Fragen und Problemen jederzeit zur Verfügung. Wir bieten schnelle und effiziente Lösungen für Ihre Anliegen.</p>
         </div>
       </div>
     </div>
@@ -623,16 +596,63 @@ img {
   <section class="content-section alt-bg">
     <div class="container">
       <div class="section-header">
-        <h2>Transparente Kosten</h2>
-        <p>Unsere Preise sind fair und transparent. Kontaktieren Sie uns für ein individuelles Angebot.</p>
+        <h2>Unser Ablauf</h2>
+      </div>
+      <div class="cards-grid-2">
+        <div class="card">
+          <h3>1. Anfrage</h3>
+          <p>Kontaktieren Sie uns über unser Formular oder telefonisch, um Ihre Bedürfnisse zu besprechen.</p>
+        </div>
+        <div class="card">
+          <h3>2. Beratung</h3>
+          <p>Wir bieten Ihnen eine umfassende Beratung, um die besten Lösungen für Ihr Anliegen zu finden.</p>
+        </div>
+        <div class="card">
+          <h3>3. Angebot</h3>
+          <p>Sie erhalten ein maßgeschneidertes Angebot, das auf Ihre Anforderungen zugeschnitten ist.</p>
+        </div>
+        <div class="card">
+          <h3>4. Umsetzung</h3>
+          <p>Unsere Experten setzen die vereinbarten Maßnahmen effizient und termingerecht um.</p>
+        </div>
+        <div class="card">
+          <h3>5. Nachbetreuung</h3>
+          <p>Wir stehen Ihnen auch nach Abschluss des Projekts für Fragen und weitere Unterstützung zur Verfügung.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="content-section">
+    <div class="container">
+      <div class="section-header">
+        <h2>FAQ</h2>
+      </div>
+      <div class="cards-grid-2">
+        <div class="card">
+          <h3>Wie oft sollte mein Fahrzeug gewartet werden?</h3>
+          <p>Wir empfehlen, Ihr Fahrzeug mindestens einmal im Jahr oder alle 15.000 Kilometer warten zu lassen.</p>
+        </div>
+        <div class="card">
+          <h3>Was beinhaltet eine Batterieprüfung?</h3>
+          <p>Unsere Batterieprüfung umfasst eine vollständige Analyse der Batteriegesundheit und Ladefähigkeit.</p>
+        </div>
+        <div class="card">
+          <h3>Welche Reparaturen bieten Sie an?</h3>
+          <p>Wir bieten eine breite Palette von Reparaturen an, von mechanischen bis zu elektrischen Problemen.</p>
+        </div>
+        <div class="card">
+          <h3>Wie kann ich den Kundendienst kontaktieren?</h3>
+          <p>Sie können uns telefonisch oder per E-Mail kontaktieren. Unsere Kontaktdaten finden Sie auf unserer Website.</p>
+        </div>
       </div>
     </div>
   </section>
 
   <section class="cta-section">
     <div class="container">
-      <h2>Interesse geweckt?</h2>
-      <p>Kontaktieren Sie uns, um mehr über unsere Leistungen zu erfahren.</p>
+      <h2>Bereit loszulegen?</h2>
+      <p>Kontaktieren Sie uns noch heute und erfahren Sie mehr über unsere Dienstleistungen.</p>
       <a href="kontakt.html" class="btn btn-primary">Kontakt aufnehmen</a>
     </div>
   </section>

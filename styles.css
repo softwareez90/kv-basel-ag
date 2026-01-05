@@ -1,6 +1,6 @@
 /* Design System - Auto-Generated */
 
-@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@400;600;700;800;900&family=Merriweather:wght@300;400;500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700;800;900&family=IBM+Plex+Sans:wght@300;400;500;600&display=swap');
 
 *, *::before, *::after {
   margin: 0;
@@ -233,8 +233,8 @@ img {
   --text: #831843;
   --text-light: #831843cc;
   --white: #ffffff;
-  --font-heading: 'Oswald', sans-serif;
-  --font-body: 'Merriweather', sans-serif;
+  --font-heading: 'Sora', sans-serif;
+  --font-body: 'IBM Plex Sans', sans-serif;
   --radius: 20px;
   --shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
   --shadow-lg: 0 10px 40px rgba(0, 0, 0, 0.12);
