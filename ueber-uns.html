@@ -3,22 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Über uns - KV Basel | Meine Berufsbildung</title>
-    <meta name="description" content="Erfahren Sie mehr über das KV Basel. Wir verbinden 100 Jahre Tradition mit moderner kaufmännischer Bildung. Portrait, Sekretariat und unsere Werte.">
-    
+    <title>Über uns | KV Basel - Meine Berufsbildung</title>
+    <meta name="description" content="Erfahren Sie mehr über das KV Basel. Wir sind das Kompetenzzentrum für kaufmännische Berufsbildung in der Region Basel. Tradition, Innovation und Erfolg.">
     <style>
-        /* --- CORE VARIABLES & RESET --- */
         :root {
-            --primary-color: #003366; /* Dunkelblau für Seriosität */
-            --secondary-color: #E30613; /* Rot für Akzente (typisch Schweiz/Bildung) */
-            --text-dark: #1a1a1a;
-            --text-light: #f4f4f4;
-            --bg-light: #f9f9f9;
-            --bg-white: #ffffff;
+            --primary-color: #003366; /* Dunkelblau KV Stil */
+            --secondary-color: #e30613; /* Akzentrot */
+            --text-color: #333333;
+            --light-bg: #f8f9fa;
+            --white: #ffffff;
+            --dark-footer: #1a1a1a;
             --font-main: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-            --spacing-section: 5rem;
-            --shadow-card: 0 4px 20px rgba(0,0,0,0.08);
-            --radius: 8px;
+            --spacing-section: 80px;
         }
 
         * {
@@ -29,95 +25,98 @@
 
         body {
             font-family: var(--font-main);
-            color: var(--text-dark);
             line-height: 1.6;
-            background-color: var(--bg-white);
-            display: flex;
-            flex-direction: column;
-            min-height: 100vh;
+            color: var(--text-color);
+            background-color: var(--white);
         }
 
         a {
             text-decoration: none;
             color: inherit;
-            transition: 0.3s ease;
+            transition: all 0.3s ease;
         }
 
         ul {
             list-style: none;
         }
 
-        img {
-            max-width: 100%;
-            height: auto;
-            display: block;
-        }
-
-        .container {
-            width: 90%;
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 15px;
-        }
-
-        /* --- NAVIGATION STYLES (Matching provided HTML) --- */
+        /* --- NAVIGATION STYLES (Based on provided HTML) --- */
         .nav {
-            background: var(--bg-white);
-            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            background: var(--white);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
             position: sticky;
             top: 0;
             z-index: 1000;
-            padding: 1rem 0;
+            height: 80px;
+            display: flex;
+            align-items: center;
         }
 
         .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            width: 100%;
+            padding: 0 20px;
             display: flex;
             justify-content: space-between;
             align-items: center;
         }
 
         .nav-logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary-color);
             display: flex;
             flex-direction: column;
-            line-height: 1.2;
+            line-height: 1.1;
         }
 
-        .nav-logo-main {
-            font-size: 1.5rem;
-            font-weight: 800;
-            color: var(--primary-color);
+        .nav-logo span {
+            color: var(--secondary-color);
+        }
+
+        .nav-logo small {
+            font-size: 0.7rem;
+            font-weight: 400;
+            color: #666;
+            text-transform: uppercase;
             letter-spacing: 1px;
         }
 
-        .nav-logo-sub {
-            font-size: 0.85rem;
-            color: #666;
-            font-weight: 500;
-        }
-
-        .nav-links {
+        .nav-menu {
             display: flex;
-            gap: 2rem;
+            gap: 30px;
             align-items: center;
         }
 
-        .nav-link a {
+        .nav-link {
             font-weight: 500;
-            color: var(--text-dark);
             font-size: 1rem;
+            color: var(--primary-color);
             position: relative;
         }
 
-        .nav-link a:hover, .nav-link a.active {
-            color: var(--secondary-color);
+        .nav-link:not(.nav-cta):after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -5px;
+            left: 0;
+            background-color: var(--secondary-color);
+            transition: width 0.3s;
+        }
+
+        .nav-link:not(.nav-cta):hover:after {
+            width: 100%;
         }
 
         .nav-cta {
             background-color: var(--secondary-color);
-            color: white !important;
-            padding: 0.6rem 1.2rem;
-            border-radius: var(--radius);
-            font-weight: 600 !important;
+            color: var(--white);
+            padding: 10px 20px;
+            border-radius: 4px;
+            font-weight: 600;
         }
 
         .nav-cta:hover {
@@ -125,210 +124,230 @@
             transform: translateY(-2px);
         }
 
-        .mobile-menu-btn {
-            display: none;
-            background: none;
-            border: none;
-            font-size: 1.5rem;
-            cursor: pointer;
+        /* Mobile Nav Logic */
+        .nav-toggle { display: none; }
+        .nav-toggle-label { display: none; cursor: pointer; }
+
+        @media (max-width: 992px) {
+            .nav-menu {
+                position: absolute;
+                top: 80px;
+                left: 0;
+                right: 0;
+                background: var(--white);
+                flex-direction: column;
+                padding: 20px;
+                gap: 20px;
+                border-bottom: 1px solid #eee;
+                transform: scaleY(0);
+                transform-origin: top;
+                transition: transform 0.3s ease-in-out;
+            }
+
+            .nav-toggle:checked ~ .nav-menu {
+                transform: scaleY(1);
+            }
+
+            .nav-toggle-label {
+                display: block;
+                width: 30px;
+            }
+
+            .nav-toggle-label span {
+                display: block;
+                height: 3px;
+                background: var(--primary-color);
+                margin: 6px 0;
+                border-radius: 2px;
+            }
         }
 
-        /* --- MAIN CONTENT STYLES --- */
-        
-        /* Hero Section */
+        /* --- HEADER / HERO SECTION --- */
         .page-header {
             background: linear-gradient(rgba(0, 51, 102, 0.85), rgba(0, 51, 102, 0.7)), url('https://images.unsplash.com/photo-1523050854058-8df90110c9f1?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');
             background-size: cover;
             background-position: center;
-            color: white;
-            padding: 6rem 0;
+            color: var(--white);
+            padding: 100px 20px;
             text-align: center;
         }
 
-        .page-header h1 {
-            font-size: 3rem;
-            margin-bottom: 1rem;
-            font-weight: 700;
+        .header-content {
+            max-width: 800px;
+            margin: 0 auto;
         }
 
         .breadcrumb {
             font-size: 0.9rem;
-            opacity: 0.9;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 15px;
+            opacity: 0.8;
         }
 
-        .breadcrumb span {
-            margin: 0 0.5rem;
+        .page-title {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            font-weight: 700;
         }
 
-        /* Portrait Section */
-        .section-portrait {
-            padding: var(--spacing-section) 0;
+        .page-subtitle {
+            font-size: 1.25rem;
+            font-weight: 300;
+            max-width: 600px;
+            margin: 0 auto;
         }
 
+        /* --- MAIN CONTENT SECTIONS --- */
+        .section {
+            padding: var(--spacing-section) 20px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        /* Section: Portrait */
         .portrait-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 4rem;
+            gap: 60px;
             align-items: center;
         }
 
-        .section-title {
+        .portrait-text h2 {
             font-size: 2.2rem;
             color: var(--primary-color);
-            margin-bottom: 1.5rem;
+            margin-bottom: 20px;
             position: relative;
         }
 
-        .section-title::after {
+        .portrait-text h2::after {
             content: '';
             display: block;
             width: 60px;
             height: 4px;
             background: var(--secondary-color);
-            margin-top: 0.5rem;
+            margin-top: 10px;
         }
 
-        .lead-text {
-            font-size: 1.1rem;
-            font-weight: 500;
-            color: #444;
-            margin-bottom: 1.5rem;
+        .portrait-text p {
+            margin-bottom: 20px;
+            font-size: 1.05rem;
+            color: #555;
         }
 
-        .portrait-img-wrapper {
-            position: relative;
-        }
-
-        .portrait-img {
-            border-radius: var(--radius);
-            box-shadow: var(--shadow-card);
+        .portrait-image img {
             width: 100%;
+            border-radius: 8px;
+            box-shadow: 0 15px 30px rgba(0,0,0,0.1);
         }
 
-        .portrait-badge {
-            position: absolute;
-            bottom: -20px;
-            right: -20px;
-            background: var(--secondary-color);
-            color: white;
-            padding: 1.5rem;
-            border-radius: var(--radius);
-            font-weight: bold;
+        /* Section: Sekretariat (Highlighted) */
+        .bg-light {
+            background-color: var(--light-bg);
+        }
+
+        .sekretariat-box {
+            background: var(--white);
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            border-left: 5px solid var(--secondary-color);
+        }
+
+        .sek-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 40px;
+        }
+
+        .sek-info h3 {
+            color: var(--primary-color);
+            font-size: 1.8rem;
+            margin-bottom: 15px;
+        }
+
+        .opening-hours {
+            background: var(--primary-color);
+            color: var(--white);
+            padding: 30px;
+            border-radius: 8px;
+        }
+
+        .opening-hours h4 {
+            margin-bottom: 15px;
+            border-bottom: 1px solid rgba(255,255,255,0.2);
+            padding-bottom: 10px;
+        }
+
+        .hours-list li {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 8px;
+            font-size: 0.9rem;
+        }
+
+        /* Section: Values/Stats */
+        .values-section {
             text-align: center;
-            box-shadow: 0 5px 15px rgba(227, 6, 19, 0.3);
-        }
-
-        /* Stats/Values Section */
-        .section-values {
-            background-color: var(--bg-light);
-            padding: var(--spacing-section) 0;
         }
 
         .values-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-            margin-top: 3rem;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
         }
 
         .value-card {
-            background: white;
-            padding: 2rem;
-            border-radius: var(--radius);
-            box-shadow: var(--shadow-card);
-            border-top: 4px solid var(--primary-color);
+            padding: 30px;
+            border: 1px solid #eee;
+            border-radius: 8px;
             transition: transform 0.3s;
         }
 
         .value-card:hover {
-            transform: translateY(-5px);
+            transform: translateY(-10px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+            border-color: var(--secondary-color);
         }
 
         .value-icon {
-            font-size: 2rem;
-            margin-bottom: 1rem;
-            color: var(--primary-color);
+            font-size: 3rem;
+            margin-bottom: 20px;
+            display: block;
         }
 
         .value-card h3 {
-            margin-bottom: 1rem;
-            color: var(--text-dark);
-        }
-
-        /* Secretariat Section */
-        .section-sekretariat {
-            padding: var(--spacing-section) 0;
-        }
-
-        .sekretariat-box {
-            background: var(--primary-color);
-            color: white;
-            border-radius: var(--radius);
-            overflow: hidden;
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-        }
-
-        .sekretariat-info {
-            padding: 3rem;
-        }
-
-        .sekretariat-image {
-            background: url('https://images.unsplash.com/photo-1556761175-5973dc0f32e7?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80') no-repeat center center/cover;
-            min-height: 300px;
-        }
-
-        .contact-list {
-            margin-top: 2rem;
-        }
-
-        .contact-list li {
-            margin-bottom: 1rem;
-            display: flex;
-            align-items: flex-start;
-        }
-
-        .contact-icon {
-            margin-right: 1rem;
-            color: var(--secondary-color);
-        }
-
-        .btn-outline {
-            display: inline-block;
-            margin-top: 1.5rem;
-            padding: 0.8rem 1.5rem;
-            border: 2px solid white;
-            color: white;
-            border-radius: var(--radius);
-            font-weight: 600;
-        }
-
-        .btn-outline:hover {
-            background: white;
             color: var(--primary-color);
+            margin-bottom: 15px;
         }
 
-        /* --- FOOTER STYLES (Matching provided HTML) --- */
+        /* --- FOOTER STYLES (Based on provided HTML) --- */
         .footer {
-            background-color: #111;
-            color: #bbb;
-            padding: 4rem 0 0 0;
-            margin-top: auto;
+            background-color: var(--dark-footer);
+            color: #ccc;
+            padding: 60px 20px 20px;
+            font-size: 0.95rem;
         }
 
-        .footer-grid {
+        .footer-container {
+            max-width: 1200px;
+            margin: 0 auto;
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 3rem;
-            margin-bottom: 3rem;
+            gap: 40px;
+            margin-bottom: 40px;
         }
 
         .footer-col h3 {
-            color: white;
-            margin-bottom: 1.5rem;
+            color: var(--white);
+            margin-bottom: 20px;
             font-size: 1.2rem;
             position: relative;
-            padding-bottom: 0.5rem;
+            padding-bottom: 10px;
         }
 
         .footer-col h3::after {
@@ -338,83 +357,77 @@
             bottom: 0;
             width: 30px;
             height: 2px;
-            background: var(--secondary-color);
+            background-color: var(--secondary-color);
         }
 
-        .footer-desc {
-            font-size: 0.9rem;
+        .footer-text {
             line-height: 1.6;
+            margin-bottom: 20px;
         }
 
         .footer-links li {
-            margin-bottom: 0.8rem;
+            margin-bottom: 10px;
         }
 
         .footer-links a {
-            color: #bbb;
-            font-size: 0.95rem;
+            color: #ccc;
+            transition: color 0.3s;
         }
 
         .footer-links a:hover {
-            color: white;
+            color: var(--secondary-color);
             padding-left: 5px;
         }
 
         .footer-contact-item {
-            margin-bottom: 1rem;
             display: flex;
-            flex-direction: column;
+            gap: 15px;
+            margin-bottom: 15px;
+            align-items: flex-start;
         }
 
-        .footer-contact-item span {
-            color: white;
-            font-weight: 600;
-            font-size: 0.9rem;
-            margin-bottom: 0.2rem;
+        .footer-contact-icon {
+            font-size: 1.2rem;
         }
 
         .footer-bottom {
+            max-width: 1200px;
+            margin: 0 auto;
             border-top: 1px solid #333;
-            padding: 1.5rem 0;
+            padding-top: 20px;
             display: flex;
             justify-content: space-between;
-            align-items: center;
             flex-wrap: wrap;
-            gap: 1rem;
+            gap: 20px;
         }
 
-        .footer-socials {
-            display: flex;
-            gap: 1.5rem;
+        .footer-bottom-links a {
+            margin-left: 20px;
+            font-size: 0.85rem;
+            color: #999;
         }
 
-        .footer-social-link {
-            color: white;
-            font-size: 0.9rem;
-            font-weight: 500;
+        .footer-bottom-links a:hover {
+            color: var(--white);
         }
 
-        .footer-social-link:hover {
-            color: var(--secondary-color);
-        }
-
-        /* --- RESPONSIVE --- */
-        @media (max-width: 900px) {
-            .portrait-grid, .sekretariat-box {
+        /* Responsive Adjustments */
+        @media (max-width: 768px) {
+            .portrait-grid, .sek-grid {
                 grid-template-columns: 1fr;
             }
             
-            .portrait-badge {
-                right: 0;
-                bottom: -10px;
+            .page-title {
+                font-size: 2.2rem;
             }
             
-            .nav-links {
-                display: none; /* Mobile menu logic typically requires JS */
+            .footer-bottom {
+                flex-direction: column;
+                text-align: center;
             }
             
-            .mobile-menu-btn {
-                display: block;
+            .footer-bottom-links a {
+                margin: 0 10px;
             }
         }
     </style>
@@ -422,201 +435,177 @@
 </head>
 <body>
 
-    <!-- NAVIGATION (EXAKT KOPIERT) -->
+    <!-- NAVIGATION (VORGEGEBEN) -->
     <nav class="nav">
-        <div class="container nav-container">
+        <div class="nav-container">
+            <!-- Logo -->
             <a href="index.html" class="nav-logo">
-                <span class="nav-logo-main">KV BASEL</span>
-                <span class="nav-logo-sub">Meine Berufsbildung</span>
+                KV<span>Basel</span> <small>Meine Berufsbildung</small>
             </a>
 
-            <button class="mobile-menu-btn" aria-label="Menü öffnen">
-                ☰
-            </button>
+            <!-- Mobile Toggle -->
+            <input type="checkbox" id="nav-toggle" class="nav-toggle">
+            <label for="nav-toggle" class="nav-toggle-label">
+                <span></span>
+                <span></span>
+                <span></span>
+            </label>
 
-            <ul class="nav-links">
-                <li class="nav-link"><a href="index.html">Startseite</a></li>
-                <li class="nav-link"><a href="ueber-uns.html" style="color: var(--secondary-color);">Über uns</a></li>
-                <li class="nav-link"><a href="leistungen.html">Leistungen</a></li>
-                <li class="nav-link"><a href="kontakt.html">Kontakt</a></li>
-                <li class="nav-link">
-                    <a href="kontakt.html" class="nav-cta">Jetzt anmelden</a>
-                </li>
+            <!-- Menu Links -->
+            <ul class="nav-menu">
+                <li><a href="index.html" class="nav-link">Startseite</a></li>
+                <li><a href="ueber-uns.html" class="nav-link">Über uns</a></li>
+                <li><a href="leistungen.html" class="nav-link">Leistungen</a></li>
+                <li><a href="kontakt.html" class="nav-link">Kontakt</a></li>
+                <li><a href="impressum.html" class="nav-link">Impressum</a></li>
+                <li><a href="kontakt.html" class="nav-link nav-cta">Jetzt bewerben</a></li>
             </ul>
         </div>
     </nav>
 
-    <!-- HAUPTINHALT -->
+    <!-- MAIN CONTENT -->
     <main>
-        <!-- Hero Section -->
+        <!-- Header / Hero Section -->
         <header class="page-header">
-            <div class="container">
-                <h1>Über uns</h1>
-                <div class="breadcrumb">
-                    <a href="index.html">HOME</a> <span>/</span> Portrait
-                </div>
+            <div class="header-content">
+                <div class="breadcrumb">Home / Portrait / Über uns</div>
+                <h1 class="page-title">Das KV Basel</h1>
+                <p class="page-subtitle">Kompetenzzentrum für kaufmännische Berufsbildung in der Region. Wir verbinden Tradition mit zukunftsorientiertem Lernen.</p>
             </div>
         </header>
 
-        <!-- Portrait Section -->
-        <section class="section-portrait">
+        <!-- Section 1: Portrait / General Intro -->
+        <section class="section">
             <div class="container">
                 <div class="portrait-grid">
                     <div class="portrait-text">
-                        <h2 class="section-title">Bildung mit Tradition und Zukunft</h2>
-                        <p class="lead-text">
-                            Das KV Basel ist seit über einem Jahrhundert der führende Partner für kaufmännische Bildung und Wirtschaft in der Region Basel.
-                        </p>
-                        <p>
-                            Als moderne Berufsfachschule verbinden wir bewährte Traditionen mit innovativen, digitalen Lernmethoden. Wir verstehen uns nicht nur als Wissensvermittler, sondern als Begleiter junger Menschen auf ihrem Weg in die Berufswelt.
-                        </p>
-                        <br>
-                        <p>
-                            Unsere enge Zusammenarbeit mit den Lehrbetrieben der Region garantiert eine praxisnahe Ausbildung, die genau auf die Bedürfnisse des Arbeitsmarktes zugeschnitten ist. Wir fördern Eigenverantwortung, soziale Kompetenz und lebenslanges Lernen.
-                        </p>
+                        <h2>Bildung mit Perspektive</h2>
+                        <p>Das KV Basel steht seit Jahrzehnten für Exzellenz in der kaufmännischen Grundbildung. Als größte kaufmännische Berufsfachschule der Region begleiten wir Lernende auf ihrem Weg ins Berufsleben – vom ersten Schultag bis zum erfolgreichen Qualifikationsverfahren.</p>
+                        <p>Wir verstehen uns nicht nur als Schule, sondern als Partner der Wirtschaft. Durch die enge Zusammenarbeit mit Lehrbetrieben in Basel-Stadt und Basel-Landschaft stellen wir sicher, dass unsere Ausbildung stets praxisnah und am Puls der Zeit bleibt.</p>
+                        <p><strong>Unsere Mission:</strong> Wir fördern Talente, fordern Leistung und stärken die Persönlichkeit unserer Lernenden, damit sie in einer dynamischen Arbeitswelt bestehen können.</p>
                     </div>
-                    <div class="portrait-img-wrapper">
-                        <img src="https://images.unsplash.com/photo-1524178232363-1fb2b075b655?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Studenten am KV Basel" class="portrait-img">
-                        <div class="portrait-badge">
-                            100+ Jahre<br><span style="font-weight:400; font-size: 0.8rem;">Exzellenz</span>
+                    <div class="portrait-image">
+                        <!-- Realistisches Bild einer modernen Schulumgebung -->
+                        <img src="https://images.unsplash.com/photo-1524178232363-1fb2b075b655?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="Lernende am KV Basel im modernen Schulzimmer">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 2: Das Berufsschulsekretariat (Based on Input) -->
+        <section class="section bg-light">
+            <div class="container">
+                <div class="sek-grid">
+                    <div class="sek-info">
+                        <div class="sekretariat-box">
+                            <h3>Das Berufsschulsekretariat</h3>
+                            <p>Das Sekretariat ist die zentrale Drehscheibe für Lernende, Eltern, Lehrpersonen und Ausbildungsbetriebe. Hier laufen alle administrativen Fäden zusammen.</p>
+                            <p>Ob es um Anmeldungen, Zeugnisse, Dispensationsgesuche oder allgemeine Auskünfte zur Berufsfachschule geht – unser Team steht Ihnen kompetent zur Seite. Wir legen großen Wert auf eine effiziente Verwaltung und einen freundlichen Service, damit der Schulbetrieb reibungslos funktioniert.</p>
+                            <br>
+                            <p><strong>Leitung:</strong> Frau M. Muster (Leitung Administration)<br>
+                            <strong>Standort:</strong> 1. Stock, Hauptgebäude Aeschenvorstadt</p>
+                            <br>
+                            <a href="kontakt.html" class="nav-link nav-cta" style="display:inline-block;">Kontakt aufnehmen</a>
+                        </div>
+                    </div>
+                    <div class="sek-sidebar">
+                        <div class="opening-hours">
+                            <h4>Öffnungszeiten</h4>
+                            <p style="margin-bottom:15px; font-size:0.9rem; opacity:0.9;">Für telefonische Auskünfte und Schalterbesuche:</p>
+                            <ul class="hours-list">
+                                <li><span>Montag - Donnerstag:</span> <span>07:30 – 12:00</span></li>
+                                <li><span></span> <span>13:30 – 17:00</span></li>
+                                <li><span>Freitag:</span> <span>07:30 – 12:00</span></li>
+                                <li><span></span> <span>13:30 – 16:30</span></li>
+                            </ul>
+                            <p style="margin-top:20px; font-size:0.8rem;">Während der Schulferien gelten reduzierte Öffnungszeiten.</p>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- Werte & Fakten Section -->
-        <section class="section-values">
+        <!-- Section 3: Values & Facts -->
+        <section class="section values-section">
             <div class="container">
-                <div style="text-align: center; max-width: 800px; margin: 0 auto;">
-                    <h2 class="section-title" style="display: inline-block;">Unsere Philosophie</h2>
-                    <p>Wir setzen auf Qualität, Praxisnähe und eine starke Gemeinschaft.</p>
-                </div>
-
-                <div class="values-grid">
-                    <article class="value-card">
-                        <div class="value-icon">🎓</div>
-                        <h3>Duales Bildungssystem</h3>
-                        <p>Wir glauben an die kraftvolle Kombination aus Theorie in der Schule und Praxis im Betrieb. Dieses Modell ist das Rückgrat der Schweizer Wirtschaft und unser ganzer Stolz.</p>
-                    </article>
-
-                    <article class="value-card">
-                        <div class="value-icon">🚀</div>
-                        <h3>Digital & Modern</h3>
-                        <p>Unsere Klassenzimmer sind mit modernster Technologie ausgestattet. "Bring Your Own Device" (BYOD) ist bei uns Standard, um Kompetenzen für die digitale Arbeitswelt zu fördern.</p>
-                    </article>
-
-                    <article class="value-card">
-                        <div class="value-icon">🤝</div>
-                        <h3>Starkes Netzwerk</h3>
-                        <p>Durch unsere enge Vernetzung mit dem lokalen Gewerbeverband und hunderten Lehrbetrieben öffnen wir Türen für unsere Lernenden direkt in der Region Basel.</p>
-                    </article>
-                </div>
-            </div>
-        </section>
-
-        <!-- Sekretariat / Team Section -->
-        <section class="section-sekretariat">
-            <div class="container">
-                <h2 class="section-title">Ihr Berufsschulsekretariat</h2>
-                <p style="margin-bottom: 2rem;">Das Herz unserer Verwaltung – wir sind für Sie da.</p>
+                <h2>Warum KV Basel?</h2>
+                <p style="max-width: 700px; margin: 0 auto; color: #666;">Wir bieten mehr als nur Unterricht. Wir bieten ein Umfeld, in dem Wachstum möglich ist.</p>
                 
-                <div class="sekretariat-box">
-                    <div class="sekretariat-image"></div>
-                    <div class="sekretariat-info">
-                        <h3>Wir unterstützen Sie gerne</h3>
-                        <p>Haben Sie Fragen zur Anmeldung, zu Stundenplänen oder Zeugnissen? Unser Sekretariat ist die zentrale Anlaufstelle für Lernende, Eltern und Berufsbildner.</p>
-                        
-                        <ul class="contact-list">
-                            <li>
-                                <span class="contact-icon">📍</span>
-                                <div>
-                                    <strong>Standort:</strong><br>
-                                    Aeschenvorstadt 15, 4051 Basel<br>
-                                    Empfang im 1. Stock
-                                </div>
-                            </li>
-                            <li>
-                                <span class="contact-icon">🕒</span>
-                                <div>
-                                    <strong>Öffnungszeiten:</strong><br>
-                                    Mo - Fr: 07:30 - 12:00 Uhr<br>
-                                    Mo - Do: 13:30 - 17:00 Uhr
-                                </div>
-                            </li>
-                        </ul>
-
-                        <a href="kontakt.html" class="btn-outline">Kontakt aufnehmen</a>
+                <div class="values-grid">
+                    <div class="value-card">
+                        <span class="value-icon">🎓</span>
+                        <h3>Praxisnah</h3>
+                        <p>Unsere Lehrpläne orientieren sich an den realen Anforderungen der Wirtschaft. Theorie und Praxis gehen Hand in Hand.</p>
+                    </div>
+                    <div class="value-card">
+                        <span class="value-icon">💻</span>
+                        <h3>Digital</h3>
+                        <p>BYOD (Bring Your Own Device) ist bei uns Standard. Wir nutzen modernste Lernplattformen und digitale Lehrmittel.</p>
+                    </div>
+                    <div class="value-card">
+                        <span class="value-icon">🤝</span>
+                        <h3>Persönlich</h3>
+                        <p>Individuelle Förderung steht im Mittelpunkt. Wir unterstützen bei Lernschwierigkeiten und fördern Begabungen.</p>
+                    </div>
+                    <div class="value-card">
+                        <span class="value-icon">📍</span>
+                        <h3>Zentral</h3>
+                        <p>Mitten in Basel an der Aeschenvorstadt. Perfekt erreichbar mit öffentlichen Verkehrsmitteln aus der ganzen Region.</p>
                     </div>
                 </div>
             </div>
         </section>
     </main>
 
-    <!-- FOOTER (EXAKT KOPIERT) -->
+    <!-- FOOTER (VORGEGEBEN) -->
     <footer class="footer">
-        <div class="container">
-            <div class="footer-grid">
-                <!-- Spalte 1: Brand -->
-                <div class="footer-col">
-                    <a href="index.html" class="nav-logo" style="margin-bottom: 1rem;">
-                        <span class="nav-logo-main" style="color: white;">KV BASEL</span>
-                        <span class="nav-logo-sub">Meine Berufsbildung</span>
-                    </a>
-                    <p class="footer-desc">
-                        Seit über 100 Jahren der führende Partner für kaufmännische Bildung und Wirtschaft in der Region Basel. Wir verbinden Tradition mit modernstem digitalen Lernen.
-                    </p>
-                </div>
-
-                <!-- Spalte 2: Navigation -->
-                <div class="footer-col">
-                    <h3>Navigation</h3>
-                    <ul class="footer-links">
-                        <li><a href="index.html">Startseite</a></li>
-                        <li><a href="ueber-uns.html">Über uns</a></li>
-                        <li><a href="leistungen.html">Bildungsangebote</a></li>
-                        <li><a href="kontakt.html">Beratung & Kontakt</a></li>
-                    </ul>
-                </div>
-
-                <!-- Spalte 3: Rechtliches -->
-                <div class="footer-col">
-                    <h3>Rechtliches</h3>
-                    <ul class="footer-links">
-                        <li><a href="impressum.html">Impressum</a></li>
-                        <li><a href="#">Datenschutzerklärung</a></li>
-                        <li><a href="#">AGB</a></li>
-                        <li><a href="#">Schulordnung</a></li>
-                    </ul>
-                </div>
-
-                <!-- Spalte 4: Kontakt -->
-                <div class="footer-col">
-                    <h3>Kontaktieren Sie uns</h3>
-                    <div class="footer-contact-item">
-                        <span>Adresse:</span>
-                        Aeschenvorstadt 15<br>4051 Basel
-                    </div>
-                    <div class="footer-contact-item">
-                        <span>Telefon:</span>
-                        <a href="tel:+41612345678" style="color: inherit; text-decoration: none;">+41 61 234 56 78</a>
-                    </div>
-                    <div class="footer-contact-item">
-                        <span>E-Mail:</span>
-                        <a href="mailto:info@kv-basel.ch" style="color: inherit; text-decoration: none;">info@kv-basel.ch</a>
-                    </div>
-                </div>
+        <div class="footer-container">
+            <!-- Column 1: About -->
+            <div class="footer-col">
+                <h3>KV Basel</h3>
+                <p class="footer-text">
+                    Wir engagieren uns für praxisnahe Bildung und fördern Talente in der Region Basel. Ihre Karriere startet hier mit moderner Infrastruktur und erfahrenen Dozenten.
+                </p>
             </div>
 
-            <div class="footer-bottom">
-                <div class="copyright">
-                    &copy; 2023 KV Basel. Alle Rechte vorbehalten.
+            <!-- Column 2: Quick Links -->
+            <div class="footer-col">
+                <h3>Direktlinks</h3>
+                <ul class="footer-links">
+                    <li><a href="ueber-uns.html">› Über das KV Basel</a></li>
+                    <li><a href="leistungen.html">› Ausbildungen & Kurse</a></li>
+                    <li><a href="leistungen.html#termine">› Prüfungstermine</a></li>
+                    <li><a href="kontakt.html">› Sekretariat & Öffnungszeiten</a></li>
+                </ul>
+            </div>
+
+            <!-- Column 3: Contact -->
+            <div class="footer-col">
+                <h3>Kontakt</h3>
+                <div class="footer-contact-item">
+                    <span class="footer-contact-icon">📍</span>
+                    <span>Aeschenvorstadt 15<br>4051 Basel<br>Schweiz</span>
                 </div>
-                <div class="footer-socials">
-                    <a href="#" class="footer-social-link">LinkedIn</a>
-                    <a href="#" class="footer-social-link">Instagram</a>
-                    <a href="#" class="footer-social-link">Facebook</a>
+                <div class="footer-contact-item">
+                    <span class="footer-contact-icon">📞</span>
+                    <a href="tel:+41611234567">+41 61 123 45 67</a>
                 </div>
+                <div class="footer-contact-item">
+                    <span class="footer-contact-icon">✉️</span>
+                    <a href="mailto:info@kv-basel-bildung.ch">info@kv-basel-bildung.ch</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Copyright Bar -->
+        <div class="footer-bottom">
+            <div>
+                &copy; 2023 KV Basel - Meine Berufsbildung. Alle Rechte vorbehalten.
+            </div>
+            <div class="footer-bottom-links">
+                <a href="impressum.html">Impressum</a>
+                <a href="datenschutz.html">Datenschutz</a>
+                <a href="#">AGB</a>
             </div>
         </div>
     </footer>

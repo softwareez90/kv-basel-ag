@@ -3,31 +3,35 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Impressum - KV Basel | Meine Berufsbildung</title>
+    <title>Impressum | KV Basel - Meine Berufsbildung</title>
+    <meta name="description" content="Rechtliche Hinweise, Kontaktinformationen und Impressum des KV Basel - Meine Berufsbildung.">
     <style>
-        /* --- RESET & VARIABLES --- */
+        /* 
+         * GLOBAL VARIABLES & RESET
+         */
         :root {
-            --color-primary: #003366; /* KV Basel Dunkelblau */
-            --color-secondary: #E30613; /* Akzentrot */
-            --color-text: #333333;
-            --color-text-light: #666666;
-            --color-bg-light: #f4f6f8;
-            --color-white: #ffffff;
-            --font-main: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-            --spacing-container: 1200px;
+            --primary-color: #003399; /* Classic Education Blue */
+            --secondary-color: #e30613; /* Accent Red (Basel style) */
+            --text-dark: #333333;
+            --text-light: #666666;
+            --bg-light: #f4f7fa;
+            --white: #ffffff;
+            --border-color: #e0e0e0;
+            --max-width: 1200px;
+            --spacing-section: 80px;
         }
 
         * {
+            box-sizing: border-box;
             margin: 0;
             padding: 0;
-            box-sizing: border-box;
         }
 
         body {
-            font-family: var(--font-main);
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
             line-height: 1.6;
-            color: var(--color-text);
-            background-color: var(--color-bg-light);
+            color: var(--text-dark);
+            background-color: var(--white);
             display: flex;
             flex-direction: column;
             min-height: 100vh;
@@ -43,190 +47,234 @@
             list-style: none;
         }
 
-        /* --- CONTAINER --- */
-        .container {
-            max-width: var(--spacing-container);
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-
-        /* --- NAVIGATION STYLES (Based on structure) --- */
+        /* 
+         * NAVIGATION STYLES (Matching the provided HTML structure)
+         */
         .nav {
-            background-color: var(--color-white);
+            background: var(--white);
             box-shadow: 0 2px 10px rgba(0,0,0,0.1);
             position: sticky;
             top: 0;
             z-index: 1000;
-            padding: 1rem 0;
+            height: 80px;
+            display: flex;
+            align-items: center;
         }
 
         .nav-container {
+            max-width: var(--max-width);
+            margin: 0 auto;
+            width: 100%;
+            padding: 0 20px;
             display: flex;
             justify-content: space-between;
             align-items: center;
         }
 
         .nav-logo {
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: var(--primary-color);
             display: flex;
             flex-direction: column;
-            line-height: 1.2;
+            line-height: 1.1;
         }
 
-        .nav-logo-main {
-            font-weight: 800;
-            font-size: 1.5rem;
-            color: var(--color-primary);
+        .nav-logo span {
+            color: var(--text-dark);
+        }
+
+        .nav-logo small {
+            font-size: 0.8rem;
+            font-weight: 400;
+            color: var(--text-light);
             letter-spacing: 1px;
         }
 
-        .nav-logo-sub {
-            font-size: 0.85rem;
-            color: var(--color-text-light);
-            text-transform: uppercase;
-        }
-
-        .nav-links {
+        .nav-menu {
             display: flex;
-            gap: 2rem;
             align-items: center;
+            gap: 30px;
         }
 
-        .nav-link a {
+        .nav-link {
             font-weight: 500;
-            color: var(--color-primary);
+            color: var(--text-dark);
             font-size: 1rem;
+            position: relative;
         }
 
-        .nav-link a:hover {
-            color: var(--color-secondary);
+        .nav-link:hover, .nav-link.active {
+            color: var(--primary-color);
         }
 
         .nav-cta {
-            background-color: var(--color-secondary);
-            color: var(--color-white) !important;
-            padding: 0.6rem 1.2rem;
+            background-color: var(--secondary-color);
+            color: var(--white) !important;
+            padding: 10px 20px;
             border-radius: 4px;
-            font-weight: 600 !important;
+            font-weight: 600;
+            transition: background 0.3s;
         }
 
         .nav-cta:hover {
-            background-color: #c20510;
+            background-color: #b00000;
         }
 
-        .mobile-menu-btn {
-            display: none;
-            background: none;
-            border: none;
-            font-size: 1.5rem;
-            cursor: pointer;
-            color: var(--color-primary);
+        /* Mobile Nav Toggle Logic */
+        .nav-toggle { display: none; }
+        .nav-toggle-label { display: none; cursor: pointer; }
+
+        @media (max-width: 992px) {
+            .nav-toggle-label {
+                display: block;
+                width: 30px;
+                height: 25px;
+                position: relative;
+            }
+            .nav-toggle-label span {
+                display: block;
+                width: 100%;
+                height: 3px;
+                background: var(--primary-color);
+                margin-bottom: 5px;
+                transition: 0.3s;
+            }
+            .nav-menu {
+                position: absolute;
+                top: 80px;
+                left: 0;
+                width: 100%;
+                background: var(--white);
+                flex-direction: column;
+                padding: 20px 0;
+                border-top: 1px solid var(--border-color);
+                transform: scaleY(0);
+                transform-origin: top;
+                transition: transform 0.3s ease;
+            }
+            .nav-toggle:checked ~ .nav-menu {
+                transform: scaleY(1);
+            }
+            .nav-menu li { margin: 10px 0; }
         }
 
-        /* --- MAIN CONTENT --- */
+        /* 
+         * MAIN CONTENT STYLES
+         */
         main {
             flex: 1;
         }
 
+        /* Hero Section */
         .page-header {
-            background-color: var(--color-primary);
-            color: var(--color-white);
-            padding: 3rem 0;
+            background: linear-gradient(135deg, var(--primary-color) 0%, #001f5c 100%);
+            color: var(--white);
+            padding: 80px 20px;
             text-align: center;
         }
 
         .page-header h1 {
             font-size: 2.5rem;
-            margin-bottom: 0.5rem;
+            margin-bottom: 15px;
         }
 
-        .breadcrumb {
-            font-size: 0.9rem;
-            opacity: 0.8;
+        .page-header p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+            max-width: 600px;
+            margin: 0 auto;
         }
 
+        /* Impressum Content */
         .impressum-section {
-            padding: 4rem 0;
+            padding: var(--spacing-section) 20px;
+            background-color: var(--bg-light);
         }
 
-        .impressum-grid {
-            display: grid;
-            grid-template-columns: 1fr 2fr;
-            gap: 3rem;
+        .container {
+            max-width: 800px; /* Narrower for readability */
+            margin: 0 auto;
         }
 
-        .info-card {
-            background: var(--color-white);
-            padding: 2rem;
+        .legal-card {
+            background: var(--white);
+            padding: 40px;
             border-radius: 8px;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.05);
-            margin-bottom: 2rem;
-            border-left: 4px solid var(--color-secondary);
+            box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+            margin-bottom: 30px;
+            border-left: 5px solid var(--primary-color);
         }
 
-        .info-card h2 {
-            font-size: 1.25rem;
-            color: var(--color-primary);
-            margin-bottom: 1rem;
-            border-bottom: 1px solid #eee;
-            padding-bottom: 0.5rem;
+        .legal-card h2 {
+            color: var(--primary-color);
+            margin-bottom: 20px;
+            font-size: 1.5rem;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 10px;
         }
 
-        .info-card p {
-            margin-bottom: 0.5rem;
+        .legal-card h3 {
+            font-size: 1.1rem;
+            margin-top: 25px;
+            margin-bottom: 10px;
+            color: var(--text-dark);
         }
 
-        .info-card strong {
-            color: var(--color-primary);
+        .legal-block {
+            margin-bottom: 20px;
         }
 
-        .legal-text-block {
-            background: var(--color-white);
-            padding: 2.5rem;
-            border-radius: 8px;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+        .legal-label {
+            font-weight: 700;
+            display: block;
+            color: var(--text-light);
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 5px;
         }
 
-        .legal-text-block h3 {
-            color: var(--color-primary);
-            margin-top: 2rem;
-            margin-bottom: 1rem;
-            font-size: 1.2rem;
+        .legal-value {
+            font-size: 1.1rem;
+            color: var(--text-dark);
         }
 
-        .legal-text-block h3:first-child {
-            margin-top: 0;
+        .legal-value a {
+            color: var(--primary-color);
+            text-decoration: underline;
         }
 
-        .legal-text-block p {
-            margin-bottom: 1rem;
+        .text-content p {
+            margin-bottom: 15px;
             text-align: justify;
         }
 
-        .contact-link {
-            color: var(--color-secondary);
-            font-weight: 600;
-        }
-
-        /* --- FOOTER STYLES (Based on structure) --- */
+        /* 
+         * FOOTER STYLES (Matching provided HTML)
+         */
         .footer {
-            background-color: var(--color-primary);
-            color: var(--color-white);
-            padding: 4rem 0 1rem;
-            margin-top: auto;
+            background-color: #1a1a1a;
+            color: #dcdcdc;
+            padding: 60px 0 0 0;
         }
 
-        .footer-grid {
+        .footer-container {
+            max-width: var(--max-width);
+            margin: 0 auto;
+            padding: 0 20px;
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
-            margin-bottom: 3rem;
+            gap: 40px;
+            margin-bottom: 40px;
         }
 
         .footer-col h3 {
-            font-size: 1.1rem;
-            margin-bottom: 1.5rem;
+            color: var(--white);
+            margin-bottom: 20px;
+            font-size: 1.2rem;
             position: relative;
-            padding-bottom: 0.5rem;
+            padding-bottom: 10px;
         }
 
         .footer-col h3::after {
@@ -234,95 +282,72 @@
             position: absolute;
             left: 0;
             bottom: 0;
-            width: 30px;
+            width: 40px;
             height: 2px;
-            background-color: var(--color-secondary);
+            background-color: var(--secondary-color);
         }
 
-        .footer-desc {
-            font-size: 0.9rem;
-            opacity: 0.8;
+        .footer-text {
+            font-size: 0.95rem;
             line-height: 1.6;
-            margin-top: 1rem;
         }
 
         .footer-links li {
-            margin-bottom: 0.8rem;
+            margin-bottom: 10px;
         }
 
         .footer-links a {
-            opacity: 0.8;
-            font-size: 0.95rem;
+            color: #dcdcdc;
+            transition: color 0.3s;
         }
 
         .footer-links a:hover {
-            opacity: 1;
-            color: var(--color-secondary);
+            color: var(--secondary-color);
             padding-left: 5px;
         }
 
         .footer-contact-item {
             display: flex;
-            flex-direction: column;
-            margin-bottom: 1rem;
+            align-items: flex-start;
+            margin-bottom: 15px;
             font-size: 0.95rem;
         }
 
-        .footer-contact-item span {
-            font-weight: 700;
-            color: rgba(255,255,255,0.5);
-            font-size: 0.8rem;
-            text-transform: uppercase;
-            margin-bottom: 0.2rem;
+        .footer-contact-icon {
+            margin-right: 10px;
+            font-size: 1.1rem;
         }
 
         .footer-bottom {
-            border-top: 1px solid rgba(255,255,255,0.1);
-            padding-top: 1.5rem;
+            background-color: #111;
+            padding: 20px;
+            text-align: center;
+            border-top: 1px solid #333;
             display: flex;
             justify-content: space-between;
             align-items: center;
             flex-wrap: wrap;
-            gap: 1rem;
+            max-width: var(--max-width);
+            margin: 0 auto;
         }
 
-        .copyright {
-            font-size: 0.85rem;
-            opacity: 0.6;
-        }
-
-        .footer-socials {
-            display: flex;
-            gap: 1.5rem;
-        }
-
-        .footer-social-link {
+        .footer-bottom-links a {
+            margin-left: 20px;
             font-size: 0.9rem;
-            opacity: 0.8;
+            color: #888;
         }
 
-        .footer-social-link:hover {
-            color: var(--color-secondary);
-            opacity: 1;
+        .footer-bottom-links a:hover {
+            color: var(--white);
         }
 
-        /* --- RESPONSIVE --- */
         @media (max-width: 768px) {
-            .nav-links {
-                display: none; /* Simplification for this demo */
-            }
-            .mobile-menu-btn {
-                display: block;
-            }
-            .impressum-grid {
-                grid-template-columns: 1fr;
-            }
-            .footer-grid {
-                grid-template-columns: 1fr;
-            }
             .footer-bottom {
                 flex-direction: column;
-                text-align: center;
+                gap: 15px;
+            }
+            .footer-bottom-links a {
+                margin: 0 10px;
             }
         }
     </style>
@@ -332,173 +357,138 @@
 
     <!-- NAVIGATION (EXACT COPY) -->
     <nav class="nav">
-        <div class="container nav-container">
+        <div class="nav-container">
+            <!-- Logo -->
             <a href="index.html" class="nav-logo">
-                <span class="nav-logo-main">KV BASEL</span>
-                <span class="nav-logo-sub">Meine Berufsbildung</span>
+                KV<span>Basel</span> <small>Meine Berufsbildung</small>
             </a>
 
-            <button class="mobile-menu-btn" aria-label="Menü öffnen">
-                ☰
-            </button>
+            <!-- Mobile Toggle -->
+            <input type="checkbox" id="nav-toggle" class="nav-toggle">
+            <label for="nav-toggle" class="nav-toggle-label">
+                <span></span>
+                <span></span>
+                <span></span>
+            </label>
 
-            <ul class="nav-links">
-                <li class="nav-link"><a href="index.html">Startseite</a></li>
-                <li class="nav-link"><a href="ueber-uns.html">Über uns</a></li>
-                <li class="nav-link"><a href="leistungen.html">Leistungen</a></li>
-                <li class="nav-link"><a href="kontakt.html">Kontakt</a></li>
-                <li class="nav-link">
-                    <a href="kontakt.html" class="nav-cta">Jetzt anmelden</a>
-                </li>
+            <!-- Menu Links -->
+            <ul class="nav-menu">
+                <li><a href="index.html" class="nav-link">Startseite</a></li>
+                <li><a href="ueber-uns.html" class="nav-link">Über uns</a></li>
+                <li><a href="leistungen.html" class="nav-link">Leistungen</a></li>
+                <li><a href="kontakt.html" class="nav-link">Kontakt</a></li>
+                <li><a href="impressum.html" class="nav-link active">Impressum</a></li>
+                <li><a href="kontakt.html" class="nav-link nav-cta">Jetzt bewerben</a></li>
             </ul>
         </div>
     </nav>
 
     <!-- MAIN CONTENT -->
     <main>
-        <!-- Page Header -->
-        <section class="page-header">
-            <div class="container">
-                <h1>Impressum</h1>
-                <div class="breadcrumb">
-                    HOME / IMPRESSUM
-                </div>
-            </div>
-        </section>
+        <!-- Header Section -->
+        <header class="page-header">
+            <h1>Impressum</h1>
+            <p>Rechtliche Hinweise und Angaben zum Betreiber der Website</p>
+        </header>
 
-        <!-- Impressum Content -->
         <section class="impressum-section">
             <div class="container">
-                <div class="impressum-grid">
+                
+                <!-- Angaben gemäß TMG / Kontakt -->
+                <div class="legal-card">
+                    <h2>Angaben gemäß gesetzlichen Anforderungen</h2>
                     
-                    <!-- Sidebar: Contact Info -->
-                    <aside>
-                        <div class="info-card">
-                            <h2>Betreiber der Website</h2>
-                            <p><strong>KV Basel</strong><br>
-                            Meine Berufsbildung</p>
-                            <br>
-                            <p>Aeschenvorstadt 15<br>
-                            4051 Basel<br>
-                            Schweiz</p>
-                        </div>
-
-                        <div class="info-card">
-                            <h2>Kontakt</h2>
-                            <p><strong>Telefon:</strong><br>
-                            <a href="tel:+41612345678">+41 61 234 56 78</a></p>
-                            <br>
-                            <p><strong>E-Mail:</strong><br>
-                            <a href="mailto:termin@kvbaselag.info" class="contact-link">termin@kvbaselag.info</a></p>
-                            <br>
-                            <p><strong>Sekretariat:</strong><br>
-                            <a href="mailto:info@kv-basel.ch" class="contact-link">info@kv-basel.ch</a></p>
-                        </div>
-
-                        <div class="info-card">
-                            <h2>Rechtsform</h2>
-                            <p>Bildungsinstitution / Schule</p>
-                            <p>Kanton Basel-Stadt</p>
-                        </div>
-                    </aside>
-
-                    <!-- Main Text: Legal Disclaimers -->
-                    <div class="legal-text-block">
-                        <h3>Haftungsausschluss (Disclaimer)</h3>
-                        
-                        <h3>Haftung für Inhalte</h3>
-                        <p>
-                            Als Bildungsanbieter erstellen wir die Inhalte unserer Seiten mit größter Sorgfalt. Für die Richtigkeit, Vollständigkeit und Aktualität der Inhalte können wir jedoch keine Gewähr übernehmen. Als Diensteanbieter sind wir für eigene Inhalte auf diesen Seiten nach den allgemeinen Gesetzen verantwortlich. Wir sind jedoch nicht verpflichtet, übermittelte oder gespeicherte fremde Informationen zu überwachen oder nach Umständen zu forschen, die auf eine rechtswidrige Tätigkeit hinweisen.
-                        </p>
-
-                        <h3>Haftung für Links</h3>
-                        <p>
-                            Unser Angebot enthält Links zu externen Webseiten Dritter, auf deren Inhalte wir keinen Einfluss haben. Deshalb können wir für diese fremden Inhalte auch keine Gewähr übernehmen. Für die Inhalte der verlinkten Seiten ist stets der jeweilige Anbieter oder Betreiber der Seiten verantwortlich. Die verlinkten Seiten wurden zum Zeitpunkt der Verlinkung auf mögliche Rechtsverstöße überprüft. Rechtswidrige Inhalte waren zum Zeitpunkt der Verlinkung nicht erkennbar.
-                        </p>
-
-                        <h3>Urheberrecht</h3>
-                        <p>
-                            Die durch die Seitenbetreiber erstellten Inhalte und Werke auf diesen Seiten unterliegen dem schweizerischen Urheberrecht. Die Vervielfältigung, Bearbeitung, Verbreitung und jede Art der Verwertung außerhalb der Grenzen des Urheberrechtes bedürfen der schriftlichen Zustimmung des jeweiligen Autors bzw. Erstellers. Downloads und Kopien dieser Seite sind nur für den privaten, nicht kommerziellen Gebrauch gestattet.
-                        </p>
-                        <p>
-                            Soweit die Inhalte auf dieser Seite nicht vom Betreiber erstellt wurden, werden die Urheberrechte Dritter beachtet. Insbesondere werden Inhalte Dritter als solche gekennzeichnet. Sollten Sie trotzdem auf eine Urheberrechtsverletzung aufmerksam werden, bitten wir um einen entsprechenden Hinweis. Bei Bekanntwerden von Rechtsverletzungen werden wir derartige Inhalte umgehend entfernen.
-                        </p>
-
-                        <h3>Datenschutz</h3>
-                        <p>
-                            Die Nutzung unserer Webseite ist in der Regel ohne Angabe personenbezogener Daten möglich. Soweit auf unseren Seiten personenbezogene Daten (beispielsweise Name, Anschrift oder eMail-Adressen für Anmeldungen zu Kursen) erhoben werden, erfolgt dies, soweit möglich, stets auf freiwilliger Basis. Diese Daten werden ohne Ihre ausdrückliche Zustimmung nicht an Dritte weitergegeben. Wir weisen darauf hin, dass die Datenübertragung im Internet (z.B. bei der Kommunikation per E-Mail) Sicherheitslücken aufweisen kann.
-                        </p>
+                    <div class="legal-block">
+                        <span class="legal-label">Betreiber der Website & Firmenname</span>
+                        <div class="legal-value">Homepage - KV Basel - Meine Berufsbildung.</div>
                     </div>
 
+                    <div class="legal-block">
+                        <span class="legal-label">Kontakt E-Mail</span>
+                        <div class="legal-value">
+                            <a href="mailto:termin@kvbaselag.info">termin@kvbaselag.info</a>
+                        </div>
+                    </div>
                 </div>
+
+                <!-- Haftungsausschluss -->
+                <div class="legal-card text-content">
+                    <h2>Rechtliche Hinweise</h2>
+                    
+                    <h3>Haftung für Inhalte</h3>
+                    <p>
+                        Als Bildungsanbieter legen wir größten Wert auf die Richtigkeit und Aktualität der Informationen auf unserer Webseite "KV Basel - Meine Berufsbildung". Obwohl wir alle Inhalte sorgfältig prüfen, können wir keine Gewähr für die Richtigkeit, Vollständigkeit und Aktualität der bereitgestellten Inhalte übernehmen. Die Nutzung der Inhalte der Website erfolgt auf eigene Gefahr des Nutzers.
+                    </p>
+
+                    <h3>Haftung für Links</h3>
+                    <p>
+                        Unser Angebot enthält Links zu externen Webseiten Dritter, auf deren Inhalte wir keinen Einfluss haben. Deshalb können wir für diese fremden Inhalte auch keine Gewähr übernehmen. Für die Inhalte der verlinkten Seiten ist stets der jeweilige Anbieter oder Betreiber der Seiten verantwortlich. Bei Bekanntwerden von Rechtsverletzungen werden wir derartige Links umgehend entfernen.
+                    </p>
+
+                    <h3>Urheberrecht</h3>
+                    <p>
+                        Die durch die Seitenbetreiber erstellten Inhalte und Werke auf diesen Seiten unterliegen dem Urheberrecht. Die Vervielfältigung, Bearbeitung, Verbreitung und jede Art der Verwertung außerhalb der Grenzen des Urheberrechtes bedürfen der schriftlichen Zustimmung des jeweiligen Autors bzw. Erstellers. Downloads und Kopien dieser Seite sind nur für den privaten, nicht kommerziellen Gebrauch gestattet, insbesondere im Kontext der schulischen Nutzung.
+                    </p>
+                    
+                    <h3>Datenschutz</h3>
+                    <p>
+                        Der Schutz Ihrer persönlichen Daten ist uns ein wichtiges Anliegen. Detaillierte Informationen zum Umgang mit Nutzerdaten finden Sie in unserer Datenschutzerklärung.
+                    </p>
+                </div>
+
             </div>
         </section>
     </main>
 
     <!-- FOOTER (EXACT COPY) -->
     <footer class="footer">
-        <div class="container">
-            <div class="footer-grid">
-                <!-- Spalte 1: Brand -->
-                <div class="footer-col">
-                    <a href="index.html" class="nav-logo" style="margin-bottom: 1rem;">
-                        <span class="nav-logo-main" style="color: white;">KV BASEL</span>
-                        <span class="nav-logo-sub">Meine Berufsbildung</span>
-                    </a>
-                    <p class="footer-desc">
-                        Seit über 100 Jahren der führende Partner für kaufmännische Bildung und Wirtschaft in der Region Basel. Wir verbinden Tradition mit modernstem digitalen Lernen.
-                    </p>
-                </div>
-
-                <!-- Spalte 2: Navigation -->
-                <div class="footer-col">
-                    <h3>Navigation</h3>
-                    <ul class="footer-links">
-                        <li><a href="index.html">Startseite</a></li>
-                        <li><a href="ueber-uns.html">Über uns</a></li>
-                        <li><a href="leistungen.html">Bildungsangebote</a></li>
-                        <li><a href="kontakt.html">Beratung & Kontakt</a></li>
-                    </ul>
-                </div>
-
-                <!-- Spalte 3: Rechtliches -->
-                <div class="footer-col">
-                    <h3>Rechtliches</h3>
-                    <ul class="footer-links">
-                        <li><a href="impressum.html">Impressum</a></li>
-                        <li><a href="#">Datenschutzerklärung</a></li>
-                        <li><a href="#">AGB</a></li>
-                        <li><a href="#">Schulordnung</a></li>
-                    </ul>
-                </div>
-
-                <!-- Spalte 4: Kontakt -->
-                <div class="footer-col">
-                    <h3>Kontaktieren Sie uns</h3>
-                    <div class="footer-contact-item">
-                        <span>Adresse:</span>
-                        Aeschenvorstadt 15<br>4051 Basel
-                    </div>
-                    <div class="footer-contact-item">
-                        <span>Telefon:</span>
-                        <a href="tel:+41612345678" style="color: inherit; text-decoration: none;">+41 61 234 56 78</a>
-                    </div>
-                    <div class="footer-contact-item">
-                        <span>E-Mail:</span>
-                        <a href="mailto:info@kv-basel.ch" style="color: inherit; text-decoration: none;">info@kv-basel.ch</a>
-                    </div>
-                </div>
+        <div class="footer-container">
+            <!-- Column 1: About -->
+            <div class="footer-col">
+                <h3>KV Basel</h3>
+                <p class="footer-text">
+                    Wir engagieren uns für praxisnahe Bildung und fördern Talente in der Region Basel. Ihre Karriere startet hier mit moderner Infrastruktur und erfahrenen Dozenten.
+                </p>
             </div>
 
-            <div class="footer-bottom">
-                <div class="copyright">
-                    &copy; 2023 KV Basel. Alle Rechte vorbehalten.
+            <!-- Column 2: Quick Links -->
+            <div class="footer-col">
+                <h3>Direktlinks</h3>
+                <ul class="footer-links">
+                    <li><a href="ueber-uns.html">› Über das KV Basel</a></li>
+                    <li><a href="leistungen.html">› Ausbildungen & Kurse</a></li>
+                    <li><a href="leistungen.html#termine">› Prüfungstermine</a></li>
+                    <li><a href="kontakt.html">› Sekretariat & Öffnungszeiten</a></li>
+                </ul>
+            </div>
+
+            <!-- Column 3: Contact -->
+            <div class="footer-col">
+                <h3>Kontakt</h3>
+                <div class="footer-contact-item">
+                    <span class="footer-contact-icon">📍</span>
+                    <span>Aeschenvorstadt 15<br>4051 Basel<br>Schweiz</span>
                 </div>
-                <div class="footer-socials">
-                    <a href="#" class="footer-social-link">LinkedIn</a>
-                    <a href="#" class="footer-social-link">Instagram</a>
-                    <a href="#" class="footer-social-link">Facebook</a>
+                <div class="footer-contact-item">
+                    <span class="footer-contact-icon">📞</span>
+                    <a href="tel:+41611234567">+41 61 123 45 67</a>
                 </div>
+                <div class="footer-contact-item">
+                    <span class="footer-contact-icon">✉️</span>
+                    <a href="mailto:info@kv-basel-bildung.ch">info@kv-basel-bildung.ch</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Copyright Bar -->
+        <div class="footer-bottom">
+            <div>
+                &copy; 2023 KV Basel - Meine Berufsbildung. Alle Rechte vorbehalten.
+            </div>
+            <div class="footer-bottom-links">
+                <a href="impressum.html">Impressum</a>
+                <a href="datenschutz.html">Datenschutz</a>
+                <a href="#">AGB</a>
             </div>
         </div>
     </footer>
